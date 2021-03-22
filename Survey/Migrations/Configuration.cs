@@ -10,7 +10,6 @@ namespace Survey.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "Survey.Models.ApplicationDbContext";
         }
 
         protected override void Seed(Survey.Models.ApplicationDbContext context)
