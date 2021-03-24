@@ -15,6 +15,7 @@ namespace Survey.Models
         public int Id { get; set; }
         [Required]
         public int? SurveyId { get; set; }
+
         public virtual AllSurvey Survey { get; set; }
         [Required]
         public string Title { get; set; }
