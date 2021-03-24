@@ -3,7 +3,7 @@ namespace Survey.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Initial : DbMigration
+    public partial class Init : DbMigration
     {
         public override void Up()
         {
@@ -21,7 +21,7 @@ namespace Survey.Migrations
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.AspNetUsers", t => t.ApplicationUser_Id)
                 .ForeignKey("dbo.Question_answers", t => t.QuestionAnswerId, cascadeDelete: true)
-                .ForeignKey("dbo.Surveys", t => t.SurveyId, cascadeDelete: true)
+                .ForeignKey("dbo.AllSurveys", t => t.SurveyId, cascadeDelete: true)
                 .Index(t => t.SurveyId)
                 .Index(t => t.QuestionAnswerId)
                 .Index(t => t.ApplicationUser_Id);
@@ -97,27 +97,11 @@ namespace Survey.Migrations
                     {
                         QuestionAnswerId = c.Int(nullable: false, identity: true),
                         Answer = c.String(nullable: false),
-                        Id = c.String(nullable: false, maxLength: 128),
-                        Question_Id = c.Int(),
+                        QuestionId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.QuestionAnswerId)
-                .ForeignKey("dbo.AspNetUsers", t => t.Id, cascadeDelete: true)
-                .ForeignKey("dbo.Questions", t => t.Question_Id)
-                .Index(t => t.Id)
-                .Index(t => t.Question_Id);
-            
-            CreateTable(
-                "dbo.Surveys",
-                c => new
-                    {
-                        SurveyId = c.Int(nullable: false, identity: true),
-                        Title = c.String(nullable: false),
-                        CreateDate = c.DateTime(nullable: false),
-                        UpdateDate = c.DateTime(nullable: false),
-                        Description = c.String(nullable: false),
-                        Status = c.Int(nullable: false),
-                    })
-                .PrimaryKey(t => t.SurveyId);
+                .ForeignKey("dbo.Questions", t => t.QuestionId, cascadeDelete: true)
+                .Index(t => t.QuestionId);
             
             CreateTable(
                 "dbo.Questions",
@@ -130,8 +114,21 @@ namespace Survey.Migrations
                         Description = c.String(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Surveys", t => t.SurveyId, cascadeDelete: true)
+                .ForeignKey("dbo.AllSurveys", t => t.SurveyId)
                 .Index(t => t.SurveyId);
+            
+            CreateTable(
+                "dbo.AllSurveys",
+                c => new
+                    {
+                        SurveyId = c.Int(nullable: false, identity: true),
+                        Title = c.String(nullable: false),
+                        CreateDate = c.DateTime(nullable: false),
+                        UpdateDate = c.DateTime(nullable: false),
+                        Description = c.String(nullable: false),
+                        Status = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.SurveyId);
             
             CreateTable(
                 "dbo.Examinations",
@@ -184,19 +181,17 @@ namespace Survey.Migrations
         public override void Down()
         {
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
-            DropForeignKey("dbo.Account_answers", "SurveyId", "dbo.Surveys");
-            DropForeignKey("dbo.Questions", "SurveyId", "dbo.Surveys");
-            DropForeignKey("dbo.Question_answers", "Question_Id", "dbo.Questions");
+            DropForeignKey("dbo.Account_answers", "SurveyId", "dbo.AllSurveys");
+            DropForeignKey("dbo.Questions", "SurveyId", "dbo.AllSurveys");
+            DropForeignKey("dbo.Question_answers", "QuestionId", "dbo.Questions");
             DropForeignKey("dbo.Account_answers", "QuestionAnswerId", "dbo.Question_answers");
-            DropForeignKey("dbo.Question_answers", "Id", "dbo.AspNetUsers");
-            DropForeignKey("dbo.Account_answers", "ApplicationUser_Id", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserRoles", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
+            DropForeignKey("dbo.Account_answers", "ApplicationUser_Id", "dbo.AspNetUsers");
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
             DropIndex("dbo.Questions", new[] { "SurveyId" });
-            DropIndex("dbo.Question_answers", new[] { "Question_Id" });
-            DropIndex("dbo.Question_answers", new[] { "Id" });
+            DropIndex("dbo.Question_answers", new[] { "QuestionId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
             DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
@@ -209,8 +204,8 @@ namespace Survey.Migrations
             DropTable("dbo.AspNetRoles");
             DropTable("dbo.FAQs");
             DropTable("dbo.Examinations");
+            DropTable("dbo.AllSurveys");
             DropTable("dbo.Questions");
-            DropTable("dbo.Surveys");
             DropTable("dbo.Question_answers");
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetUserLogins");

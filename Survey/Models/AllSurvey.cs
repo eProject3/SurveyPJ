@@ -7,8 +7,8 @@ using System.Web;
 
 namespace Survey.Models
 {
-    [Table("Surveys")]
-    public class Survey
+    [Table("AllSurveys")]
+    public class AllSurvey
     {
         [Required]
         [Key]

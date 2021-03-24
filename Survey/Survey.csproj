@@ -168,14 +168,15 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AllSurveysController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202103241140039_Initial.cs" />
-    <Compile Include="Migrations\202103241140039_Initial.Designer.cs">
-      <DependentUpon>202103241140039_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\202103241202127_Init.cs" />
+    <Compile Include="Migrations\202103241202127_Init.Designer.cs">
+      <DependentUpon>202103241202127_Init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -187,7 +188,7 @@
     <Compile Include="Models\Question.cs" />
     <Compile Include="Models\QuestionAnswer.cs" />
     <Compile Include="Models\Support.cs" />
-    <Compile Include="Models\Survey.cs" />
+    <Compile Include="Models\AllSurvey.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -1596,6 +1597,11 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
+    <Content Include="Views\AllSurveys\Create.cshtml" />
+    <Content Include="Views\AllSurveys\Delete.cshtml" />
+    <Content Include="Views\AllSurveys\Details.cshtml" />
+    <Content Include="Views\AllSurveys\Edit.cshtml" />
+    <Content Include="Views\AllSurveys\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1614,8 +1620,8 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202103241140039_Initial.resx">
-      <DependentUpon>202103241140039_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202103241202127_Init.resx">
+      <DependentUpon>202103241202127_Init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
