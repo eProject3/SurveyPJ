@@ -15,13 +15,16 @@ namespace Survey.Models
         public int QuestionAnswerId { get; set; }
         [Required]
         public string Answer { get; set; }
-        [Required]
-        public string Id { get; set; }
 
-        public virtual ApplicationUser ApplicationUser { get; set; }
+        [Required]
+        public int QuestionId { get; set; }
+
+        public virtual Question Question { get; set; }
+
 
 
         public virtual ICollection<AccountAnswer> AccountAnswers { get; set; }
+        
        
     }
 }

@@ -97,14 +97,25 @@ namespace Survey.Migrations
                     {
                         QuestionAnswerId = c.Int(nullable: false, identity: true),
                         Answer = c.String(nullable: false),
-                        Id = c.String(nullable: false, maxLength: 128),
-                        Question_Id = c.Int(),
+                        QuestionId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.QuestionAnswerId)
-                .ForeignKey("dbo.AspNetUsers", t => t.Id, cascadeDelete: true)
-                .ForeignKey("dbo.Questions", t => t.Question_Id)
-                .Index(t => t.Id)
-                .Index(t => t.Question_Id);
+                .ForeignKey("dbo.Questions", t => t.QuestionId, cascadeDelete: true)
+                .Index(t => t.QuestionId);
+            
+            CreateTable(
+                "dbo.Questions",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        SurveyId = c.Int(nullable: false),
+                        Title = c.String(nullable: false),
+                        Type = c.Int(nullable: false),
+                        Description = c.String(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.Surveys", t => t.SurveyId)
+                .Index(t => t.SurveyId);
             
             CreateTable(
                 "dbo.Surveys",
@@ -118,20 +129,6 @@ namespace Survey.Migrations
                         Status = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.SurveyId);
-            
-            CreateTable(
-                "dbo.Questions",
-                c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                        SurveyId = c.Int(nullable: false),
-                        Title = c.String(nullable: false),
-                        Type = c.Int(nullable: false),
-                        Description = c.String(nullable: false),
-                    })
-                .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Surveys", t => t.SurveyId, cascadeDelete: true)
-                .Index(t => t.SurveyId);
             
             CreateTable(
                 "dbo.Examinations",
@@ -186,17 +183,15 @@ namespace Survey.Migrations
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
             DropForeignKey("dbo.Account_answers", "SurveyId", "dbo.Surveys");
             DropForeignKey("dbo.Questions", "SurveyId", "dbo.Surveys");
-            DropForeignKey("dbo.Question_answers", "Question_Id", "dbo.Questions");
+            DropForeignKey("dbo.Question_answers", "QuestionId", "dbo.Questions");
             DropForeignKey("dbo.Account_answers", "QuestionAnswerId", "dbo.Question_answers");
-            DropForeignKey("dbo.Question_answers", "Id", "dbo.AspNetUsers");
-            DropForeignKey("dbo.Account_answers", "ApplicationUser_Id", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserRoles", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
+            DropForeignKey("dbo.Account_answers", "ApplicationUser_Id", "dbo.AspNetUsers");
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
             DropIndex("dbo.Questions", new[] { "SurveyId" });
-            DropIndex("dbo.Question_answers", new[] { "Question_Id" });
-            DropIndex("dbo.Question_answers", new[] { "Id" });
+            DropIndex("dbo.Question_answers", new[] { "QuestionId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
             DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
@@ -209,8 +204,8 @@ namespace Survey.Migrations
             DropTable("dbo.AspNetRoles");
             DropTable("dbo.FAQs");
             DropTable("dbo.Examinations");
-            DropTable("dbo.Questions");
             DropTable("dbo.Surveys");
+            DropTable("dbo.Questions");
             DropTable("dbo.Question_answers");
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetUserLogins");

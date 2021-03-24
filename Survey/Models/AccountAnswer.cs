@@ -14,15 +14,15 @@ namespace Survey.Models
         [Required]
         public int SurveyId { get; set; }
         public virtual Survey Survey { get; set; }
+
         [Required]
         public string Id { get; set; }
         public virtual ApplicationUser ApplicationUser { get; set; }
 
-        [ForeignKey("QuestionAnswer")]
         [Required]
         public int QuestionAnswerId { get; set; }
-
         public virtual QuestionAnswer QuestionAnswer { get; set; }
+
 
         public int Status { get; set; }
         [Required]

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -17,6 +18,7 @@ namespace Survey.Models
         public string Section { get; set; }
         public DateTime DateJoin { get; set; }
         public int Status { get; set; } //0.DEACTIVE 1.ACTIVE 2.DENY
+        public virtual ICollection<AccountAnswer> AccountAnswers { get; set; }
 
        
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
