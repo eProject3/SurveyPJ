@@ -44,7 +44,7 @@ namespace Survey.Models
         public DbSet<QuestionAnswer> Question_answers { get; set; }
         public DbSet<AccountAnswer> Account_answers { get; set; }
         public DbSet<Support> Supports { get; set; }
-        public DbSet<Survey> Surveys { get; set; }
+        public DbSet<AllSurvey> Surveys { get; set; }
 
 
         public static ApplicationDbContext Create()
