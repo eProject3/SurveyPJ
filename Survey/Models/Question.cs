@@ -13,9 +13,8 @@ namespace Survey.Models
         [Required]
         [Key]
         public int Id { get; set; }
-        [ForeignKey("Survey")]
         [Required]
-        public int SurveyId { get; set; }
+        public int? SurveyId { get; set; }
         public virtual Survey Survey { get; set; }
         [Required]
         public string Title { get; set; }
