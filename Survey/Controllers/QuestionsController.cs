@@ -10,110 +10,112 @@ using Survey.Models;
 
 namespace Survey.Controllers
 {
-    public class AllSurveysController : Controller
+    public class QuestionsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: AllSurveys
+        // GET: Questions
         public ActionResult Index()
         {
-            return View(db.Surveys.ToList());
+            var questions = db.Questions.Include(q => q.Survey);
+            return View(questions.ToList());
         }
 
-        // GET: AllSurveys/Details/5
+        // GET: Questions/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            AllSurvey allSurvey = db.Surveys.Find(id);
-            if (allSurvey == null)
+            Question question = db.Questions.Find(id);
+            if (question == null)
             {
                 return HttpNotFound();
             }
-            return View(allSurvey);
+            return View(question);
         }
 
-        // GET: AllSurveys/Create
+        // GET: Questions/Create
         public ActionResult Create()
         {
+            ViewBag.SurveyId = new SelectList(db.Surveys, "SurveyId", "Title");
             return View();
         }
 
-        // POST: AllSurveys/Create
+        // POST: Questions/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "SurveyId,Title,CreateDate,UpdateDate,Description,Status")] AllSurvey allSurvey)
+        public ActionResult Create([Bind(Include = "Id,SurveyId,Title,Type,Description")] Question question)
         {
             if (ModelState.IsValid)
             {
-                allSurvey.Status = SurveyStatus.NOT_HAPPENNING_YET;
-                allSurvey.CreateDate = DateTime.Now;
-                allSurvey.UpdateDate = DateTime.Now;
-                db.Surveys.Add(allSurvey);
+                db.Questions.Add(question);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(allSurvey);
+            ViewBag.SurveyId = new SelectList(db.Surveys, "SurveyId", "Title", question.SurveyId);
+            return View(question);
         }
 
-        // GET: AllSurveys/Edit/5
+        // GET: Questions/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            AllSurvey allSurvey = db.Surveys.Find(id);
-            if (allSurvey == null)
+            Question question = db.Questions.Find(id);
+            if (question == null)
             {
                 return HttpNotFound();
             }
-            return View(allSurvey);
+            ViewBag.SurveyId = new SelectList(db.Surveys, "SurveyId", "Title", question.SurveyId);
+            return View(question);
         }
 
-        // POST: AllSurveys/Edit/5
+        // POST: Questions/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "SurveyId,Title,CreateDate,UpdateDate,Description,Status")] AllSurvey allSurvey)
+        public ActionResult Edit([Bind(Include = "Id,SurveyId,Title,Type,Description")] Question question)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(allSurvey).State = EntityState.Modified;
+                db.Entry(question).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(allSurvey);
+            ViewBag.SurveyId = new SelectList(db.Surveys, "SurveyId", "Title", question.SurveyId);
+            return View(question);
         }
 
-        // GET: AllSurveys/Delete/5
+        // GET: Questions/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            AllSurvey allSurvey = db.Surveys.Find(id);
-            if (allSurvey == null)
+            Question question = db.Questions.Find(id);
+            if (question == null)
             {
                 return HttpNotFound();
             }
-            return View(allSurvey);
+            return View(question);
         }
 
-        // POST: AllSurveys/Delete/5
+        // POST: Questions/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            AllSurvey allSurvey = db.Surveys.Find(id);
-            db.Surveys.Remove(allSurvey);
+            Question question = db.Questions.Find(id);
+            db.Questions.Remove(question);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

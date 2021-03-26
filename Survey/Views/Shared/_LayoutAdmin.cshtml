@@ -28,6 +28,8 @@
     <link href="~/assets/css/themes/layout/aside/dark.css" rel="stylesheet" type="text/css" />
     <!--end::Layout Themes-->
     <link rel="shortcut icon" href="~/assets/media/logos/favicon.ico" />
+    <link href="~/assets/css/trinh.css" rel="stylesheet" type="text/css" />
+    <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
 </head>
 <!--end::Head-->
 <!--begin::Body-->
@@ -715,11 +717,6 @@
         </span>
     </div>
     <!--end::Scrolltop-->
-
-
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
     <!--end::Demo Panel-->
     <script>var HOST_URL = "https://preview.keenthemes.com/metronic/theme/html/tools/preview";</script>
     <!--begin::Global Config(global config for global JS scripts)-->
@@ -737,6 +734,9 @@
     <script src="~/assets/js/pages/widgets.js"></script>
     <!--end::Page Scripts-->
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
 </body>
 <!--end::Body-->
 </html>
