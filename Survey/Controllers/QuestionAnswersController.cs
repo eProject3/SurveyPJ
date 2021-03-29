@@ -68,19 +68,27 @@ namespace Survey.Controllers
                 {
                     foreach (var i in bigModel)
                     {
-                        i.AllSurvey.Status = SurveyStatus.NOT_HAPPENNING_YET;
-                        i.AllSurvey.CreateDate = DateTime.Now;
-                        i.AllSurvey.UpdateDate = DateTime.Now;
-                        db.Surveys.Add(i.AllSurvey);
+                        if(i.AllSurvey != null)
+                        {
+                            i.AllSurvey.Status = SurveyStatus.NOT_HAPPENNING_YET;
+                            i.AllSurvey.CreateDate = DateTime.Now;
+                            i.AllSurvey.UpdateDate = DateTime.Now;
+                            db.Surveys.Add(i.AllSurvey);
+                        }
+                        
                     }
                     
                     db.SaveChanges();
 
                     // throw exectiopn to test roll back transaction
-                    foreach (var i in bigModel)
+                    for (var i =0; i<bigModel.Count(); i++)
                     {
-                        i.Question.SurveyId = i.AllSurvey.SurveyId;
-                        db.Questions.Add(i.Question);
+                        if (i > 0)
+                        {
+                            bigModel[i].AllSurvey = bigModel[i - 1].AllSurvey;
+                        }
+                        bigModel[i].Question.SurveyId = bigModel[i].AllSurvey.SurveyId;
+                        db.Questions.Add(bigModel[i].Question);
                     }
                     db.SaveChanges();
 
@@ -104,34 +112,6 @@ namespace Survey.Controllers
                 return null;
             }            
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         // GET: QuestionAnswers/Edit/5
         public ActionResult Edit(int? id)
         {
