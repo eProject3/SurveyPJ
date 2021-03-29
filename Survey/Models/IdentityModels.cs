@@ -51,5 +51,7 @@ namespace Survey.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<Survey.Models.ContactInfo> ContactInfoes { get; set; }
     }
 }

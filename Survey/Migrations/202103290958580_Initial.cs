@@ -3,7 +3,7 @@ namespace Survey.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Init : DbMigration
+    public partial class Initial : DbMigration
     {
         public override void Up()
         {
@@ -123,12 +123,22 @@ namespace Survey.Migrations
                     {
                         SurveyId = c.Int(nullable: false, identity: true),
                         Title = c.String(nullable: false),
-                        CreateDate = c.DateTime(nullable: false),
-                        UpdateDate = c.DateTime(nullable: false),
-                        Description = c.String(nullable: false),
+                        CreateDate = c.DateTime(),
+                        UpdateDate = c.DateTime(),
+                        Description = c.String(),
                         Status = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.SurveyId);
+            
+            CreateTable(
+                "dbo.ContactInfoes",
+                c => new
+                    {
+                        ID = c.Int(nullable: false, identity: true),
+                        ContactName = c.String(nullable: false),
+                        ContactNo = c.String(nullable: false),
+                    })
+                .PrimaryKey(t => t.ID);
             
             CreateTable(
                 "dbo.Examinations",
@@ -204,6 +214,7 @@ namespace Survey.Migrations
             DropTable("dbo.AspNetRoles");
             DropTable("dbo.FAQs");
             DropTable("dbo.Examinations");
+            DropTable("dbo.ContactInfoes");
             DropTable("dbo.AllSurveys");
             DropTable("dbo.Questions");
             DropTable("dbo.Question_answers");

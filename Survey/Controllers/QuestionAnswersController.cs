@@ -17,6 +17,7 @@ namespace Survey.Controllers
         // GET: QuestionAnswers
         public ActionResult Index()
         {
+
             var question_answers = db.Question_answers.Include(q => q.Question);
             return View(question_answers.ToList());
         }
@@ -39,38 +40,56 @@ namespace Survey.Controllers
         // GET: QuestionAnswers/Create
         public ActionResult Create()
         {
+
+            List<BigModel> ci = new List<BigModel> { new BigModel 
+            { 
+                AllSurvey = new AllSurvey {
+
+                }, 
+                Question = new Question { 
+                }, 
+                QuestionAnswer = new QuestionAnswer {
+
+                } } };
             ViewBag.SurveyId = new SelectList(db.Surveys, "SurveyId", "Title");
             ViewBag.QuestionId = new SelectList(db.Questions, "Id", "Title");
-            return View();
+            return View(ci);
         }
 
         // POST: QuestionAnswers/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        public ActionResult Create( BigModel bigModel)
+        public ActionResult Create(List<BigModel> bigModel)
         {
             using (DbContextTransaction transaction = db.Database.BeginTransaction())
             {
                 try
                 {
-                    bigModel.AllSurvey.Status = SurveyStatus.NOT_HAPPENNING_YET;
-                    bigModel.AllSurvey.CreateDate = DateTime.Now;
-                    bigModel.AllSurvey.UpdateDate = DateTime.Now;
-                    db.Surveys.Add(bigModel.AllSurvey);
+                    foreach (var i in bigModel)
+                    {
+                        i.AllSurvey.Status = SurveyStatus.NOT_HAPPENNING_YET;
+                        i.AllSurvey.CreateDate = DateTime.Now;
+                        i.AllSurvey.UpdateDate = DateTime.Now;
+                        db.Surveys.Add(i.AllSurvey);
+                    }
+                    
                     db.SaveChanges();
 
                     // throw exectiopn to test roll back transaction
-
-                    bigModel.Question.SurveyId = bigModel.AllSurvey.SurveyId;
-                    db.Questions.Add(bigModel.Question);
+                    foreach (var i in bigModel)
+                    {
+                        i.Question.SurveyId = i.AllSurvey.SurveyId;
+                        db.Questions.Add(i.Question);
+                    }
                     db.SaveChanges();
 
                     // throw exectiopn to test roll back transaction
-
-                    bigModel.QuestionAnswer.QuestionId = bigModel.Question.Id;
-                    db.Question_answers.Add(bigModel.QuestionAnswer);
-
+                    foreach (var i in bigModel)
+                    {
+                        i.QuestionAnswer.QuestionId = i.Question.Id;
+                        db.Question_answers.Add(i.QuestionAnswer);
+                    }
                     db.SaveChanges();
 
                     transaction.Commit();
@@ -86,8 +105,6 @@ namespace Survey.Controllers
             }            
         }
 
-
-        
 
 
 

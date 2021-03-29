@@ -15,13 +15,13 @@ namespace Survey.Models
         public int SurveyId { get; set; }
         [Required]
         public string Title { get; set; }
-        [Required]
-        public DateTime CreateDate { get; set; }
-        [Required]
-        public DateTime UpdateDate { get; set; }
-        [Required]
+        
+        public DateTime? CreateDate { get; set; }
+        
+        public DateTime? UpdateDate { get; set; }
+      
         public string Description { get; set; }
-        [Required]
+
         public SurveyStatus Status { get; set; }
 
         public virtual ICollection<Question> Questions { get; set; }
