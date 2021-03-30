@@ -40,16 +40,13 @@ namespace Survey.Controllers
         // GET: QuestionAnswers/Create
         public ActionResult Create()
         {
-
-            List<BigModel> ci = new List<BigModel> { new BigModel 
-            { 
+            List<BigModel> ci = new List<BigModel> { new BigModel
+            {
                 AllSurvey = new AllSurvey {
-
-                }, 
-                Question = new Question { 
-                }, 
+                },
+                Question = new Question {
+                },
                 QuestionAnswer = new QuestionAnswer {
-
                 } } };
             ViewBag.SurveyId = new SelectList(db.Surveys, "SurveyId", "Title");
             ViewBag.QuestionId = new SelectList(db.Questions, "Id", "Title");
@@ -79,6 +76,7 @@ namespace Survey.Controllers
 
                     }
 
+
                     db.SaveChanges();
 
                     // Lưu câu hỏi
@@ -99,15 +97,22 @@ namespace Survey.Controllers
                     // Lưu đáp án
                     for (var i = 0; i < bigModel.Count(); i++)
                     {
-                       
-                        if (bigModel[i].QuestionAnswer != null)
-                            {
-                                
-                                bigModel[i].QuestionAnswer.QuestionId = bigModel[i].Question.Id;
-                                db.Question_answers.Add(bigModel[i].QuestionAnswer);
 
+                        if (bigModel[i].QuestionAnswer != null)
+                        {
+
+                            if (i > 0)
+                            {
+                                if (bigModel[i].Question == null)
+                                {
+                                    bigModel[i].Question = bigModel[i - 1].Question;
+                                }
                             }
-                       
+
+                            bigModel[i].QuestionAnswer.QuestionId = bigModel[i].Question.Id;
+                            db.Question_answers.Add(bigModel[i].QuestionAnswer);
+
+                        }
                     }
                     db.SaveChanges();
 
