@@ -16,68 +16,81 @@
 {
     <div class="field">
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            <div class="form-group">
-                <div class="tabs">
-                    <h1>
-                        Create a title for the survey
-                    </h1>
+        <div class="form-group">
+            <div class="tabs">
+                <h1>
+                    Create a title for the survey
+                </h1>
 
-                   
-                        <div class="col-md-6">
-                            @Html.EditorFor(x => x[k].AllSurvey.Title, new { htmlAttributes = new { @class = "form-control", placeholder = Html.DisplayNameFor(x => x[k].AllSurvey.Title) } })
-                            @Html.ValidationMessageFor(x => x[k].AllSurvey.Title, "", new { @class = "text-danger" })
-                        </div>
-                        <div class="col-md-6">
-                            @Html.EditorFor(x => x[k].AllSurvey.Description, new { htmlAttributes = new { @class = "form-control", placeholder = Html.DisplayNameFor(x => x[k].AllSurvey.Description) } })
-                            @Html.ValidationMessageFor(x => x[k].AllSurvey.Description, "", new { @class = "text-danger" })
-                        </div>
-                     
-                    
+
+                <div class="col-md-6">
+                    @Html.EditorFor(x => x[k].AllSurvey.Title, new { htmlAttributes = new { @class = "form-control", placeholder = Html.DisplayNameFor(x => x[k].AllSurvey.Title) } })
+                    @Html.ValidationMessageFor(x => x[k].AllSurvey.Title, "", new { @class = "text-danger" })
                 </div>
+                <div class="col-md-6">
+                    @Html.EditorFor(x => x[k].AllSurvey.Description, new { htmlAttributes = new { @class = "form-control", placeholder = Html.DisplayNameFor(x => x[k].AllSurvey.Description) } })
+                    @Html.ValidationMessageFor(x => x[k].AllSurvey.Description, "", new { @class = "text-danger" })
+                </div>
+
+
             </div>
+        </div>
         <h1>
             Create sample questions and answers
         </h1>
-        <div id="dataTable" class="tabs">
-            <div class="accordion accordion-toggle-arrow" id="accordionExample1">
-                <div class="card">
-                    <div class="card-header">
-                        <div class="card-title" data-toggle="collapse" data-target="#collapse1">
-                            Câu hỏi
-                        </div>
-                    </div>
-                    <div id="collapse1" class="collapse show" data-parent="#accordionExample1">
-                        <div class="card-body">
-                            @if (Model != null && Model.Count > 0)
-                            {
 
-                                int j = 0;
-                                foreach (var i in Model)
-                                {
-                                    <div>
-
-                                        <div class="col-md-10">@Html.EditorFor(a => a[j].Question.Title, new { htmlAttributes = new { @class = "form-control", placeholder = "Title" } })</div>
-                                        <div class="col-md-10">@Html.EditorFor(a => a[j].Question.Type, new { htmlAttributes = new { @class = "form-control", placeholder = "Type" } })</div>
-                                        <div class="col-md-10">@Html.EditorFor(a => a[j].Question.Description, new { htmlAttributes = new { @class = "form-control", placeholder = "Description" } })</div>
-                                        <div class="col-md-10">@Html.EditorFor(a => a[j].QuestionAnswer.Answer, new { htmlAttributes = new { @class = "form-control", placeholder = "Answer" } })</div>
-                                        <div>
-                                            @if (j > 0)
-                                            {
-                                                <a href="#" class="remove">Remove</a>
-                                            }
-                                        </div>
-                                    </div>
-                                    j++;
-                                }
-                            }
-
-                        </div>
-                    </div>
+        <div class="accordion" id="addresses">
+            <div class="card" id="address0">
+                <div class="card-header" id="heading0">
+                    <h2 class="mb-0">
+                        <button class="cauhoi btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            Câu hỏi 1
+                        </button>
+                    </h2>
                 </div>
 
+                <div id="collapse0" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                    <div class="card-body">
+                        @if (Model != null && Model.Count > 0)
+                        {
+                            int j = 0;
+                            foreach (var i in Model)
+                            {
+                        <div>
+                            <div class="col-md-10">@Html.EditorFor(a => a[j].Question.Title, new { htmlAttributes = new { @class = "form-control", placeholder = "Title" } })</div>
+                            <div class="col-md-10">@Html.EditorFor(a => a[j].Question.Type, new { htmlAttributes = new { @class = "form-control", placeholder = "Type" } })</div>
+                            <div class="col-md-10">@Html.EditorFor(a => a[j].Question.Description, new { htmlAttributes = new { @class = "form-control", placeholder = "Description" } })</div>
+                            <div class="answer" id="answeress">
+                                <div class="ans" id="answere0">
+                                    <div>
+                                        Câu trả lời
+                                    </div>
+                                    <div class="body-Ans">
+                                        
+                                     <div class="col-md-10">@Html.EditorFor(a => a[j].QuestionAnswer.Answer, new { htmlAttributes = new { @class = "form-control", placeholder = "Answer" } })</div>
+
+                                    </div>
+                                </div>
+                                <div class="addansweradd">
+                                    <button type="button" class="addanswer btn btn-danger">Thêm câu trả lời</button>
+                                </div>
+                            </div>
+                        </div>
+                                j++;
+                            }
+                        }
+
+                        <hr />
+
+
+                    </div>
+                </div>
+                <hr />
+                <div class="addmoreadd">
+                    <button type="button" class="addmore btn btn-danger">Thêm Câu hỏi</button>
+                </div>
 
             </div>
-            <div><a href="#" id="addNew">+ Thêm Câu hỏi</a></div>
         </div>
 
     </div>
@@ -88,10 +101,16 @@
 
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Create" class="btn btn-default" />
+            <input type="submit" value="Create" class="btn btn-success" />
         </div>
     </div>
+
+
+
+
+
 }
+
 
 
 
@@ -104,38 +123,91 @@
 @section Scripts{
     @Scripts.Render("~/bundles/jqueryval")
     <script language="javascript">
+        
         $(document).ready(function () {
+            // function add
+            var rowNum = 0;
 
-            //1. Add new row
-            $("#addNew").click(function (e) {
-               
+            $("body").on("click", ".addmore", function (e) {
                 e.preventDefault();
-                var $tableBody = $("#dataTable");
-                var $trLast = $tableBody.find("#accordionExample1"); // tìm id accordionExample1
-                var $trNew = $trLast.clone();  //nhân bản
+                rowNum++;
+                var $address = $(this).parents('.card');
+                var nextHtml = $address.clone();
 
-                var suffix = $trNew.find(':input:first').attr('name').match(/\d+/);
-                console.log(suffix);
-                $.each($trNew.find(':input'), function (i, val) {
+                nextHtml.attr('id', 'address' + rowNum);
+            
+                var suffix = nextHtml.find('.card-body').find(':input:first').attr('name').match(/\d+/);
+                $.each(nextHtml.find('.card-body').find(':input'), function (i, val) {
                     // Replaced Name
                     var oldN = $(this).attr('name');
-                    var newN = oldN.replace('[' + suffix + ']', '[' + (parseInt(suffix) + 1) + ']');
-                    $(this).attr('name', newN);
-                    //Replaced value
-                    var type = $(this).attr('type');
-                    if (type.toLowerCase() == "text") {
-                        $(this).attr('value', '');
+                    console.log(oldN);
+                    if (oldN != null) {
+                        var newN = oldN.replace('[' + suffix + ']', '[' + (parseInt(suffix) + 1) + ']');
+                        $(this).attr('name', newN);
+                        //Replaced value
+                        var type = $(this).attr('type');
+                        if (type.toLowerCase() == "text") {
+                            $(this).attr('value', '');
+                        }
+                    }
+                   
+                });
+                var hasRmBtn = $('.rmbtn', nextHtml).length > 0;
+                if (!hasRmBtn) {
+                    var rm = "<button type='button' class='rmbtn btn btn-warning'>Remove</button>"
+                    $('.addmoreadd', nextHtml).append(rm);
+                }
+                $address.after(nextHtml);
+            });
+            // function remove 
+            $("body").on("click", ".rmbtn", function () {
+                $(this).parents('.card').remove();
+            });
+        });
+
+
+
+        $(document).ready(function () {
+            // function add
+            var rowAns = 0;
+
+            $("body").on("click", ".addanswer", function (e) {
+                e.preventDefault();
+                rowAns++;
+                var $addAns = $(this).parents('.answer');
+                var nextHtmlAns = $addAns.clone();
+
+                nextHtmlAns.attr('id', 'answere' + rowAns);
+
+                var sufAns = nextHtmlAns.find('.body-Ans').find(':input:first').attr('name').match(/\d+/);
+                $.each(nextHtmlAns.find('.body-Ans').find(':input'), function (i, val) {
+                    // Replaced Name
+                    var oldNS = $(this).attr('name');
+                    console.log(oldNS);
+                    if (oldNS != null) {
+                        var newNS = oldNS.replace('[' + sufAns + ']', '[' + (parseInt(sufAns) + 1) + ']');
+                        $(this).attr('name', newNS);
+                        //Replaced value
+                        var type = $(this).attr('type');
+                        if (type.toLowerCase() == "text") {
+                            $(this).attr('value', '');
+                        }
                     }
 
-                    // If you have another Type then replace with default value
-                    $(this).removeClass("input-validation-error");
-
                 });
-                $trLast.after($trNew);
+
+                var hasRmBtnAns = $('.rmbtnans', nextHtmlAns).length > 0;
+                if (!hasRmBtnAns) {
+                    var rms = "<button type='button' class='rmbtnans btn btn-warning'>Remove</button>"
+                    $('.addansweradd', nextHtmlAns).append(rms);
+                }
+                $addAns.after(nextHtmlAns);
             });
-
-        
-
+            // function remove 
+            $("body").on("click", ".rmbtnans", function () {
+                $(this).parents('.answer').remove();
+            });
         });
     </script>
+
 }

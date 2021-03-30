@@ -66,37 +66,48 @@ namespace Survey.Controllers
             {
                 try
                 {
+                    //lưu survey
                     foreach (var i in bigModel)
                     {
-                        if(i.AllSurvey != null)
+                        if (i.AllSurvey != null)
                         {
                             i.AllSurvey.Status = SurveyStatus.NOT_HAPPENNING_YET;
                             i.AllSurvey.CreateDate = DateTime.Now;
                             i.AllSurvey.UpdateDate = DateTime.Now;
                             db.Surveys.Add(i.AllSurvey);
                         }
-                        
+
                     }
-                    
+
                     db.SaveChanges();
 
-                    // throw exectiopn to test roll back transaction
-                    for (var i =0; i<bigModel.Count(); i++)
+                    // Lưu câu hỏi
+                    for (var i = 0; i < bigModel.Count(); i++)
                     {
-                        if (i > 0)
+                        if (bigModel[i].Question != null)
                         {
-                            bigModel[i].AllSurvey = bigModel[i - 1].AllSurvey;
+                            if (i > 0)
+                            {
+                                bigModel[i].AllSurvey = bigModel[i - 1].AllSurvey;
+                            }
+                            bigModel[i].Question.SurveyId = bigModel[i].AllSurvey.SurveyId;
+                            db.Questions.Add(bigModel[i].Question);
                         }
-                        bigModel[i].Question.SurveyId = bigModel[i].AllSurvey.SurveyId;
-                        db.Questions.Add(bigModel[i].Question);
                     }
                     db.SaveChanges();
 
-                    // throw exectiopn to test roll back transaction
-                    foreach (var i in bigModel)
+                    // Lưu đáp án
+                    for (var i = 0; i < bigModel.Count(); i++)
                     {
-                        i.QuestionAnswer.QuestionId = i.Question.Id;
-                        db.Question_answers.Add(i.QuestionAnswer);
+                       
+                        if (bigModel[i].QuestionAnswer != null)
+                            {
+                                
+                                bigModel[i].QuestionAnswer.QuestionId = bigModel[i].Question.Id;
+                                db.Question_answers.Add(bigModel[i].QuestionAnswer);
+
+                            }
+                       
                     }
                     db.SaveChanges();
 
@@ -110,7 +121,7 @@ namespace Survey.Controllers
                     Console.WriteLine(ex);
                 }
                 return null;
-            }            
+            }
         }
         // GET: QuestionAnswers/Edit/5
         public ActionResult Edit(int? id)

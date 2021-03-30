@@ -55,6 +55,7 @@
 @section Scripts{
     @Scripts.Render("~/bundles/jqueryval")
     <script language="javascript">
+        
         $(document).ready(function () {
 
             //1. Add new row
@@ -70,6 +71,7 @@
                 $.each($trNew.find(':input'), function (i, val) {
                     // Replaced Name
                     var oldN = $(this).attr('name');
+                    console.log(oldN);
                     var newN = oldN.replace('[' + suffix + ']', '[' + (parseInt(suffix) + 1) + ']');
                     $(this).attr('name', newN);
                     //Replaced value
