@@ -127,10 +127,11 @@
         $(document).ready(function () {
             // function add
             var rowNum = 0;
-
+            var colNum = 0
             $("body").on("click", ".addmore", function (e) {
                 e.preventDefault();
                 rowNum++;
+                colNum++;
                 var $address = $(this).parents('.card');
                 var nextHtml = $address.clone();
 
@@ -140,10 +141,12 @@
                 $.each(nextHtml.find('.card-body').find(':input'), function (i, val) {
                     // Replaced Name
                     var oldN = $(this).attr('name');
-                    console.log(oldN);
                     if (oldN != null) {
-                        var newN = oldN.replace('[' + suffix + ']', '[' + (parseInt(suffix) + 1) + ']');
+                        var newN = oldN.replace('[' + suffix + ']', '[' + (colNum) + ']');
+                        
+
                         $(this).attr('name', newN);
+                        console.log(newN);
                         //Replaced value
                         var type = $(this).attr('type');
                         if (type.toLowerCase() == "text") {
@@ -170,23 +173,25 @@
         $(document).ready(function () {
             // function add
             var rowAns = 0;
-
+            var col = 0
             $("body").on("click", ".addanswer", function (e) {
                 e.preventDefault();
                 rowAns++;
+                col++;
                 var $addAns = $(this).parents('.answer');
                 var nextHtmlAns = $addAns.clone();
 
                 nextHtmlAns.attr('id', 'answere' + rowAns);
 
-                var sufAns = nextHtmlAns.find('.body-Ans').find(':input:first').attr('name').match(/\d+/);
+                var sufAns = nextHtmlAns.find('.body-Ans').find(':input:last').attr('name').match(/\d+/);
                 $.each(nextHtmlAns.find('.body-Ans').find(':input'), function (i, val) {
                     // Replaced Name
                     var oldNS = $(this).attr('name');
-                    console.log(oldNS);
                     if (oldNS != null) {
-                        var newNS = oldNS.replace('[' + sufAns + ']', '[' + (parseInt(sufAns) + 1) + ']');
+                        var newNS = oldNS.replace('[' + sufAns + ']', '[' + (col) + ']');
                         $(this).attr('name', newNS);
+                        console.log(newNS);
+
                         //Replaced value
                         var type = $(this).attr('type');
                         if (type.toLowerCase() == "text") {
