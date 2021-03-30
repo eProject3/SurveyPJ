@@ -1600,8 +1600,6 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
-    <Content Include="Views\QuestionAnswers\Create.cshtml" />
     <Content Include="Views\QuestionAnswers\Delete.cshtml" />
     <Content Include="Views\QuestionAnswers\Details.cshtml" />
     <Content Include="Views\QuestionAnswers\Edit.cshtml" />
@@ -1617,6 +1615,8 @@
     <Content Include="Views\AllSurveys\Edit.cshtml" />
     <Content Include="Views\AllSurveys\Index.cshtml" />
     <Content Include="Views\QuestionAnswers\InsertCustomers.cshtml" />
+    <Content Include="Views\QuestionAnswers\Create.cshtml" />
+    <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
