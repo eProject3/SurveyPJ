@@ -143,8 +143,6 @@
                     var oldN = $(this).attr('name');
                     if (oldN != null) {
                         var newN = oldN.replace('[' + suffix + ']', '[' + (colNum) + ']');
-                        
-
                         $(this).attr('name', newN);
                         console.log(newN);
                         //Replaced value
@@ -183,6 +181,7 @@
 
                 nextHtmlAns.attr('id', 'answere' + rowAns);
 
+
                 var sufAns = nextHtmlAns.find('.body-Ans').find(':input:last').attr('name').match(/\d+/);
                 $.each(nextHtmlAns.find('.body-Ans').find(':input'), function (i, val) {
                     // Replaced Name
@@ -191,7 +190,6 @@
                         var newNS = oldNS.replace('[' + sufAns + ']', '[' + (col) + ']');
                         $(this).attr('name', newNS);
                         console.log(newNS);
-
                         //Replaced value
                         var type = $(this).attr('type');
                         if (type.toLowerCase() == "text") {

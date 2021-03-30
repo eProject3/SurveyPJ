@@ -40,16 +40,13 @@ namespace Survey.Controllers
         // GET: QuestionAnswers/Create
         public ActionResult Create()
         {
-
             List<BigModel> ci = new List<BigModel> { new BigModel
             {
                 AllSurvey = new AllSurvey {
-
                 },
                 Question = new Question {
                 },
                 QuestionAnswer = new QuestionAnswer {
-
                 } } };
             ViewBag.SurveyId = new SelectList(db.Surveys, "SurveyId", "Title");
             ViewBag.QuestionId = new SelectList(db.Questions, "Id", "Title");
@@ -78,6 +75,7 @@ namespace Survey.Controllers
                         }
 
                     }
+
 
                     db.SaveChanges();
 
@@ -115,7 +113,6 @@ namespace Survey.Controllers
                             db.Question_answers.Add(bigModel[i].QuestionAnswer);
 
                         }
-
                     }
                     db.SaveChanges();
 
