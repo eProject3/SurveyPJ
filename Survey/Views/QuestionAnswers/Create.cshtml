@@ -1,8 +1,9 @@
-﻿@model Survey.Models.BigModel
+﻿@model List<Survey.Models.BigModel>
 
 @{
     ViewBag.Title = "Create";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    int k = 0;
 }
 
 
@@ -13,210 +14,200 @@
 
 @using (Html.BeginForm())
 {
-
-    <div id="allqs" class="field">
-        <hr />
+    <div class="field">
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
             <div class="tabs">
                 <h1>
                     Create a title for the survey
                 </h1>
+
+
                 <div class="col-md-6">
-                    @Html.EditorFor(model => model.AllSurvey.Title, new { htmlAttributes = new { @class = "form-control", placeholder = Html.DisplayNameFor(x => x.AllSurvey.Title) } })
-                    @Html.ValidationMessageFor(model => model.AllSurvey.Title, "", new { @class = "text-danger" })
+                    @Html.EditorFor(x => x[k].AllSurvey.Title, new { htmlAttributes = new { @class = "form-control", placeholder = Html.DisplayNameFor(x => x[k].AllSurvey.Title) } })
+                    @Html.ValidationMessageFor(x => x[k].AllSurvey.Title, "", new { @class = "text-danger" })
                 </div>
                 <div class="col-md-6">
-                    @Html.EditorFor(model => model.AllSurvey.Description, new { htmlAttributes = new { @class = "form-control", placeholder = Html.DisplayNameFor(x => x.AllSurvey.Description) } })
-                    @Html.ValidationMessageFor(model => model.AllSurvey.Description, "", new { @class = "text-danger" })
+                    @Html.EditorFor(x => x[k].AllSurvey.Description, new { htmlAttributes = new { @class = "form-control", placeholder = Html.DisplayNameFor(x => x[k].AllSurvey.Description) } })
+                    @Html.ValidationMessageFor(x => x[k].AllSurvey.Description, "", new { @class = "text-danger" })
                 </div>
+
+
             </div>
         </div>
-
         <h1>
             Create sample questions and answers
         </h1>
-        <div id="newqframe1" data-q-id="2" class="tabs">
 
-            <input type="radio" id="tab1" name="tab-control" checked>
-            <input type="radio" id="tab2" name="tab-control">
-            <ul>
-                <li title="Features">
-                    <label for="tab1" role="button">
-                        <svg viewBox="0 0 24 24">
-                            <path d="M14,2A8,8 0 0,0 6,10A8,8 0 0,0 14,18A8,8 0 0,0 22,10H20C20,13.32 17.32,16 14,16A6,6 0 0,1 8,10A6,6 0 0,1 14,4C14.43,4 14.86,4.05 15.27,4.14L16.88,2.54C15.96,2.18 15,2 14,2M20.59,3.58L14,10.17L11.62,7.79L10.21,9.21L14,13L22,5M4.93,5.82C3.08,7.34 2,9.61 2,12A8,8 0 0,0 10,20C10.64,20 11.27,19.92 11.88,19.77C10.12,19.38 8.5,18.5 7.17,17.29C5.22,16.25 4,14.21 4,12C4,11.7 4.03,11.41 4.07,11.11C4.03,10.74 4,10.37 4,10C4,8.56 4.32,7.13 4.93,5.82Z" />
-                        </svg><br><span>Câu hỏi lựa chọn</span>
-                    </label>
-                </li>
-                <li title="Delivery Contents">
-                    <label for="tab2" role="button">
-                        <svg viewBox="0 0 24 24">
-                            <path d="M2,10.96C1.5,10.68 1.35,10.07 1.63,9.59L3.13,7C3.24,6.8 3.41,6.66 3.6,6.58L11.43,2.18C11.59,2.06 11.79,2 12,2C12.21,2 12.41,2.06 12.57,2.18L20.47,6.62C20.66,6.72 20.82,6.88 20.91,7.08L22.36,9.6C22.64,10.08 22.47,10.69 22,10.96L21,11.54V16.5C21,16.88 20.79,17.21 20.47,17.38L12.57,21.82C12.41,21.94 12.21,22 12,22C11.79,22 11.59,21.94 11.43,21.82L3.53,17.38C3.21,17.21 3,16.88 3,16.5V10.96C2.7,11.13 2.32,11.14 2,10.96M12,4.15V4.15L12,10.85V10.85L17.96,7.5L12,4.15M5,15.91L11,19.29V12.58L5,9.21V15.91M19,15.91V12.69L14,15.59C13.67,15.77 13.3,15.76 13,15.6V19.29L19,15.91M13.85,13.36L20.13,9.73L19.55,8.72L13.27,12.35L13.85,13.36Z" />
-                        </svg><br><span>Câu hỏi mở</span>
-                    </label>
-                </li>
+        <div class="accordion" id="addresses">
+            <div class="card" id="address0">
+                <div class="card-header" id="heading0">
+                    <h2 class="mb-0">
+                        <button class="cauhoi btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            Câu hỏi 1
+                        </button>
+                    </h2>
+                </div>
 
-            </ul>
+                <div id="collapse0" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                    <div class="card-body">
+                        @if (Model != null && Model.Count > 0)
+                        {
+                            int j = 0;
+                            foreach (var i in Model)
+                            {
+                        <div>
+                            <div class="col-md-10">@Html.EditorFor(a => a[j].Question.Title, new { htmlAttributes = new { @class = "form-control", placeholder = "Title" } })</div>
+                            <div class="col-md-10">@Html.EditorFor(a => a[j].Question.Type, new { htmlAttributes = new { @class = "form-control", placeholder = "Type" } })</div>
+                            <div class="col-md-10">@Html.EditorFor(a => a[j].Question.Description, new { htmlAttributes = new { @class = "form-control", placeholder = "Description" } })</div>
+                            <div class="answer" id="answeress">
+                                <div class="ans" id="answere0">
+                                    <div>
+                                        Câu trả lời
+                                    </div>
+                                    <div class="body-Ans">
+                                        
+                                     <div class="col-md-10">@Html.EditorFor(a => a[j].QuestionAnswer.Answer, new { htmlAttributes = new { @class = "form-control", placeholder = "Answer" } })</div>
 
-            <div class="slider"><div class="indicator"></div></div>
-            <div class="content">
-                <section>
-                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.Question.Title, htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.Question.Title, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.Question.Title, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="addansweradd">
+                                    <button type="button" class="addanswer btn btn-danger">Thêm câu trả lời</button>
+                                </div>
+                            </div>
                         </div>
+                                j++;
+                            }
+                        }
+
+                        <hr />
+
+
                     </div>
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.Question.Type, htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.Question.Type, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.Question.Type, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.Question.Description, htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.Question.Description, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.Question.Description, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                    <hr />
-                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.QuestionAnswer.Answer, htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.QuestionAnswer.Answer, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.QuestionAnswer.Answer, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                </section>
-                <section>
-                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.Question.Title, htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.Question.Title, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.Question.Title, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.Question.Type, htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.Question.Type, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.Question.Type, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.Question.Description, htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.Question.Description, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.Question.Description, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                    <hr />
-                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.QuestionAnswer.Answer, htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.QuestionAnswer.Answer, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.QuestionAnswer.Answer, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                </section>
+                </div>
+                <hr />
+                <div class="addmoreadd">
+                    <button type="button" class="addmore btn btn-danger">Thêm Câu hỏi</button>
+                </div>
 
             </div>
         </div>
-        <div id="newqframe2" data-q-id="2"></div>
-        <div id="newqframe3" data-q-id="3"></div>
-        <div id="newqframe4" data-q-id="4"></div>
-        <div id="newqframe5" data-q-id="5"></div>
-        <div id="newqframe6" data-q-id="6"></div>
-        <div id="newqframe7" data-q-id="7"></div>
-        <div id="newqframe8" data-q-id="8"></div>
-        <div id="newqframe9" data-q-id="9"></div>
-        <div id="newqframe10" data-q-id="10"></div>
-        <div id="newqframe11" data-q-id="11"></div>
-        <div id="newqframe12" data-q-id="12"></div>
-        <div id="newqframe13" data-q-id="13"></div>
-        <div id="newqframe14" data-q-id="14"></div>
-        <div id="newqframe15" data-q-id="15"></div>
-        <div id="newqframe16" data-q-id="16"></div>
-        <div id="newqframe17" data-q-id="17"></div>
-        <div id="newqframe18" data-q-id="18"></div>
-        <div id="newqframe19" data-q-id="19"></div>
-        <div id="newqframe20" data-q-id="20"></div>
-        <div id="newqframe21" data-q-id="21"></div>
-        <div id="newqframe22" data-q-id="22"></div>
-        <div id="newqframe23" data-q-id="23"></div>
-        <div id="newqframe24" data-q-id="24"></div>
-        <div id="newqframe25" data-q-id="25"></div>
-        <div id="newqframe26" data-q-id="26"></div>
-        <div id="newqframe27" data-q-id="27"></div>
-        <div id="newqframe28" data-q-id="28"></div>
-        <div id="newqframe29" data-q-id="29"></div>
-        <div id="newqframe30" data-q-id="30"></div>
-        <div id="newqframe31" data-q-id="31"></div>
-        <div id="newqframe32" data-q-id="32"></div>
-        <div id="newqframe33" data-q-id="33"></div>
-        <div id="newqframe34" data-q-id="34"></div>
-        <div id="newqframe35" data-q-id="35"></div>
-        <div id="newqframe36" data-q-id="36"></div>
-        <div id="newqframe37" data-q-id="37"></div>
-        <div id="newqframe38" data-q-id="38"></div>
-        <div id="newqframe39" data-q-id="39"></div>
-        <div id="newqframe40" data-q-id="40"></div>
-        <div id="newqframe41" data-q-id="41"></div>
-        <div id="newqframe42" data-q-id="42"></div>
-        <div id="newqframe43" data-q-id="43"></div>
-        <div id="newqframe44" data-q-id="44"></div>
-        <div id="newqframe45" data-q-id="45"></div>
-        <div id="newqframe46" data-q-id="46"></div>
-        <div id="newqframe47" data-q-id="47"></div>
-        <div id="newqframe48" data-q-id="48"></div>
-        <div id="newqframe49" data-q-id="49"></div>
-        <div id="newqframe50" data-q-id="50"></div>
 
+    </div>
+
+
+
+
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-success" />
+        </div>
+    </div>
+
+
+
+
+
+}
+
+
+
+
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
 </div>
-        <div class="addqblock" data-rank="2">
-            + Thêm Câu hỏi
-        </div>
-        <button type="button" class="btn btn-primary" onclick="myFunction()">Primary</button>
 
 
+@section Scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+    <script language="javascript">
+        
+        $(document).ready(function () {
+            // function add
+            var rowNum = 0;
 
+            $("body").on("click", ".addmore", function (e) {
+                e.preventDefault();
+                rowNum++;
+                var $address = $(this).parents('.card');
+                var nextHtml = $address.clone();
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
-        </div>
-        }
-
-
-
-
-        <div>
-            @Html.ActionLink("Back to List", "Index")
-        </div>
-
-        @section Scripts {
-            @Scripts.Render("~/bundles/jqueryval")
-        }
-        <script>
-            function myFunction() {
-                var rank = $(this).attr('data-rank');
-
-                if (rank == "edit") {
-                    var nq = 1;
-                    $(this).hide();
-                    var thisframe = $('#allqs');
-                } else {
-                    var nq = parseInt(rank) + 1;
-                    $(this).attr('data-rank', nq);
-                    var thisframe = $('#newqframe' + nq);
+                nextHtml.attr('id', 'address' + rowNum);
+            
+                var suffix = nextHtml.find('.card-body').find(':input:first').attr('name').match(/\d+/);
+                $.each(nextHtml.find('.card-body').find(':input'), function (i, val) {
+                    // Replaced Name
+                    var oldN = $(this).attr('name');
+                    console.log(oldN);
+                    if (oldN != null) {
+                        var newN = oldN.replace('[' + suffix + ']', '[' + (parseInt(suffix) + 1) + ']');
+                        $(this).attr('name', newN);
+                        //Replaced value
+                        var type = $(this).attr('type');
+                        if (type.toLowerCase() == "text") {
+                            $(this).attr('value', '');
+                        }
+                    }
+                   
+                });
+                var hasRmBtn = $('.rmbtn', nextHtml).length > 0;
+                if (!hasRmBtn) {
+                    var rm = "<button type='button' class='rmbtn btn btn-warning'>Remove</button>"
+                    $('.addmoreadd', nextHtml).append(rm);
                 }
+                $address.after(nextHtml);
+            });
+            // function remove 
+            $("body").on("click", ".rmbtn", function () {
+                $(this).parents('.card').remove();
+            });
+        });
 
-        </script>
+
+
+        $(document).ready(function () {
+            // function add
+            var rowAns = 0;
+
+            $("body").on("click", ".addanswer", function (e) {
+                e.preventDefault();
+                rowAns++;
+                var $addAns = $(this).parents('.answer');
+                var nextHtmlAns = $addAns.clone();
+
+                nextHtmlAns.attr('id', 'answere' + rowAns);
+
+                var sufAns = nextHtmlAns.find('.body-Ans').find(':input:first').attr('name').match(/\d+/);
+                $.each(nextHtmlAns.find('.body-Ans').find(':input'), function (i, val) {
+                    // Replaced Name
+                    var oldNS = $(this).attr('name');
+                    console.log(oldNS);
+                    if (oldNS != null) {
+                        var newNS = oldNS.replace('[' + sufAns + ']', '[' + (parseInt(sufAns) + 1) + ']');
+                        $(this).attr('name', newNS);
+                        //Replaced value
+                        var type = $(this).attr('type');
+                        if (type.toLowerCase() == "text") {
+                            $(this).attr('value', '');
+                        }
+                    }
+
+                });
+
+                var hasRmBtnAns = $('.rmbtnans', nextHtmlAns).length > 0;
+                if (!hasRmBtnAns) {
+                    var rms = "<button type='button' class='rmbtnans btn btn-warning'>Remove</button>"
+                    $('.addansweradd', nextHtmlAns).append(rms);
+                }
+                $addAns.after(nextHtmlAns);
+            });
+            // function remove 
+            $("body").on("click", ".rmbtnans", function () {
+                $(this).parents('.answer').remove();
+            });
+        });
+    </script>
+
+}
