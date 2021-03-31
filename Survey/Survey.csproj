@@ -1553,6 +1553,7 @@
     <Content Include="assets\plugins\global\fonts\summernote\summernote.ttf" />
     <Content Include="assets\plugins\global\fonts\summernote\summernote.woff" />
     <Content Include="assets\plugins\global\fonts\summernote\summernote.woff2" />
+    <None Include="Properties\PublishProfiles\IISProfile.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
