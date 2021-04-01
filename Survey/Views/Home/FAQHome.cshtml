@@ -1,0 +1,642 @@
+﻿@model IEnumerable<Survey.Models.FAQ>
+
+@{
+    ViewBag.Title = "FAQHome";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+}
+
+
+<!DOCTYPE html>
+
+<head>
+    @*<meta charset="utf-8">
+    <meta http-equiv="cleartype" content="on">
+    <meta name="robots" content="index,follow">
+
+
+
+
+
+
+    <title>Frequently Asked Questions - Roody Originals</title>
+
+
+    <meta name="description" content="What do you mean by custom knitted sweater? When we say custom knitted sweater we mean a sweater that has been knitted for you with your design.  Sweatshirts can look a little tacky but a nice knitted sweater really creates the wow factor. Can I send through a design I&#39;d like to get made? Of course. If you&#39;ve got somet" />
+
+
+
+
+    <meta name="author" content="Roody Originals">
+    <meta property="og:url" content="https://www.roodyoriginals.com/pages/faqs">
+    <meta property="og:site_name" content="Roody Originals">
+
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Frequently Asked Questions">
+
+
+
+
+    <meta property="og:description" content="What do you mean by custom knitted sweater? When we say custom knitted sweater we mean a sweater that has been knitted for you with your design.  Sweatshirts can look a little tacky but a nice knitted sweater really creates the wow factor. Can I send through a design I&#39;d like to get made? Of course. If you&#39;ve got somet">*@
+
+
+
+
+
+
+    <!--<meta name="twitter:card" content="summary">-->
+
+
+
+
+
+
+    <!-- Mobile Specific Metas -->
+    <!--<meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="#ffffff">-->
+
+    <!-- Stylesheets for Parallax 3.5.0 -->
+    @*<link href="//cdn.shopify.com/s/files/1/0749/1143/t/17/assets/orem.css?v=4636943381836097232" rel="stylesheet" type="text/css" media="all" />*@
+    @*<link href="//cdn.shopify.com/s/files/1/0749/1143/t/17/assets/styles.scss.css?v=3767264574271964582" rel="stylesheet" type="text/css" media="all" />*@
+
+
+
+    @*<link rel="shortcut icon" type="image/x-icon" href="//cdn.shopify.com/s/files/1/0749/1143/files/Tree_32x32.jpg?v=1535549604">
+
+
+    <link rel="canonical" href="https://www.roodyoriginals.com/pages/faqs" />
+
+
+
+    <script src="//cdn.shopify.com/s/files/1/0749/1143/t/17/assets/app.js?v=7869542028057114259" type="text/javascript"></script>
+
+    <script>window.performance && window.performance.mark && window.performance.mark('shopify.content_for_header.start');</script>
+    <meta id="shopify-digital-wallet" name="shopify-digital-wallet" content="/7491143/digital_wallets/dialog">
+    <link href="https://monorail-edge.shopifysvc.com" rel="dns-prefetch">
+    <script id="shopify-features" type="application/json">
+        {"accessToken":"d2cb1c99de34e6253ec35cf3b8f3fc24","betas":["rich-media-storefront-analytics"],"domain":"www.roodyoriginals.com","predictiveSearch":true,"shopId":7491143,"smart_payment_buttons_url":"https:\/\/cdn.shopify.com\/shopifycloud\/payment-sheet\/assets\/latest\/spb.en.js","dynamic_checkout_cart_url":"https:\/\/cdn.shopify.com\/shopifycloud\/payment-sheet\/assets\/latest\/dynamic-checkout-cart.en.js","locale":"en"}
+    </script>
+    <script>(function(){if ("sendBeacon" in navigator && "performance" in window) {var session_token = document.cookie.match(/_shopify_s=([^;]*)/);function handle_abandonment_event(e) {var entries = performance.getEntries().filter(function(entry) {return /monorail-edge.shopifysvc.com/.test(entry.name);});if (!window.abandonment_tracked && entries.length === 0) {window.abandonment_tracked = true;var currentMs = Date.now();var navigation_start = performance.timing.navigationStart;var payload = {shop_id: 7491143,url: window.location.href,navigation_start,duration: currentMs - navigation_start,session_token: session_token && session_token.length === 2 ? session_token[1] : "",page_type: "page"};window.navigator.sendBeacon("https://monorail-edge.shopifysvc.com/v1/produce", JSON.stringify({schema_id: "online_store_buyer_site_abandonment/1.1",payload: payload,metadata: {event_created_at_ms: currentMs,event_sent_at_ms: currentMs}}));}}window.addEventListener('pagehide', handle_abandonment_event);}}());</script>
+    <script>
+var Shopify = Shopify || {};
+Shopify.shop = "roodyoriginals.myshopify.com";
+Shopify.locale = "en";
+Shopify.currency = {"active":"USD","rate":"1.0"};
+Shopify.country = "US";
+Shopify.theme = {"name":"Copy of Parallax (Awais work)","id":40547221594,"theme_store_id":688,"role":"main"};
+Shopify.theme.handle = "null";
+Shopify.theme.style = {"id":null,"handle":null};
+Shopify.cdnHost = "cdn.shopify.com";</script>
+    <script type="module">!function(o){(o.Shopify=o.Shopify||{}).modules=!0}(window);</script>
+    <script>!function(o){function n(){var o=[];function n(){o.push(Array.prototype.slice.apply(arguments))}return n.q=o,n}var t=o.Shopify=o.Shopify||{};t.loadFeatures=n(),t.autoloadFeatures=n()}(window);</script>*@
+    @*<script>
+(function() {
+  function asyncLoad() {
+    var urls = ["\/\/cdn.secomapp.com\/bannerslider\/scripts\/%7B$shopName%7D.%7B$newJsId%7D.scripttag.js?shop=roodyoriginals.myshopify.com","https:\/\/embed.tawk.to\/widget-script\/57bc62b25982876b10bb6ad7\/default.js?shop=roodyoriginals.myshopify.com","https:\/\/www.zakeke.com\/Scripts\/integration\/shopify\/product.js?shop=roodyoriginals.myshopify.com","https:\/\/cdn.replay.consistentcart.com\/replay.js?replayApiKey=6286cfc0-e83e-11ea-8e33-38c354db2e35\u0026shop=roodyoriginals.myshopify.com","https:\/\/cdn.oribi.io\/Xy0yMDUxNjk2NDA0\/oribi.js?shop=roodyoriginals.myshopify.com","https:\/\/analytics.getshogun.com\/collector.js?shop=roodyoriginals.myshopify.com"];
+    for (var i = 0; i < urls.length; i++) {
+      var s = document.createElement('script');
+      s.type = 'text/javascript';
+      s.async = true;
+      s.src = urls[i];
+      var x = document.getElementsByTagName('script')[0];
+      x.parentNode.insertBefore(s, x);
+    }
+  };
+  if(window.attachEvent) {
+    window.attachEvent('onload', asyncLoad);
+  } else {
+    window.addEventListener('load', asyncLoad, false);
+  }
+})();</script>*@
+    @*<script id="__st">var __st={"a":7491143,"offset":-25200,"reqid":"1dc1be65-67e2-4e73-9437-dde17e90edc5","pageurl":"www.roodyoriginals.com\/pages\/faqs","s":"pages-19019124","u":"ea575cedf766","p":"page","rtyp":"page","rid":19019124};</script>
+    <script>window.ShopifyPaypalV4VisibilityTracking = true;</script>
+    <script>
+window.ShopifyAnalytics = window.ShopifyAnalytics || {};
+window.ShopifyAnalytics.meta = window.ShopifyAnalytics.meta || {};
+window.ShopifyAnalytics.meta.currency = 'USD';
+var meta = {"page":{"pageType":"page","resourceType":"page","resourceId":19019124}};
+for (var attr in meta) {
+  window.ShopifyAnalytics.meta[attr] = meta[attr];
+}</script>
+    <script>
+window.ShopifyAnalytics.merchantGoogleAnalytics = function() {
+
+};
+    </script>
+    <script class="analytics">
+(window.gaDevIds=window.gaDevIds||[]).push('BwiEti');
+
+
+(function () {
+  var customDocumentWrite = function(content) {
+    var jquery = null;
+
+    if (window.jQuery) {
+      jquery = window.jQuery;
+    } else if (window.Checkout && window.Checkout.$) {
+      jquery = window.Checkout.$;
+    }
+
+    if (jquery) {
+      jquery('body').append(content);
+    }
+  };
+
+  var hasLoggedConversion = function(token) {
+    if (token) {
+      return document.cookie.indexOf('loggedConversion=' + token) !== -1;
+    }
+    return false;
+  }
+
+  var setCookieIfConversion = function(token) {
+    if (token) {
+      var twoMonthsFromNow = new Date(Date.now());
+      twoMonthsFromNow.setMonth(twoMonthsFromNow.getMonth() + 2);
+
+      document.cookie = 'loggedConversion=' + token + '; expires=' + twoMonthsFromNow;
+    }
+  }
+
+  var trekkie = window.ShopifyAnalytics.lib = window.trekkie = window.trekkie || [];
+  if (trekkie.integrations) {
+    return;
+  }
+  trekkie.methods = [
+    'identify',
+    'page',
+    'ready',
+    'track',
+    'trackForm',
+    'trackLink'
+  ];
+  trekkie.factory = function(method) {
+    return function() {
+      var args = Array.prototype.slice.call(arguments);
+      args.unshift(method);
+      trekkie.push(args);
+      return trekkie;
+    };
+  };
+  for (var i = 0; i < trekkie.methods.length; i++) {
+    var key = trekkie.methods[i];
+    trekkie[key] = trekkie.factory(key);
+  }
+  trekkie.load = function(config) {
+    trekkie.config = config;
+    var first = document.getElementsByTagName('script')[0];
+    var script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.onerror = function(e) {
+      var scriptFallback = document.createElement('script');
+      scriptFallback.type = 'text/javascript';
+      scriptFallback.onerror = function(error) {
+              var Monorail = {
+      produce: function produce(monorailDomain, schemaId, payload) {
+        var currentMs = new Date().getTime();
+        var event = {
+          schema_id: schemaId,
+          payload: payload,
+          metadata: {
+            event_created_at_ms: currentMs,
+            event_sent_at_ms: currentMs
+          }
+        };
+        return Monorail.sendRequest("https://" + monorailDomain + "/v1/produce", JSON.stringify(event));
+      },
+      sendRequest: function sendRequest(endpointUrl, payload) {
+        // Try the sendBeacon API
+        if (window && window.navigator && typeof window.navigator.sendBeacon === 'function' && typeof window.Blob === 'function' && !Monorail.isIos12()) {
+          var blobData = new window.Blob([payload], {
+            type: 'text/plain'
+          });
+
+          if (window.navigator.sendBeacon(endpointUrl, blobData)) {
+            return true;
+          } // sendBeacon was not successful
+
+        } // XHR beacon
+
+        var xhr = new XMLHttpRequest();
+
+        try {
+          xhr.open('POST', endpointUrl);
+          xhr.setRequestHeader('Content-Type', 'text/plain');
+          xhr.send(payload);
+        } catch (e) {
+          console.log(e);
+        }
+
+        return false;
+      },
+      isIos12: function isIos12() {
+        return window.navigator.userAgent.lastIndexOf('iPhone; CPU iPhone OS 12_') !== -1 || window.navigator.userAgent.lastIndexOf('iPad; CPU OS 12_') !== -1;
+      }
+    };
+    Monorail.produce('monorail-edge.shopifysvc.com',
+      'trekkie_storefront_load_errors/1.1',
+      {shop_id: 7491143,
+      theme_id: 40547221594,
+      app_name: "storefront",
+      context_url: window.location.href,
+      source_url: "https://cdn.shopify.com/s/trekkie.storefront.205f91b45b7ac6f1738980e73dea86244fc0404d.min.js"});
+
+      };
+      scriptFallback.async = true;
+      scriptFallback.src = 'https://cdn.shopify.com/s/trekkie.storefront.205f91b45b7ac6f1738980e73dea86244fc0404d.min.js';
+      first.parentNode.insertBefore(scriptFallback, first);
+    };
+    script.async = true;
+    script.src = 'https://cdn.shopify.com/s/trekkie.storefront.205f91b45b7ac6f1738980e73dea86244fc0404d.min.js';
+    first.parentNode.insertBefore(script, first);
+  };
+  trekkie.load(
+    {"Trekkie":{"appName":"storefront","development":false,"defaultAttributes":{"shopId":7491143,"isMerchantRequest":null,"themeId":40547221594,"themeCityHash":"5112825880124605095","contentLanguage":"en","currency":"USD"},"isServerSideCookieWritingEnabled":true,"isPixelGateEnabled":true},"Performance":{"navigationTimingApiMeasurementsEnabled":true,"navigationTimingApiMeasurementsSampleRate":1},"Google Analytics":{"trackingId":"UA-52668833-1","domain":"auto","siteSpeedSampleRate":"10","enhancedEcommerce":true,"doubleClick":true,"includeSearch":true},"Facebook Pixel":{"pixelIds":["1668893420033772"],"agent":"plshopify1.2"},"Session Attribution":{},"Customer Events API":{}}
+  );
+
+  var loaded = false;
+  trekkie.ready(function() {
+    if (loaded) return;
+    loaded = true;
+
+    window.ShopifyAnalytics.lib = window.trekkie;
+
+      ga('require', 'linker');
+      function addListener(element, type, callback) {
+        if (element.addEventListener) {
+          element.addEventListener(type, callback);
+        }
+        else if (element.attachEvent) {
+          element.attachEvent('on' + type, callback);
+        }
+      }
+      function decorate(event) {
+        event = event || window.event;
+        var target = event.target || event.srcElement;
+        if (target && (target.getAttribute('action') || target.getAttribute('href'))) {
+          ga(function (tracker) {
+            var linkerParam = tracker.get('linkerParam');
+            document.cookie = '_shopify_ga=' + linkerParam + '; ' + 'path=/';
+          });
+        }
+      }
+      addListener(window, 'load', function(){
+        for (var i=0; i < document.forms.length; i++) {
+          var action = document.forms[i].getAttribute('action');
+          if(action && action.indexOf('/cart') >= 0) {
+            addListener(document.forms[i], 'submit', decorate);
+          }
+        }
+        for (var i=0; i < document.links.length; i++) {
+          var href = document.links[i].getAttribute('href');
+          if(href && href.indexOf('/checkout') >= 0) {
+            addListener(document.links[i], 'click', decorate);
+          }
+        }
+      });
+
+
+    var originalDocumentWrite = document.write;
+    document.write = customDocumentWrite;
+    try { window.ShopifyAnalytics.merchantGoogleAnalytics.call(this); } catch(error) {};
+    document.write = originalDocumentWrite;
+      (function () {
+        if (window.BOOMR && (window.BOOMR.version || window.BOOMR.snippetExecuted)) {
+          return;
+        }
+        window.BOOMR = window.BOOMR || {};
+        window.BOOMR.snippetStart = new Date().getTime();
+        window.BOOMR.snippetExecuted = true;
+        window.BOOMR.snippetVersion = 12;
+        window.BOOMR.application = "storefront-renderer";
+        window.BOOMR.themeName = "Parallax";
+        window.BOOMR.themeVersion = "3.5.0";
+        window.BOOMR.shopId = 7491143;
+        window.BOOMR.themeId = 40547221594;
+        window.BOOMR.url =
+          "https://cdn.shopify.com/shopifycloud/boomerang/shopify-boomerang-1.0.0.min.js";
+        var where = document.currentScript || document.getElementsByTagName("script")[0];
+        var parentNode = where.parentNode;
+        var promoted = false;
+        var LOADER_TIMEOUT = 3000;
+        function promote() {
+          if (promoted) {
+            return;
+          }
+          var script = document.createElement("script");
+          script.id = "boomr-scr-as";
+          script.src = window.BOOMR.url;
+          script.async = true;
+          parentNode.appendChild(script);
+          promoted = true;
+        }
+        function iframeLoader(wasFallback) {
+          promoted = true;
+          var dom, bootstrap, iframe, iframeStyle;
+          var doc = document;
+          var win = window;
+          window.BOOMR.snippetMethod = wasFallback ? "if" : "i";
+          bootstrap = function(parent, scriptId) {
+            var script = doc.createElement("script");
+            script.id = scriptId || "boomr-if-as";
+            script.src = window.BOOMR.url;
+            BOOMR_lstart = new Date().getTime();
+            parent = parent || doc.body;
+            parent.appendChild(script);
+          };
+          if (!window.addEventListener && window.attachEvent && navigator.userAgent.match(/MSIE [67]./)) {
+            window.BOOMR.snippetMethod = "s";
+            bootstrap(parentNode, "boomr-async");
+            return;
+          }
+          iframe = document.createElement("IFRAME");
+          iframe.src = "about:blank";
+          iframe.title = "";
+          iframe.role = "presentation";
+          iframe.loading = "eager";
+          iframeStyle = (iframe.frameElement || iframe).style;
+          iframeStyle.width = 0;
+          iframeStyle.height = 0;
+          iframeStyle.border = 0;
+          iframeStyle.display = "none";
+          parentNode.appendChild(iframe);
+          try {
+            win = iframe.contentWindow;
+            doc = win.document.open();
+          } catch (e) {
+            dom = document.domain;
+            iframe.src = "javascript:var d=document.open();d.domain='" + dom + "';void(0);";
+            win = iframe.contentWindow;
+            doc = win.document.open();
+          }
+          if (dom) {
+            doc._boomrl = function() {
+              this.domain = dom;
+              bootstrap();
+            };
+            doc.write("<body onload='document._boomrl();'>");
+          } else {
+            win._boomrl = function() {
+              bootstrap();
+            };
+            if (win.addEventListener) {
+              win.addEventListener("load", win._boomrl, false);
+            } else if (win.attachEvent) {
+              win.attachEvent("onload", win._boomrl);
+            }
+          }
+          doc.close();
+        }
+        var link = document.createElement("link");
+        if (link.relList &&
+          typeof link.relList.supports === "function" &&
+          link.relList.supports("preload") &&
+          ("as" in link)) {
+          window.BOOMR.snippetMethod = "p";
+          link.href = window.BOOMR.url;
+          link.rel = "preload";
+          link.as = "script";
+          link.addEventListener("load", promote);
+          link.addEventListener("error", function() {
+            iframeLoader(true);
+          });
+          setTimeout(function() {
+            if (!promoted) {
+              iframeLoader(true);
+            }
+          }, LOADER_TIMEOUT);
+          BOOMR_lstart = new Date().getTime();
+          parentNode.appendChild(link);
+        } else {
+          iframeLoader(false);
+        }
+        function boomerangSaveLoadTime(e) {
+          window.BOOMR_onload = (e && e.timeStamp) || new Date().getTime();
+        }
+        if (window.addEventListener) {
+          window.addEventListener("load", boomerangSaveLoadTime, false);
+        } else if (window.attachEvent) {
+          window.attachEvent("onload", boomerangSaveLoadTime);
+        }
+        if (document.addEventListener) {
+          document.addEventListener("onBoomerangLoaded", function(e) {
+            e.detail.BOOMR.init({
+              producer_url: "https://monorail-edge.shopifysvc.com/v1/produce",
+              ResourceTiming: {
+                enabled: true,
+                trackedResourceTypes: ["script", "img", "css"]
+              },
+            });
+            e.detail.BOOMR.t_end = new Date().getTime();
+          });
+        } else if (document.attachEvent) {
+          document.attachEvent("onpropertychange", function(e) {
+            if (!e) e=event;
+            if (e.propertyName === "onBoomerangLoaded") {
+              e.detail.BOOMR.init({
+                producer_url: "https://monorail-edge.shopifysvc.com/v1/produce",
+                ResourceTiming: {
+                  enabled: true,
+                  trackedResourceTypes: ["script", "img", "css"]
+                },
+              });
+              e.detail.BOOMR.t_end = new Date().getTime();
+            }
+          });
+        }
+      })();
+
+
+
+        window.ShopifyAnalytics.lib.page(
+          null,
+          {"pageType":"page","resourceType":"page","resourceId":19019124}
+        );
+
+
+    var match = window.location.pathname.match(/checkouts\/(.+)\/(thank_you|post_purchase)/)
+    var token = match? match[1]: undefined;
+    if (!hasLoggedConversion(token)) {
+      setCookieIfConversion(token);
+
+    }
+  });
+
+
+      var eventsListenerScript = document.createElement('script');
+      eventsListenerScript.async = true;
+      eventsListenerScript.src = "//cdn.shopify.com/shopifycloud/shopify/assets/shop_events_listener-619dded2976e732c6d885de654a8af094bc28e3148dfe9ab8b320781402596b6.js";
+      document.getElementsByTagName('head')[0].appendChild(eventsListenerScript);
+
+})();</script>
+    <script>!function(e){e.addEventListener("DOMContentLoaded",function(){var t=['form[action^="/contact"] input[name="form_type"][value="contact"]','form[action*="/comments"] input[name="form_type"][value="new_comment"]'].join(",");null!==e.querySelector(t)&&(window.Shopify=window.Shopify||{},window.Shopify.recaptchaV3=window.Shopify.recaptchaV3||{siteKey:"6LcCR2cUAAAAANS1Gpq_mDIJ2pQuJphsSQaUEuc9"},(t=e.createElement("script")).setAttribute("src","https://cdn.shopify.com/shopifycloud/storefront-recaptcha-v3/v0.1/index.js"),e.body.appendChild(t))})}(document);</script>
+    <script integrity="sha256-2KbxRG1nAJxSTtTmhkiAC6kILrdVSO4o4QUDMcvnuig=" data-source-attribution="shopify.loadfeatures" defer="defer" src="//cdn.shopify.com/shopifycloud/shopify/assets/storefront/load_feature-d8a6f1446d67009c524ed4e68648800ba9082eb75548ee28e1050331cbe7ba28.js" crossorigin="anonymous"></script>
+    <script integrity="sha256-h+g5mYiIAULyxidxudjy/2wpCz/3Rd1CbrDf4NudHa4=" data-source-attribution="shopify.dynamic-checkout" defer="defer" src="//cdn.shopify.com/shopifycloud/shopify/assets/storefront/features-87e8399988880142f2c62771b9d8f2ff6c290b3ff745dd426eb0dfe0db9d1dae.js" crossorigin="anonymous"></script>
+
+
+    <script>window.performance && window.performance.mark && window.performance.mark('shopify.content_for_header.end');</script>*@
+
+    @*<noscript>
+        <style>
+
+            .slides > li:first-child {
+                display: block;
+            }
+
+            .image__fallback {
+                width: 50vw;
+                display: block !important;
+                max-width: 100vw !important;
+                margin-bottom: 0;
+            }
+
+                .image__fallback + .hsContainer__image {
+                    display: none !important;
+                }
+
+            .hsContainer {
+                height: auto !important;
+            }
+
+            .no-js-only {
+                display: inherit !important;
+            }
+
+            .icon-cart.cart-button {
+                display: none;
+            }
+
+            .lazyload,
+            .cart_page_image img {
+                opacity: 1;
+                -webkit-filter: blur(0);
+                filter: blur(0);
+            }
+
+            .bcg .hsContent {
+                background-color: transparent;
+            }
+
+            .animate_right,
+            .animate_left,
+            .animate_up,
+            .animate_down {
+                opacity: 1;
+            }
+
+            .flexslider .slides > li {
+                display: block;
+            }
+
+            .product_section .product_form {
+                opacity: 1;
+            }
+
+            .multi_select,
+            form .select {
+                display: block !important;
+            }
+
+            .swatch_options {
+                display: none;
+            }
+        </style>
+    </noscript>
+
+    <style>
+        #zakeke-container {
+            padding-top: 0px
+        }
+    </style>*@
+@*</head>
+    <div id="content_wrapper">
+        <div id="shopify-section-header" class="shopify-section header-section">
+            <div id="header" class="mm-fixed-top Fixed mobile-header mobile-sticky-header--true" data-search-enabled="true">
+                <a href="#nav" class="icon-menu" aria-haspopup="true" aria-label="Menu"><span>Menu</span></a>
+                <a href="https://www.roodyoriginals.com" title="Roody Originals" class="mobile_logo logo">
+
+                    <img src="//cdn.shopify.com/s/files/1/0749/1143/files/Design_02_PNG_410x.png?v=1549299444" alt="Roody Originals" />
+
+                </a>
+                <a href="#cart" class="icon-cart cart-button right"><span>0</span></a>
+            </div>
+            <div class="header
+            header-background--false
+            header-transparency--true
+            sticky-header--true
+              mm-fixed-top
+              header_bar
+            " data-dropdown-position="below_header">
+            </div>*@
+            <style>
+  div.promo_banner {
+    background-color: #1b1f23;
+    color: #faf3f3;
+  }
+  div.promo_banner a {
+    color: #faf3f3;
+  }
+  div.logo img {
+    width: 165px;
+    max-width: 100%;
+    max-height: 200px;
+    display: block;
+  }
+  .mm-title img {
+    max-width: 100%;
+    max-height: 60px;
+  }
+  .header div.logo a {
+    padding-top: 4px;
+    padding-bottom: 4px;
+  }
+
+    .nav ul.menu {
+      padding-top: 50px;
+    }
+  div.content {
+    padding: 115px 0px 0px 0px;
+  }
+
+  #media only screen and (max-width: 798px) {
+    div.content {
+      padding-top: 20px;
+    }
+  }
+            </style>
+        </div>
+        <div class="global-wrapper">
+            <div class="container main content main-wrapper">
+                <div class="sixteen columns page clearfix">
+                    <h1 class="center">
+                        Frequently Asked Questions
+                    </h1>
+                    <div class="feature_divider"></div>
+
+                    <div>
+
+                        @foreach (var item in Model)
+                        {
+                            <p style="width = 20"><strong>@Html.DisplayFor(modelItem => item.Name)</strong></p>
+                            <p>@Html.DisplayFor(modelItem => item.Description)</p>
+                            }
+                            
+                        </div>
+                </div>
+            </div>
+        </div>   
+    </div>
+</body>
+</html>
+    <style>
+        .center {
+            text-align:center;
+        }
+    </style>
+
+
+
+
+

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Survey.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,6 +9,7 @@ namespace Survey.Controllers
 {
     public class HomeController : Controller
     {
+        private ApplicationDbContext db = new ApplicationDbContext();
         public ActionResult Index()
         {
             return View();
@@ -25,6 +27,16 @@ namespace Survey.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+        public ActionResult FAQHome()
+        {
+
+            return View(db.FAQs.ToList());
+        }
+        public ActionResult SupportHome()
+        {
+
+            return View(db.Supports.ToList());
         }
     }
 }
