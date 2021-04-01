@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
@@ -10,6 +11,7 @@ namespace Survey.Controllers
     public class HomeController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
+
         public ActionResult Index()
         {
             return View();
@@ -28,6 +30,7 @@ namespace Survey.Controllers
 
             return View();
         }
+
         public ActionResult FAQHome()
         {
 
@@ -38,5 +41,46 @@ namespace Survey.Controllers
 
             return View(db.Supports.ToList());
         }
+
+
+
+
+        public ActionResult SurveyDetails()
+        {
+            //var survey = db.Surveys.Where(p => p.SurveyId == id).ToList();
+            //List<Question> listQuestion = db.Questions.Where(p => p.SurveyId == id).ToList();
+
+            //foreach (Question q in listQuestion)
+            //{
+            //    List<QuestionAnswer> listQuestionAnswer = db.Question_answers.Where(p => p.QuestionId == q.Id).ToList();
+            //    q.QuestionAnswers = listQuestionAnswer;
+            //    ViewBag.Answer = listQuestionAnswer;
+            //};
+            //ViewBag.Question = listQuestion;
+            //ViewBag.Survey = survey;
+
+
+
+
+
+            return View(db.Surveys.ToList());
+        }
+
+        public ActionResult Details(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            AllSurvey allSurvey = db.Surveys.Find(id);
+            if (allSurvey == null)
+            {
+                return HttpNotFound();
+            }
+            return View(allSurvey);
+        }
+
+
+
     }
 }
