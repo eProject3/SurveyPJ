@@ -40,93 +40,42 @@ namespace Survey.Controllers
         // GET: QuestionAnswers/Create
         public ActionResult Create()
         {
-            List<BigModel> ci = new List<BigModel> { new BigModel
-            {
-                AllSurvey = new AllSurvey {
-                },
-                Question = new Question {
-                },
-                QuestionAnswer = new QuestionAnswer {
-                } } };
-            ViewBag.SurveyId = new SelectList(db.Surveys, "SurveyId", "Title");
-            ViewBag.QuestionId = new SelectList(db.Questions, "Id", "Title");
-            return View(ci);
+            return View();
         }
 
         // POST: QuestionAnswers/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        public ActionResult Create(List<BigModel> bigModel)
+        public ActionResult Create(BigModel bigModels)
         {
-            using (DbContextTransaction transaction = db.Database.BeginTransaction())
+
+            // Loop and insert records.
+
+
+            foreach (var allSurvey in bigModels.AllSurvey)
             {
-                try
+                allSurvey.Status = SurveyStatus.NOT_HAPPENNING_YET;
+                allSurvey.CreateDate = DateTime.Now;
+                allSurvey.UpdateDate = DateTime.Now;
+                db.Surveys.Add(allSurvey);
+                foreach (var question in bigModels.Question)
                 {
-                    //lưu survey
-                    foreach (var i in bigModel)
+                    question.SurveyId = allSurvey.SurveyId;
+                    db.Questions.Add(question);
+
+                    foreach (var questionAnswer in bigModels.QuestionAnswer)
                     {
-                        if (i.AllSurvey != null)
-                        {
-                            i.AllSurvey.Status = SurveyStatus.NOT_HAPPENNING_YET;
-                            i.AllSurvey.CreateDate = DateTime.Now;
-                            i.AllSurvey.UpdateDate = DateTime.Now;
-                            db.Surveys.Add(i.AllSurvey);
-                        }
-
+                        questionAnswer.QuestionId = question.Id;
+                        db.Question_answers.Add(questionAnswer);
                     }
-
-
-                    db.SaveChanges();
-
-                    // Lưu câu hỏi
-                    for (var i = 0; i < bigModel.Count(); i++)
-                    {
-                        if (bigModel[i].Question != null)
-                        {
-                            if (i > 0)
-                            {
-                                bigModel[i].AllSurvey = bigModel[i - 1].AllSurvey;
-                            }
-                            bigModel[i].Question.SurveyId = bigModel[i].AllSurvey.SurveyId;
-                            db.Questions.Add(bigModel[i].Question);
-                        }
-                    }
-                    db.SaveChanges();
-
-                    // Lưu đáp án
-                    for (var i = 0; i < bigModel.Count(); i++)
-                    {
-
-                        if (bigModel[i].QuestionAnswer != null)
-                        {
-
-                            if (i > 0)
-                            {
-                                if (bigModel[i].Question == null)
-                                {
-                                    bigModel[i].Question = bigModel[i - 1].Question;
-                                }
-                            }
-
-                            bigModel[i].QuestionAnswer.QuestionId = bigModel[i].Question.Id;
-                            db.Question_answers.Add(bigModel[i].QuestionAnswer);
-
-                        }
-                    }
-                    db.SaveChanges();
-
-                    transaction.Commit();
-                    return RedirectToAction("Index");
-
                 }
-                catch (Exception ex)
-                {
-                    transaction.Rollback();
-                    Console.WriteLine(ex);
-                }
-                return null;
             }
+            db.SaveChanges();
+
+            return RedirectToAction("Index");
+
+
         }
         // GET: QuestionAnswers/Edit/5
         public ActionResult Edit(int? id)
