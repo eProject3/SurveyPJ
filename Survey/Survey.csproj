@@ -1617,6 +1617,7 @@
     <Content Include="Views\QuestionAnswers\InsertCustomers.cshtml" />
     <Content Include="Views\QuestionAnswers\Create.cshtml" />
     <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
+    <Content Include="Views\Home\SurveyDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
