@@ -1,4 +1,4 @@
-namespace Survey.Migrations
+﻿namespace Survey.Migrations
 {
     using Survey.Models;
     using System;
@@ -1187,7 +1187,6 @@ namespace Survey.Migrations
                                                                                                                                                                Answer = "No",
                                                                                                                                                            }
                                                                                              );
-
         }
     }
 }

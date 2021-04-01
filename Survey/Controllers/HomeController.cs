@@ -10,7 +10,8 @@ namespace Survey.Controllers
 {
     public class HomeController : Controller
     {
-       private ApplicationDbContext db = new ApplicationDbContext();
+        private ApplicationDbContext db = new ApplicationDbContext();
+
         public ActionResult Index()
         {
             return View();
@@ -29,6 +30,18 @@ namespace Survey.Controllers
 
             return View();
         }
+
+        public ActionResult FAQHome()
+        {
+
+            return View(db.FAQs.ToList());
+        }
+        public ActionResult SupportHome()
+        {
+
+            return View(db.Supports.ToList());
+        }
+
 
 
 
@@ -66,6 +79,7 @@ namespace Survey.Controllers
             }
             return View(allSurvey);
         }
+
 
 
     }
