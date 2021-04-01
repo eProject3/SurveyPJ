@@ -6,209 +6,295 @@
     int k = 0;
 }
 
-
-<h1>
-    Create online survey
-</h1>
-
-
-@using (Html.BeginForm())
-{
-    <div class="field">
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            <div class="tabs">
-                <h1>
-                    Create a title for the survey
-                </h1>
-
-
-                <div class="col-md-6">
-                    @Html.EditorFor(x => x[k].AllSurvey.Title, new { htmlAttributes = new { @class = "form-control", placeholder = Html.DisplayNameFor(x => x[k].AllSurvey.Title) } })
-                    @Html.ValidationMessageFor(x => x[k].AllSurvey.Title, "", new { @class = "text-danger" })
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <!--begin::Card-->
+            <div class="card card-custom gutter-b example example-compact">
+                <div class="card-header">
+                    <h3 class="card-title">Create new online survey</h3>
                 </div>
-                <div class="col-md-6">
-                    @Html.EditorFor(x => x[k].AllSurvey.Description, new { htmlAttributes = new { @class = "form-control", placeholder = Html.DisplayNameFor(x => x[k].AllSurvey.Description) } })
-                    @Html.ValidationMessageFor(x => x[k].AllSurvey.Description, "", new { @class = "text-danger" })
-                </div>
-
-
-            </div>
-        </div>
-        <h1>
-            Create sample questions and answers
-        </h1>
-
-        <div class="accordion" id="addresses">
-            <div class="card" id="address0">
-                <div class="card-header" id="heading0">
-                    <h2 class="mb-0">
-                        <button class="cauhoi btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                            Câu hỏi 1
-                        </button>
-                    </h2>
-                </div>
-
-                <div id="collapse0" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                <!--begin::Form-->
+                <form>
                     <div class="card-body">
-                        @if (Model != null && Model.Count > 0)
-                        {
-                            int j = 0;
-                            foreach (var i in Model)
-                            {
-                        <div>
-                            <div class="col-md-10">@Html.EditorFor(a => a[j].Question.Title, new { htmlAttributes = new { @class = "form-control", placeholder = "Title" } })</div>
-                            <div class="col-md-10">@Html.EditorFor(a => a[j].Question.Type, new { htmlAttributes = new { @class = "form-control", placeholder = "Type" } })</div>
-                            <div class="col-md-10">@Html.EditorFor(a => a[j].Question.Description, new { htmlAttributes = new { @class = "form-control", placeholder = "Description" } })</div>
-                            <div class="answer" id="answeress">
-                                <div class="ans" id="answere0">
-                                    <div>
-                                        Câu trả lời
-                                    </div>
-                                    <div class="body-Ans">
-                                        
-                                     <div class="col-md-10">@Html.EditorFor(a => a[j].QuestionAnswer.Answer, new { htmlAttributes = new { @class = "form-control", placeholder = "Answer" } })</div>
-
-                                    </div>
-                                </div>
-                                <div class="addansweradd">
-                                    <button type="button" class="addanswer btn btn-danger">Thêm câu trả lời</button>
-                                </div>
-                            </div>
+                        <div class="form-group">
+                            <label>
+                                Name
+                                <span class="text-danger">*</span>
+                            </label>
+                            <input id="survey-name" type="text" class="form-control" placeholder="Enter survey name">
                         </div>
-                                j++;
-                            }
-                        }
 
-                        <hr />
-
+                        <div class="form-group mb-1">
+                            <label for="exampleTextarea">
+                                Description
+                                <span class="text-danger">*</span>
+                            </label>
+                            <textarea class="form-control" id="survey-description" rows="3"></textarea>
+                        </div>
+                        <!--begin: Code-->
 
                     </div>
-                </div>
-                <hr />
-                <div class="addmoreadd">
-                    <button type="button" class="addmore btn btn-danger">Thêm Câu hỏi</button>
-                </div>
+                </form>
+                <!--end::Form-->
+            </div>
 
+        </div>
+
+    </div>
+    <div class="row" id="list-question">
+        <div class="col-md-12">
+            <!--begin::Card-->
+            <div class="card card-custom gutter-b example example-compact">
+                <div class="card-header">
+                    <h3 class="card-title">Question 1</h3>
+                </div>
+                <!--begin::Form-->
+                <form>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label>
+                                Title
+                                <span class="text-danger">*</span>
+                            </label>
+                            <input type="text" class="form-control title-question" placeholder="Enter question name">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleSelect1">
+                                Question type
+                                <span class="text-danger">*</span>
+                            </label>
+                            <select class="form-control type-question">
+                                <option value="">---Please choose type of question---</option>
+                                <option value="1">Yes no question</option>
+                                <option value="2">Check true</option>
+                            </select>
+                        </div>
+                        <div class="form-group mb-1">
+                            <label for="exampleTextarea">
+                                Description
+                                <span class="text-danger">*</span>
+                            </label>
+                            <textarea class="form-control des-question" rows="3"></textarea>
+                        </div>
+                        <!--begin: Code-->
+                        <div class="form-group mb-1">
+
+                            <div class="mt-2 text-right">
+                                <a href="#" class="mr-3 add-more-answer">Add answer</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+                <!--end::Form-->
             </div>
         </div>
 
     </div>
-
-
-
-
-
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Create" class="btn btn-success" />
+    <div class="row">
+        <div class="col-md-12 text-right">
+            <a href="" class="mr-5" id="add-more-question">Add more question</a>
         </div>
     </div>
-
-
-
-
-
-}
-
-
-
-
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
+    <div class="row mt-5">
+        <div class="col-md-12 text-right">
+            <button type="reset" class="btn btn-primary mr-2 " id="btnSave">Submit</button>
+            <button type="reset" class="btn btn-secondary">Cancel</button>
+        </div>
+    </div>
 </div>
-
 
 @section Scripts{
     @Scripts.Render("~/bundles/jqueryval")
     <script language="javascript">
-        
-        $(document).ready(function () {
-            // function add
-            var rowNum = 0;
-            var colNum = 0
-            $("body").on("click", ".addmore", function (e) {
+        document.addEventListener("DOMContentLoaded", function () {
+            var count = 1;
+            $("#add-more-question").click(function (e) {
                 e.preventDefault();
-                rowNum++;
-                colNum++;
-                var $address = $(this).parents('.card');
-                var nextHtml = $address.clone();
+                count++;
+                $("#list-question").append(`
+                                <div class="col-md-12">
+                                    <!--begin::Card-->
+                                    <div class="card card-custom gutter-b example example-compact">
+                                        <div class="card-header">
+                                            <h3 class="card-title">Question ${count}</h3>
+                                        </div>
+                                        <!--begin::Form-->
+                                        <form>
+                                            <div class="card-body">
+                                                <div class="form-group">
+                                                    <label>
+                                                        Title
+                                                        <span class="text-danger">*</span>
+                                                    </label>
+                                                    <input type="text" class="form-control title-question" placeholder="Enter question name">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="exampleSelect1">
+                                                        Question type
+                                                        <span class="text-danger">*</span>
+                                                    </label>
+                                                    <select class="form-control type-question" >
+                                        <option value="">---Please choose type of question---</option>
+                                        <option value="1">Yes no question</option>
+                                        <option value="2">Check true</option>
+                                    </select>
+                                </div>
+                                <div class="form-group mb-1">
+                                    <label for="exampleTextarea">
+                                        Description
+                                        <span class="text-danger">*</span>
+                                    </label>
+                                    <textarea class="form-control des-question" rows="3"></textarea>
+                                                </div>
+                                                <!--begin: Code-->
+                                                <div class="form-group mb-1">
+                                                    <div class="mt-2 text-right">
+                                                        <a href="#" class="mr-3 add-more-answer">Add answer</a>
+                                                    </div>
+                                                </div>
+                                            </div>
 
-                nextHtml.attr('id', 'address' + rowNum);
-            
-                var suffix = nextHtml.find('.card-body').find(':input:first').attr('name').match(/\d+/);
-                $.each(nextHtml.find('.card-body').find(':input'), function (i, val) {
-                    // Replaced Name
-                    var oldN = $(this).attr('name');
-                    if (oldN != null) {
-                        var newN = oldN.replace('[' + suffix + ']', '[' + (colNum) + ']');
-                        $(this).attr('name', newN);
-                        console.log(newN);
-                        //Replaced value
-                        var type = $(this).attr('type');
-                        if (type.toLowerCase() == "text") {
-                            $(this).attr('value', '');
-                        }
-                    }
-                   
-                });
-                var hasRmBtn = $('.rmbtn', nextHtml).length > 0;
-                if (!hasRmBtn) {
-                    var rm = "<button type='button' class='rmbtn btn btn-warning'>Remove</button>"
-                    $('.addmoreadd', nextHtml).append(rm);
-                }
-                $address.after(nextHtml);
+                                        </form>
+                                        <!--end::Form-->
+                                    </div>
+                                </div>
+                            `);
+                $("html, body").animate({ scrollTop: $(document).height() }, "slow");
             });
-            // function remove 
-            $("body").on("click", ".rmbtn", function () {
-                $(this).parents('.card').remove();
-            });
-        });
 
-
-
-        $(document).ready(function () {
-            // function add
-            var rowAns = 0;
-            var col = 0
-            $("body").on("click", ".addanswer", function (e) {
+            $("body").on("click", ".add-more-answer", function (e) {
                 e.preventDefault();
-                rowAns++;
-                col++;
-                var $addAns = $(this).parents('.answer');
-                var nextHtmlAns = $addAns.clone();
+                var nearestFormGroup = $(this).parent().parent();
+                var tableAnswerLength = nearestFormGroup.find("table tbody").length;
+                if (tableAnswerLength == 0) {
+                    nearestFormGroup.prepend(`
+                                    <table class="table answer-table">
+                                        <thead>
+                                            <tr>
+                                                <th class="w-25" scope="col">Number</th>
+                                                <th scope="col">Answer Content</th>
+                                                <th scope="col">Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+                                    </table>
+                                `);
+                }
+                var tableBody = nearestFormGroup.find("table tbody");
+                tableBody.append(`
+                                 <tr>
+                                    <th scope="row"></th>
+                                    <td>
+                                        <input type="text" class="form-control w-75"/>
+                                    </td>
+                                    <td>
+                                        <a href="#" class="mr-3 save-answer">Save</a>
+                                        <a href="#" class="remove-answer">Delete</a>
+                                    </td>
+                                </tr>
+                            `);
+            });
+            // function click delete answe
+            $("body").on("click", ".remove-answer", function (e) {
+                e.preventDefault();
+                $(this).parent().parent().remove();
+                // dem lai so luong cau hoi, update stt.
 
-                nextHtmlAns.attr('id', 'answere' + rowAns);
+            });
+
+            // function click save answer
+            $("body").on("click", ".save-answer", function (e) {
+                e.preventDefault();
+                var tr = $(this).parent().parent();
+                var countTr = tr.parent().find("tr").length; // tinh so tr cua table gan nhat
+                var inputVal = tr.find("input").val();
+                tr.html(`
+                                    <th scope="row">${countTr}</th>
+                                    <td class ="answer-content">
+                                        ${inputVal}
+                                    </td>
+                                    <td>
+                                        <a href="#" class="mr-3 save-answer">Save</a>
+                                        <a href="#" class="remove-answer">Delete</a>
+                                    </td>
+                            `);
+            });
 
 
-                var sufAns = nextHtmlAns.find('.body-Ans').find(':input:last').attr('name').match(/\d+/);
-                $.each(nextHtmlAns.find('.body-Ans').find(':input'), function (i, val) {
-                    // Replaced Name
-                    var oldNS = $(this).attr('name');
-                    if (oldNS != null) {
-                        var newNS = oldNS.replace('[' + sufAns + ']', '[' + (col) + ']');
-                        $(this).attr('name', newNS);
-                        console.log(newNS);
-                        //Replaced value
-                        var type = $(this).attr('type');
-                        if (type.toLowerCase() == "text") {
-                            $(this).attr('value', '');
-                        }
+            //function click submit
+            $("body").on("click", "#btnSave", function () {
+                //Loop through the Table rows and build a JSON array.
+                $scanQuestion = $("#list-question").find(".card-body");
+                $scanQuestionTitle = $scanQuestion.parent().parent().find(".title-question").length;
+                $scanAnswers = $scanQuestion.parent().parent().find(".answer-content").length;
+
+
+                var allSurveys = new Array();
+                var questions = new Array();
+                var answers = new Array();
+
+                var allSurvey = {};
+                allSurvey.Title = $("#survey-name").val();
+                allSurvey.Description = $("#survey-description").val();
+                allSurveys.push(allSurvey);
+
+
+                for (var i = 0; i < $scanQuestionTitle; i++) {
+                    var question = {};
+                    question.Title = $scanQuestion.parent().parent().find(".title-question").eq(i).val();
+                    question.Type = $scanQuestion.parent().parent().find(".type-question").eq(i).val();
+                    question.Description = $scanQuestion.parent().parent().find(".des-question").eq(i).val();
+                    question.Answer = answers;
+                    questions.push(question);
+
+                }
+                for (var j = 0; j < $scanAnswers; j++) {
+                    var answer = {};
+                    answer.Answer = $scanQuestion.parent().parent().find(".answer-content").eq(j).text();
+                    answers.push(answer);
+                }
+
+
+                var bigModels = {
+                    "AllSurvey": allSurveys,
+                    "Question": questions,
+                };
+
+                console.log(bigModels);
+                $.ajax({
+                    type: "POST",
+                    url: "/QuestionAnswers/Create",
+                    data: JSON.stringify(bigModels),
+                    //data: JSON.stringify(questions),
+                    contentType: "application/json; charset=utf-8",
+                    success: function () {
+                        location.reload();
+                    },
+                    error: function () {
+                        alert(1);
+
                     }
-
                 });
 
-                var hasRmBtnAns = $('.rmbtnans', nextHtmlAns).length > 0;
-                if (!hasRmBtnAns) {
-                    var rms = "<button type='button' class='rmbtnans btn btn-warning'>Remove</button>"
-                    $('.addansweradd', nextHtmlAns).append(rms);
-                }
-                $addAns.after(nextHtmlAns);
-            });
-            // function remove 
-            $("body").on("click", ".rmbtnans", function () {
-                $(this).parents('.answer').remove();
+
+
+                //$("#list-question").each(function () {
+
+                //    for (var i = 0; i < 3; i++) {
+                //        var answer = {};
+                //        answer.Title = "Đáp án " + i,
+                //            answers.push(answer);
+                //    }
+                //});
+
+
+
+
+
+
             });
         });
     </script>
