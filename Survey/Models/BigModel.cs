@@ -7,8 +7,8 @@ namespace Survey.Models
 {
     public class BigModel
     {
-        public AllSurvey AllSurvey { get; set; }
-        public Question Question { get; set; }
-        public QuestionAnswer QuestionAnswer { get; set; }
+        public List<AllSurvey> AllSurvey { get; set; }
+        public List<Question> Question { get; set; }
+        public List<QuestionAnswer> QuestionAnswer { get; set; }
     }
 }
