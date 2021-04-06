@@ -50,6 +50,7 @@ namespace Survey.Controllers
         public ActionResult Create(BigModel bigModels)
         {
 
+
             // Loop and insert records.
 
 
@@ -59,17 +60,45 @@ namespace Survey.Controllers
                 allSurvey.CreateDate = DateTime.Now;
                 allSurvey.UpdateDate = DateTime.Now;
                 db.Surveys.Add(allSurvey);
-                foreach (var question in bigModels.Question)
-                {
-                    question.SurveyId = allSurvey.SurveyId;
-                    db.Questions.Add(question);
+                db.SaveChanges();
+                int newIdSurvey = db.Surveys.Max(s => s.SurveyId);
+                int newIdQuest = db.Questions.Max(q => q.Id);
+                string titleTemp;
 
-                    foreach (var questionAnswer in bigModels.QuestionAnswer)
+                for (int i = 0; i < bigModels.Question.Count; i++)
+                {
+                    bigModels.Question[i].SurveyId = newIdSurvey;
+                    db.Questions.Add(bigModels.Question[i]);
+                    db.SaveChanges();
+                    if(bigModels.Question[i].Type == 4)
                     {
-                        questionAnswer.QuestionId = question.Id;
-                        db.Question_answers.Add(questionAnswer);
+                        QaTemp q = new QaTemp();
+                        q.Answer = "other";
+                        q.Title = bigModels.Question[i].Title;
+                        bigModels.QaTemps.Add(q);
                     }
+                    //idQuest = question.Id;
+                    if (i == bigModels.Question.Count - 1)
+                    {
+                        titleTemp = bigModels.Question[i].Title;
+                        foreach (var qaTemp in bigModels.QaTemps)
+                        {
+                            QuestionAnswer questionAnswer = new QuestionAnswer();
+                            if (!qaTemp.Title.Equals(titleTemp))
+                            {
+                                titleTemp = qaTemp.Title;
+                                newIdQuest++;
+                            }
+                            questionAnswer.Answer = qaTemp.Answer;
+                            questionAnswer.QuestionId = newIdQuest;
+                            questionAnswer.Answer = qaTemp.Answer;
+                            db.Question_answers.Add(questionAnswer);
+                            //bigModels.QaTemps.Remove(qaTemp);
+                        }
+                    }
+
                 }
+
             }
             db.SaveChanges();
 

@@ -10,5 +10,6 @@ namespace Survey.Models
         public List<AllSurvey> AllSurvey { get; set; }
         public List<Question> Question { get; set; }
         public List<QuestionAnswer> QuestionAnswer { get; set; }
+        public List<QaTemp> QaTemps { get; set; }
     }
 }
