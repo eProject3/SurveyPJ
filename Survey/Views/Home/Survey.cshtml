@@ -1,14 +1,12 @@
 ﻿@model IEnumerable<Survey.Models.AllSurvey>
 
 @{
-    ViewBag.Title = "SurveyDetails";
+    ViewBag.Title = "Survey";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
 }
 
-<h2>SurveyDetails</h2>
+<h2>Survey</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
     <tr>
         <th>
@@ -23,10 +21,6 @@
         <th>
             @Html.DisplayNameFor(model => model.Description)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Status)
-        </th>
-        
         <th></th>
     </tr>
 
@@ -45,13 +39,9 @@
             @Html.DisplayFor(modelItem => item.Description)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Status)
-        </td>
-        
-        <td>
-           
-            @Html.ActionLink("Details", "Details", new { id=item.SurveyId })
-                
+          
+            @Html.ActionLink("Details", "Details", new { id=item.SurveyId }) 
+          
         </td>
     </tr>
 }

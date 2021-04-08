@@ -1,4 +1,4 @@
-namespace Survey.Migrations
+﻿namespace Survey.Migrations
 {
     using System;
     using System.Data.Entity.Migrations;

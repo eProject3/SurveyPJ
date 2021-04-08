@@ -42,29 +42,11 @@ namespace Survey.Controllers
             return View(db.Supports.ToList());
         }
 
-
-
-
-        public ActionResult SurveyDetails()
+        public ActionResult Survey()
         {
-            //var survey = db.Surveys.Where(p => p.SurveyId == id).ToList();
-            //List<Question> listQuestion = db.Questions.Where(p => p.SurveyId == id).ToList();
-
-            //foreach (Question q in listQuestion)
-            //{
-            //    List<QuestionAnswer> listQuestionAnswer = db.Question_answers.Where(p => p.QuestionId == q.Id).ToList();
-            //    q.QuestionAnswers = listQuestionAnswer;
-            //    ViewBag.Answer = listQuestionAnswer;
-            //};
-            //ViewBag.Question = listQuestion;
-            //ViewBag.Survey = survey;
-
-
-
-
-
             return View(db.Surveys.ToList());
         }
+
 
         public ActionResult Details(int? id)
         {

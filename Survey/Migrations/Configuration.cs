@@ -217,7 +217,7 @@
                                SurveyId = 2,
                                Title = "Question 8",
                                Description = "Having students pick up litter at school stops them from dropping litter themselves. Do you agree or disagree with this statement?",
-                               Type = 1,
+                               Type = 3,
                            },
                             new Question()
                             {
@@ -225,7 +225,7 @@
                                 SurveyId = 2,
                                 Title = "Question 9",
                                 Description = "Who do you think should pick up litter at your school? (Choose one or more)",
-                                Type = 1,
+                                Type = 3,
                             },
                               //Survey 3
                               new Question()
@@ -817,10 +817,17 @@
                                                                                           new QuestionAnswer()
                                                                                           {
                                                                                               QuestionId = 20,
-                                                                                              QuestionAnswerId = 65,
+                                                                                              QuestionAnswerId = 1000,
                                                                                               Answer = "Disagree",
 
                                                                                           },
+                                                                                           new QuestionAnswer()
+                                                                                           {
+                                                                                               QuestionId = 20,
+                                                                                               QuestionAnswerId = 65,
+                                                                                               Answer = "Other",
+
+                                                                                           },
                                                                                           new QuestionAnswer()
                                                                                           {
                                                                                               QuestionId = 21,
