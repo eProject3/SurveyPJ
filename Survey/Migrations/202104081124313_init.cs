@@ -11,20 +11,20 @@
                 "dbo.Account_answers",
                 c => new
                     {
-                        Id = c.String(nullable: false, maxLength: 128),
+                        AccountAnswerId = c.Int(nullable: false, identity: true),
                         SurveyId = c.Int(nullable: false),
+                        Id = c.String(maxLength: 128),
                         QuestionAnswerId = c.Int(nullable: false),
                         Status = c.Int(nullable: false),
                         Description = c.Int(nullable: false),
-                        ApplicationUser_Id = c.String(maxLength: 128),
                     })
-                .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.AspNetUsers", t => t.ApplicationUser_Id)
+                .PrimaryKey(t => t.AccountAnswerId)
+                .ForeignKey("dbo.AspNetUsers", t => t.Id)
                 .ForeignKey("dbo.Question_answers", t => t.QuestionAnswerId, cascadeDelete: true)
                 .ForeignKey("dbo.AllSurveys", t => t.SurveyId, cascadeDelete: true)
                 .Index(t => t.SurveyId)
-                .Index(t => t.QuestionAnswerId)
-                .Index(t => t.ApplicationUser_Id);
+                .Index(t => t.Id)
+                .Index(t => t.QuestionAnswerId);
             
             CreateTable(
                 "dbo.AspNetUsers",
@@ -188,7 +188,7 @@
             DropForeignKey("dbo.AspNetUserRoles", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
-            DropForeignKey("dbo.Account_answers", "ApplicationUser_Id", "dbo.AspNetUsers");
+            DropForeignKey("dbo.Account_answers", "Id", "dbo.AspNetUsers");
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
             DropIndex("dbo.Questions", new[] { "SurveyId" });
             DropIndex("dbo.Question_answers", new[] { "QuestionId" });
@@ -197,8 +197,8 @@
             DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
             DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
             DropIndex("dbo.AspNetUsers", "UserNameIndex");
-            DropIndex("dbo.Account_answers", new[] { "ApplicationUser_Id" });
             DropIndex("dbo.Account_answers", new[] { "QuestionAnswerId" });
+            DropIndex("dbo.Account_answers", new[] { "Id" });
             DropIndex("dbo.Account_answers", new[] { "SurveyId" });
             DropTable("dbo.Supports");
             DropTable("dbo.AspNetRoles");

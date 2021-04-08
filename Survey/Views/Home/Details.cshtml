@@ -1,0 +1,261 @@
+﻿@model Survey.Models.AllSurvey
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+}
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+      rel="stylesheet" />
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+      rel="stylesheet" />
+<!-- MDB -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.css"
+      rel="stylesheet" />   
+<style>
+    th {
+        padding: 5px;
+    }
+
+    div.container-fluid {
+    }
+
+    
+</style>
+<div class="container-fluid">
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+    </dl>
+
+
+
+    @*<form action="/" method="post" id="surveyForm">
+       
+        @foreach (var item in Model.Questions)
+        {<table>
+                <tr>
+                    <th>
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </th>
+                    <th>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </th>
+                </tr>
+
+            </table>
+            if (item.Type == 0)
+            {
+
+
+                <p><input type="radio" name="@item.Id" value="Yes" /> Yes</p>
+                <p><input type="radio" name="@item.Id" value="No" /> No</p>
+            }
+            if (item.Type == 1)
+            {
+                foreach (var i in item.QuestionAnswers)
+                {
+                    <p>
+                        <input type="radio" name="@item.Id" value="@i.Answer" /> @Html.DisplayFor(modelItem => i.Answer)
+                    </p>
+                }
+            }
+            if (item.Type == 2)
+            {
+                foreach (var i in item.QuestionAnswers)
+                {
+                    <p>
+                        <input type="checkbox" name="@item.Id" value="@i.Answer" /> @Html.DisplayFor(modelItem => i.Answer)
+                    </p>
+                }
+
+            }
+            if (item.Type == 3)
+            {
+                foreach (var i in item.QuestionAnswers)
+                {
+                    <p>
+                        <input type="radio" name="@item.Id" value="@i.Answer" /> @Html.DisplayFor(modelItem => i.Answer)
+                    </p>
+                    if (i.Answer == "Other")
+                    {
+                        <input style="display:none;" type="text" id="@item.Id" name="@item.Id" />
+                    }
+                }
+
+
+
+
+            }
+            if (item.Type == 4)
+            {
+                <textarea rows="4" cols="10" placeholder="Enter Answer..." name="@item.Id" form="surveyForm" />
+
+
+
+
+            }
+        }
+
+    </form>*@
+    <form action="/" method="post" id="surveyForm">
+        <div class="container mt-5">
+            <div class="row"><div class="col-md-12 border border-light">
+    <h4 class="font-weight-bold text-center mt-3">Quick survey</h4>
+
+    @foreach (var item in Model.Questions)
+    {
+
+        <hr />
+
+        <p class="fw-bolder " style="margin-left:-50px"><i class="fas fa-caret-right"></i>  @Html.DisplayFor(modelItem => item.Title):</p>
+
+
+        <p class="fs-5" style="margin-left:-16px">  @Html.DisplayFor(modelItem => item.Description)</p>
+
+
+
+        if (item.Type == 0)
+        {
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="@item.Id" id="radio1" value="Yes" />
+                <label class="form-check-label" for="radio1">Yes</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="@item.Id" id="radio2" value="No" />
+                <label class="form-check-label" for="radio2">No</label>
+            </div>
+
+        }
+
+        if (item.Type == 1)
+        {
+
+            foreach (var i in item.QuestionAnswers)
+            {
+                <div class="form-check mb-4">
+                    <input class="form-check-input" name="@item.Id" type="radio" id="radio" value="@i.Answer">
+                    <label class="form-check-label" for="radio">@Html.DisplayFor(modelItem => i.Answer)</label>
+                </div>
+
+            }
+        }
+        if (item.Type == 2)
+        {
+            foreach (var i in item.QuestionAnswers)
+            {
+                <div class="form-check mb-4 ">
+                    <input class="form-check-input" id="flexCheckChecked" type="checkbox" name="@item.Id" value="@i.Answer" /> @Html.DisplayFor(modelItem => i.Answer)
+
+                </div>
+            }
+
+        }
+        if (item.Type == 3)
+        {
+            foreach (var i in item.QuestionAnswers)
+            {
+                <div class="form-check mb-4">
+                    <input class="form-check-input" name="@item.Id" type="radio" id="radio" value="@i.Answer">
+                    <label class="form-check-label" for="radio">@Html.DisplayFor(modelItem => i.Answer)</label>
+                </div>
+                if (i.Answer == "Other")
+                {
+                   
+                        <input style="display:none;" type="text" id="@item.Id" class="form-control" name="@item.Id"/>
+                       
+                  
+                }
+            }
+        }
+        if (item.Type == 4)
+        {
+            <textarea rows="4" cols="10" placeholder="Enter Answer..." name="@item.Id" form="surveyForm" />
+
+
+
+
+        }
+    }
+</div>
+            </div>
+     
+        </div>
+        
+        <div class="survey-footer clearfix">
+            <a type="button" class="btn btn-primary waves-effect waves-light" style="color:white">
+                Send
+                <i class="fa fa-paper-plane ml-1"></i>
+            </a>
+
+        </div>
+    </form>
+
+
+
+            
+            <!-- Radio -->
+
+          
+            
+        </div>
+
+
+
+</div>
+<p>
+
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+
+
+        $("input[type='radio']").change(function () {
+            if ($(this).val() == "Other") {
+                window.othername = $(this).attr("name");
+                $("#" + window.othername + "").show();
+            }
+            else {
+                $(":input[type='radio'][name=" + window.othername + "]").on("click", function () {
+                    $("#" + window.othername + "").hide();
+                }
+                )
+
+            }
+            //else {
+            //    $("#otherAnswer").hide();
+            //}
+        });
+    });
+        //$("input").on("click", function () {
+        //    if ($("input:checked").val() == "Other") {
+        //        if ($("input:checked").val() != "Other") {
+        //            $("#" + $(this).attr("name") + "").prop('disabled', true);
+        //        }
+        //        $("#" + $(this).attr("name") + "").css({ "display": "block" });
+
+        //    }
+
+
+            //$(":input[value=Other]").on("click", function () {
+            //    e.preventDefault();
+            //    nameother = this.attr("name");
+            //    alert(1);
+            //    $("input[name=" + nameother + "]").removeAttr("style");
+            //});
+        //}
+        //)
+
+
+
+</script>
