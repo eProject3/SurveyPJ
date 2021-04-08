@@ -185,9 +185,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202103261343166_init.cs" />
-    <Compile Include="Migrations\202103261343166_init.Designer.cs">
-      <DependentUpon>202103261343166_init.cs</DependentUpon>
+    <Compile Include="Migrations\202104061433007_init.cs" />
+    <Compile Include="Migrations\202104061433007_init.designer.cs">
+      <DependentUpon>202104061433007_init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -1853,6 +1853,7 @@
     <Content Include="html\css\html\css\slick.css" />
     <Content Include="html\css\html\css\slicknav.css" />
     <Content Include="html\css\html\css\style.css" />
+    <Content Include="html\css\html\css\StyleSheet1.css" />
     <Content Include="html\css\html\css\themify-icons.css" />
     <Content Include="html\css\html\fonts\fa-brands-400.svg" />
     <Content Include="html\css\html\fonts\fa-regular-400.svg" />
@@ -2633,6 +2634,7 @@
     <Content Include="Views\QuestionAnswers\Create.cshtml" />
     <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
     <Content Include="Views\Home\SurveyDetails.cshtml" />
+    <Content Include="Views\Account\WaitAccount.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -2651,8 +2653,8 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202103261343166_init.resx">
-      <DependentUpon>202103261343166_init.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202104061433007_init.resx">
+      <DependentUpon>202104061433007_init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
