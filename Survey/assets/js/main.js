@@ -1,59 +1,166 @@
+/*  ---------------------------------------------------
+    Template Name: Zogin
+    Description:  Phozogy Yoga HTML Template
+    Author: Colorlib
+    Author URI: https://colorlib.com
+    Version: 1.0
+    Created: Colorlib
+---------------------------------------------------------  */
+
+'use strict';
 
 (function ($) {
-    "use strict";
 
-
-
-  
-  
-    /*==================================================================
-    [ Validate ]*/
-    var input = $('.validate-input .input100');
-
-    $('.validate-form').on('submit',function(){
-        var check = true;
-
-        for(var i=0; i<input.length; i++) {
-            if(validate(input[i]) == false){
-                showValidate(input[i]);
-                check=false;
-            }
-        }
-
-        return check;
+    /*------------------
+        Preloader
+    --------------------*/
+    $(window).on('load', function () {
+        $(".loader").fadeOut();
+        $("#preloder").delay(200).fadeOut("slow");
     });
 
+    /*------------------
+        Background Set
+    --------------------*/
+    $('.set-bg').each(function () {
+        var bg = $(this).data('setbg');
+        $(this).css('background-image', 'url(' + bg + ')');
+    });
 
-    $('.validate-form .input100').each(function(){
-        $(this).focus(function(){
-           hideValidate(this);
+    //Canvas Menu
+    $(".canvas__open").on('click', function () {
+        $(".offcanvas-menu").addClass("show-offcanvas-menu");
+        $(".offcanvas-menu-overlay").addClass("active");
+        $("body").addClass("over-hid");
+    });
+
+    $(".offcanvas-menu-overlay").on('click', function () {
+        $(".offcanvas-menu").removeClass("show-offcanvas-menu");
+        $(".offcanvas-menu-overlay").removeClass("active");
+        $("body").removeClass("over-hid");
+    });
+
+    /*------------------
+		Navigation
+	--------------------*/
+    $(".mobile-menu").slicknav({
+        prependTo: '#mobile-menu-wrap',
+        allowParentLinks: true
+    });
+
+    /*------------------
+        Hero Slider
+    --------------------*/
+    var hero_s = $(".hero__sliders");
+    hero_s.owlCarousel({
+        loop: true,
+        margin: 0,
+        items: 1,
+        dots: false,
+        nav: true,
+        navText: ["<span class='arrow_left'><span/>", "<span class='arrow_right'><span/>"],
+        animateOut: 'fadeOut',
+        animateIn: 'fadeIn',
+        smartSpeed: 1200,
+        autoHeight: false,
+        autoplay: true
+    });
+
+    /*--------------------------
+    Testimonial Slider
+    ----------------------------*/
+    var testimonialSlider = $(".testimonial__slider");
+    testimonialSlider.owlCarousel({
+        loop: true,
+        margin: 0,
+        items: 1,
+        dots: true,
+        smartSpeed: 1200,
+        autoHeight: false,
+        autoplay: false
+    });
+
+    /*-----------------------------
+        Team Slider
+    -------------------------------*/
+    $(".team__slider").owlCarousel({
+        loop: true,
+        margin: 0,
+        items: 2,
+        dots: false,
+        nav: true,
+        navText: ["<span class='arrow_left'><span/>", "<span class='arrow_right'><span/>"],
+        smartSpeed: 1200,
+        autoHeight: false,
+        autoplay: true,
+        responsive: {
+
+            320: {
+                items: 1
+            },
+            768: {
+                items: 2
+            }
+        }
+    });
+
+    /*--------------------------
+        Select
+    ----------------------------*/
+    $(".class-select").niceSelect();
+    $("select").niceSelect();
+
+    /*------------------
+        Accordin Active
+    --------------------*/
+    $('.collapse').on('shown.bs.collapse', function () {
+        $(this).prev().addClass('active');
+    });
+
+    $('.collapse').on('hidden.bs.collapse', function () {
+        $(this).prev().removeClass('active');
+    });
+
+    /*------------------
+		Pricing
+    --------------------*/
+    $(".pricing__item").mouseover(function () {
+        $(".pricing__item").removeClass('active');
+        $(this).addClass('active');
+    });
+
+    /*------------------
+		Barfiller
+	--------------------*/
+    //$('#bar1').barfiller({
+    //    barColor: "#5768AD",
+    //});
+
+    //$('#bar2').barfiller({
+    //    barColor: "#5768AD",
+    //});
+
+    //$('#bar3').barfiller({
+    //    barColor: "#5768AD",
+    //});
+
+    //$('#bar4').barfiller({
+    //    barColor: "#5768AD",
+    //});
+
+    /*------------------
+        Counter Up
+    --------------------*/
+    $('.choose-counter').each(function () {
+        $(this).prop('Counter', 0).animate({
+            Counter: $(this).text()
+        }, {
+            duration: 4000,
+            easing: 'swing',
+            step: function (now) {
+                $(this).text(Math.ceil(now));
+            }
         });
     });
-
-    function validate (input) {
-        if($(input).attr('type') == 'email' || $(input).attr('name') == 'email') {
-            if($(input).val().trim().match(/^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{1,5}|[0-9]{1,3})(\]?)$/) == null) {
-                return false;
-            }
-        }
-        else {
-            if($(input).val().trim() == ''){
-                return false;
-            }
-        }
-    }
-
-    function showValidate(input) {
-        var thisAlert = $(input).parent();
-
-        $(thisAlert).addClass('alert-validate');
-    }
-
-    function hideValidate(input) {
-        var thisAlert = $(input).parent();
-
-        $(thisAlert).removeClass('alert-validate');
-    }
-    
 
 })(jQuery);

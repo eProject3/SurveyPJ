@@ -33,21 +33,20 @@
 	@import 'overlay';
 	@import 'common';
 	@import 'color';
-	@import 'extra';
-	@import 'animation';
 
+	
 // Homepage1
+	@import 'headerMenu';
 	@import 'h1-hero';
-	@import 'our-story';
+	@import 'visit-tailor';
+	@import 'about';
 	@import 'services_section';
-	@import 'count_down';
-	@import 'gallery';
-	@import 'gallery_2';
-	@import 'gift';
-	@import 'h1-contact';
+	@import 'cases';
+	@import 'featured-Jobs';
+	@import 'footer';
 
 // inner Page
-	@import 'services';
+	@import 'pagination';
 
 // Default Element Page
 	@import 'blog_page';

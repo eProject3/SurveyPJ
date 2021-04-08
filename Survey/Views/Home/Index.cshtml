@@ -3,450 +3,639 @@
     ViewBag.Title = "Home Page";
     Layout = "~/Views/Shared/_LayoutHome.cshtml";
 }
-<main>
-    <!--? Slider Area Start-->
-    <div class="slider-area">
-        <div class="slider-active">
-            <!-- Single Slider -->
-            <div class="single-slider slider-height hero-overly d-flex align-items-center">
-                <div class="container">
-                    <div class="row d-flex align-items-center">
-                        <div class="col-xl-8 col-lg-6 col-md-8 ">
-                            <div class="hero__caption">
-                                <span data-animation="fadeInLeft" data-delay=".3s">january 23</span>
-                                <h1 data-animation="fadeInLeft" data-delay=".5s" data-duration="2000ms">Dennis<strong> & </strong> Judith</h1>
-                                <p data-animation="fadeInLeft" data-delay=".9s">will get married</p>
-                            </div>
-                        </div>
-                    </div>
+<main id="main">
+
+    <!-- ======= About Section ======= -->
+    <section id="about">
+        <div class="container" data-aos="fade-up">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h2>About The Event</h2>
+                    <p>
+                        Sed nam ut dolor qui repellendus iusto odit. Possimus inventore eveniet accusamus error amet eius aut
+                        accusantium et. Non odit consequatur repudiandae sequi ea odio molestiae. Enim possimus sunt inventore in
+                        est ut optio sequi unde.
+                    </p>
                 </div>
-            </div>
-            <!-- Single Slider -->
-            <div class="single-slider slider-height hero-overly d-flex align-items-center">
-                <div class="container">
-                    <div class="row d-flex align-items-center">
-                        <div class="col-xl-8 col-lg-6 col-md-8 ">
-                            <div class="hero__caption">
-                                <span data-animation="fadeInLeft" data-delay=".3s">january 23</span>
-                                <h1 data-animation="fadeInLeft" data-delay=".5s" data-duration="2000ms">Dennis<strong> & </strong> Judith</h1>
-                                <p data-animation="fadeInLeft" data-delay=".9s">will get married</p>
-                            </div>
-                        </div>
-                    </div>
+                <div class="col-lg-3">
+                    <h3>Where</h3>
+                    <p>Downtown Conference Center, New York</p>
+                </div>
+                <div class="col-lg-3">
+                    <h3>When</h3>
+                    <p>Monday to Wednesday<br>10-12 December</p>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- Slider Area End-->
-    <!--? Our Story Start -->
-    <div class="Our-story-area story-padding">
-        <div class="container">
-            <!-- Section Tittle -->
-            <div class="row d-flex justify-content-center">
-                <div class="col-xl-7 col-lg-8">
-                    <div class="section-tittle text-center mb-70">
-                        <h2>Our Love Story​</h2>
-                        <img src="~/assets/img/gallery/tittle_img.png" alt="">
-                        <p>
-                            Quisque nec facilisis sem. In at commodo velit. Aliquam tempor volutpat laoreet. Quisque non tellus eleifend arcu gravida aliquam. Vivamus quis consequat nisl, nec luctus libero. Nam sodales sem
-                            egestas sem blandit volutpat.
-                        </p>
-                    </div>
-                </div>
+    </section><!-- End About Section -->
+    <!-- ======= Speakers Section ======= -->
+    <section id="speakers">
+        <div class="container" data-aos="fade-up">
+            <div class="section-header">
+                <h2>Event Speakers</h2>
+                <p>Here are some of our speakers</p>
             </div>
-            <div class="row justify-content-center">
-                <div class="col-lg-5">
-                    <div class="story-caption background-img mb-40" style="background-image: url(/assets/img/gallery/story2.jpg);">
-                        <div class="story-details">
-                            <h4>The Proposal</h4>
-                            <p>Proin at sapien ipsum. Aenean placerat, quam ac tempor congue, orci est luctus ex, ut vestibulum ipsum nisl eu nisi.</p>
-                            <p>Proin at sapien ipsum. Aenean placerat, quam ac tempor.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-5">
-                    <div class="story-img">
-                        <img class="story2" src="~/assets/img/gallery/story1.jpg" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Our Story End -->
-    <!--? Services Start -->
-    <section class="pricing-card-area section-padding30 section-bg" data-background="/assets/img/gallery/section_bg1.png">
-        <div class="container">
-            <!-- Section Tittle -->
-            <div class="row d-flex justify-content-center">
-                <div class="col-lg-8">
-                    <div class="section-tittle text-center mb-70">
-                        <h2>Wedding Info</h2>
-                        <img src="~/assets/img/gallery/tittle_img.png" alt="">
-                        <p>Quisque nec facilisis sem. In at commodo velit. Aliquam tempor volutpat laoreet. Quisque non tellus eleifend arcu gravida aliquam. Vivamus quis consequat nisl</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row align-items-end">
-                <div class="col-xl-4 col-lg-4 col-md-6">
-                    <div class="single-card text-center mb-30">
-                        <div class="card-top">
-                            <span class="flaticon-chart"></span>
-                            <h4>The Ceremony</h4>
-                        </div>
-                        <div class="card-bottom">
-                            <ul>
-                                <li><i class="fas fa-calendar-alt"></i>April 20, 2016</li>
-                                <li><i class="far fa-clock"></i>5:30 PM</li>
-                                <li><i class="fas fa-map-marker-alt"></i>The Mayflower Hotel</li>
-                                <li>1127 Connecticut Avenue,NY</li>
-                                <li><i class="far fa-map"></i> Check out the map</li>
-                            </ul>
-                        </div>
-                        <div class="card-buttons mt-30">
-                            <a href="#" class="btn card-btn1">Get Started</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-lg-4 col-md-6">
-                    <div class="single-card active text-center mb-30">
-                        <div class="card-top">
-                            <span class="flaticon-project"></span>
-                            <h4>The Reception</h4>
-                        </div>
-                        <div class="card-bottom">
-                            <ul>
-                                <li><i class="fas fa-calendar-alt"></i>April 20, 2016</li>
-                                <li><i class="far fa-clock"></i>5:30 PM</li>
-                                <li><i class="fas fa-map-marker-alt"></i>The Mayflower Hotel</li>
-                                <li>1127 Connecticut Avenue,NY</li>
-                                <li><i class="far fa-map"></i> Check out the map</li>
-                            </ul>
-                        </div>
-                        <div class="card-buttons mt-30">
-                            <a href="#" class="btn card-btn1">Get Started</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-lg-4 col-md-6">
-                    <div class="single-card text-center mb-30">
-                        <div class="card-top">
-                            <span class="flaticon-award"></span>
-                            <h4>The Party</h4>
-                        </div>
-                        <div class="card-bottom">
-                            <ul>
-                                <li><i class="fas fa-calendar-alt"></i>April 20, 2016</li>
-                                <li><i class="far fa-clock"></i>5:30 PM</li>
-                                <li><i class="fas fa-map-marker-alt"></i>The Mayflower Hotel</li>
-                                <li>1127 Connecticut Avenue,NY</li>
-                                <li><i class="far fa-map"></i> Check out the map</li>
-                            </ul>
-                        </div>
-                        <div class="card-buttons mt-30">
-                            <a href="#" class="btn card-btn1">Get Started</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Services Card End -->
-    <!--? Count Down Start -->
-    <div class="count-down-area">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-12 col-md-12">
-                    <div class="count-down-wrapper" data-background="/assets/img/gallery/section_bg2.png">
-                        <div class="row justify-content-between">
-                            <div class="col-lg-3 col-md-6 col-sm-6">
-                                <!-- Counter Up -->
-                                <div class="single-counter text-center">
-                                    <span class="counter">23</span>
-                                    <p>days</p>
-                                </div>
-                            </div>
-                            <div class="col-lg-2 col-md-6 col-sm-6">
-                                <!-- Counter Up -->
-                                <div class="single-counter active text-center">
-                                    <span class="counter">15</span>
-                                    <p>hours</p>
-                                </div>
-                            </div>
-                            <div class="col-lg-2 col-md-6 col-sm-6">
-                                <!-- Counter Up -->
-                                <div class="single-counter text-center">
-                                    <span class="counter">46</span>
-                                    <p>mins</p>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-6 col-sm-6">
-                                <!-- Counter Up -->
-                                <div class="single-counter text-center">
-                                    <span class="counter">20</span>
-                                    <p>secs</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Count Down End -->
-    <!--? Gallery Area Start -->
-    <div class="gallery-area section-padding4">
-        <div class="container">
+
             <div class="row">
                 <div class="col-lg-4 col-md-6">
-                    <div class="single-gallery mb-30">
-                        <div class="gallery-img" style="background-image: url(/assets/img/gallery/gallery1.png);">
-                        </div>
-                        <div class="thumb-content-box">
-                            <div class="thumb-content">
-                                <h3>image 01</h3>
-                                <a href="~/assets/img/gallery/gallery1.png" class="menorie-icon"> <i class="ti-plus"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-8 col-md-6">
-                    <div class="single-gallery mb-30">
-                        <div class="gallery-img" style="background-image: url(/assets/img/gallery/gallery2.png);">
-                        </div>
-                        <div class="thumb-content-box">
-                            <div class="thumb-content">
-                                <h3>image 02</h3>
-                                <a href="~/assets/img/gallery/gallery1.png" class="menorie-icon"> <i class="ti-plus"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-8 col-md-6">
-                    <div class="single-gallery mb-30">
-                        <div class="gallery-img" style="        background-image: url(/assets/img/gallery/gallery3.png);">
-                        </div>
-                        <div class="thumb-content-box">
-                            <div class="thumb-content">
-                                <h3>image 03</h3>
-                                <a href="~/assets/img/gallery/gallery1.png" class="menorie-icon"> <i class="ti-plus"></i></a>
+                    <div class="speaker" data-aos="fade-up" data-aos-delay="100">
+                        <img src="~/asset/img/speakers/1.jpg" alt="Speaker 1" class="img-fluid">
+                        <div class="details">
+                            <h3><a href="speaker-details.html">Brenden Legros</a></h3>
+                            <p>Quas alias incidunt</p>
+                            <div class="social">
+                                <a href=""><i class="fa fa-twitter"></i></a>
+                                <a href=""><i class="fa fa-facebook"></i></a>
+                                <a href=""><i class="fa fa-google-plus"></i></a>
+                                <a href=""><i class="fa fa-linkedin"></i></a>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
-                    <div class="single-gallery mb-30">
-                        <div class="gallery-img" style="        background-image: url(/assets/img/gallery/gallery4.png);">
+                    <div class="speaker" data-aos="fade-up" data-aos-delay="200">
+                        <img src="~/asset/img/speakers/2.jpg" alt="Speaker 2" class="img-fluid">
+                        <div class="details">
+                            <h3><a href="speaker-details.html">Hubert Hirthe</a></h3>
+                            <p>Consequuntur odio aut</p>
+                            <div class="social">
+                                <a href=""><i class="fa fa-twitter"></i></a>
+                                <a href=""><i class="fa fa-facebook"></i></a>
+                                <a href=""><i class="fa fa-google-plus"></i></a>
+                                <a href=""><i class="fa fa-linkedin"></i></a>
+                            </div>
                         </div>
-                        <div class="thumb-content-box">
-                            <div class="thumb-content">
-                                <h3>image 04</h3>
-                                <a href="~/assets/img/gallery/gallery1.png" class="menorie-icon"> <i class="ti-plus"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="speaker" data-aos="fade-up" data-aos-delay="300">
+                        <img src="~/asset/img/speakers/3.jpg" alt="Speaker 3" class="img-fluid">
+                        <div class="details">
+                            <h3><a href="speaker-details.html">Cole Emmerich</a></h3>
+                            <p>Fugiat laborum et</p>
+                            <div class="social">
+                                <a href=""><i class="fa fa-twitter"></i></a>
+                                <a href=""><i class="fa fa-facebook"></i></a>
+                                <a href=""><i class="fa fa-google-plus"></i></a>
+                                <a href=""><i class="fa fa-linkedin"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="speaker" data-aos="fade-up" data-aos-delay="100">
+                        <img src="~/asset/img/speakers/4.jpg" alt="Speaker 4" class="img-fluid">
+                        <div class="details">
+                            <h3><a href="speaker-details.html">Jack Christiansen</a></h3>
+                            <p>Debitis iure vero</p>
+                            <div class="social">
+                                <a href=""><i class="fa fa-twitter"></i></a>
+                                <a href=""><i class="fa fa-facebook"></i></a>
+                                <a href=""><i class="fa fa-google-plus"></i></a>
+                                <a href=""><i class="fa fa-linkedin"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="speaker" data-aos="fade-up" data-aos-delay="200">
+                        <img src="~/asset/img/speakers/5.jpg" alt="Speaker 5" class="img-fluid">
+                        <div class="details">
+                            <h3><a href="speaker-details.html">Alejandrin Littel</a></h3>
+                            <p>Qui molestiae natus</p>
+                            <div class="social">
+                                <a href=""><i class="fa fa-twitter"></i></a>
+                                <a href=""><i class="fa fa-facebook"></i></a>
+                                <a href=""><i class="fa fa-google-plus"></i></a>
+                                <a href=""><i class="fa fa-linkedin"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="speaker" data-aos="fade-up" data-aos-delay="300">
+                        <img src="~/asset/img/speakers/6.jpg" alt="Speaker 6" class="img-fluid">
+                        <div class="details">
+                            <h3><a href="speaker-details.html">Willow Trantow</a></h3>
+                            <p>Non autem dicta</p>
+                            <div class="social">
+                                <a href=""><i class="fa fa-twitter"></i></a>
+                                <a href=""><i class="fa fa-facebook"></i></a>
+                                <a href=""><i class="fa fa-google-plus"></i></a>
+                                <a href=""><i class="fa fa-linkedin"></i></a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- Gallery Area End -->
-    <!--? Gift Start -->
-    <section class="gift-area gift-padding fix" data-background="/assets/img/gallery/section_bg3.png">
-        <div class="container">
+
+    </section><!-- End Speakers Section -->
+    <!-- ======= Schedule Section ======= -->
+    <section id="schedule" class="section-with-bg">
+        <div class="container" data-aos="fade-up">
+            <div class="section-header">
+                <h2>Event Schedule</h2>
+                <p>Here is our event schedule</p>
+            </div>
+
+            <ul class="nav nav-tabs" role="tablist" data-aos="fade-up" data-aos-delay="100">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#day-1" role="tab" data-toggle="tab">Day 1</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#day-2" role="tab" data-toggle="tab">Day 2</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#day-3" role="tab" data-toggle="tab">Day 3</a>
+                </li>
+            </ul>
+
+            <h3 class="sub-heading">
+                Voluptatem nulla veniam soluta et corrupti consequatur neque eveniet officia. Eius
+                necessitatibus voluptatem quis labore perspiciatis quia.
+            </h3>
+
+            <div class="tab-content row justify-content-center" data-aos="fade-up" data-aos-delay="200">
+
+                <!-- Schdule Day 1 -->
+                <div role="tabpanel" class="col-lg-9 tab-pane fade show active" id="day-1">
+
+                    <div class="row schedule-item">
+                        <div class="col-md-2"><time>09:30 AM</time></div>
+                        <div class="col-md-10">
+                            <h4>Registration</h4>
+                            <p>Fugit voluptas iusto maiores temporibus autem numquam magnam.</p>
+                        </div>
+                    </div>
+
+                    <div class="row schedule-item">
+                        <div class="col-md-2"><time>10:00 AM</time></div>
+                        <div class="col-md-10">
+                            <div class="speaker">
+                                <img src="~/asset/img/speakers/1.jpg" alt="Brenden Legros">
+                            </div>
+                            <h4>Keynote <span>Brenden Legros</span></h4>
+                            <p>Facere provident incidunt quos voluptas.</p>
+                        </div>
+                    </div>
+
+                    <div class="row schedule-item">
+                        <div class="col-md-2"><time>11:00 AM</time></div>
+                        <div class="col-md-10">
+                            <div class="speaker">
+                                <img src="~/asset/img/speakers/2.jpg" alt="Hubert Hirthe">
+                            </div>
+                            <h4>Et voluptatem iusto dicta nobis. <span>Hubert Hirthe</span></h4>
+                            <p>Maiores dignissimos neque qui cum accusantium ut sit sint inventore.</p>
+                        </div>
+                    </div>
+
+                    <div class="row schedule-item">
+                        <div class="col-md-2"><time>12:00 AM</time></div>
+                        <div class="col-md-10">
+                            <div class="speaker">
+                                <img src="~/asset/img/speakers/3.jpg" alt="Cole Emmerich">
+                            </div>
+                            <h4>Explicabo et rerum quis et ut ea. <span>Cole Emmerich</span></h4>
+                            <p>Veniam accusantium laborum nihil eos eaque accusantium aspernatur.</p>
+                        </div>
+                    </div>
+
+                    <div class="row schedule-item">
+                        <div class="col-md-2"><time>02:00 PM</time></div>
+                        <div class="col-md-10">
+                            <div class="speaker">
+                                <img src="~/asset/img/speakers/4.jpg" alt="Jack Christiansen">
+                            </div>
+                            <h4>Qui non qui vel amet culpa sequi. <span>Jack Christiansen</span></h4>
+                            <p>Nam ex distinctio voluptatem doloremque suscipit iusto.</p>
+                        </div>
+                    </div>
+
+                    <div class="row schedule-item">
+                        <div class="col-md-2"><time>03:00 PM</time></div>
+                        <div class="col-md-10">
+                            <div class="speaker">
+                                <img src="~/asset/img/speakers/5.jpg" alt="Alejandrin Littel">
+                            </div>
+                            <h4>Quos ratione neque expedita asperiores. <span>Alejandrin Littel</span></h4>
+                            <p>Eligendi quo eveniet est nobis et ad temporibus odio quo.</p>
+                        </div>
+                    </div>
+
+                    <div class="row schedule-item">
+                        <div class="col-md-2"><time>04:00 PM</time></div>
+                        <div class="col-md-10">
+                            <div class="speaker">
+                                <img src="~/asset/img/speakers/6.jpg" alt="Willow Trantow">
+                            </div>
+                            <h4>Quo qui praesentium nesciunt <span>Willow Trantow</span></h4>
+                            <p>Voluptatem et alias dolorum est aut sit enim neque veritatis.</p>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- End Schdule Day 1 -->
+                <!-- Schdule Day 2 -->
+                <div role="tabpanel" class="col-lg-9  tab-pane fade" id="day-2">
+
+                    <div class="row schedule-item">
+                        <div class="col-md-2"><time>10:00 AM</time></div>
+                        <div class="col-md-10">
+                            <div class="speaker">
+                                <img src="~/asset/img/speakers/1.jpg" alt="Brenden Legros">
+                            </div>
+                            <h4>Libero corrupti explicabo itaque. <span>Brenden Legros</span></h4>
+                            <p>Facere provident incidunt quos voluptas.</p>
+                        </div>
+                    </div>
+
+                    <div class="row schedule-item">
+                        <div class="col-md-2"><time>11:00 AM</time></div>
+                        <div class="col-md-10">
+                            <div class="speaker">
+                                <img src="~/asset/img/speakers/2.jpg" alt="Hubert Hirthe">
+                            </div>
+                            <h4>Et voluptatem iusto dicta nobis. <span>Hubert Hirthe</span></h4>
+                            <p>Maiores dignissimos neque qui cum accusantium ut sit sint inventore.</p>
+                        </div>
+                    </div>
+
+                    <div class="row schedule-item">
+                        <div class="col-md-2"><time>12:00 AM</time></div>
+                        <div class="col-md-10">
+                            <div class="speaker">
+                                <img src="~/asset/img/speakers/3.jpg" alt="Cole Emmerich">
+                            </div>
+                            <h4>Explicabo et rerum quis et ut ea. <span>Cole Emmerich</span></h4>
+                            <p>Veniam accusantium laborum nihil eos eaque accusantium aspernatur.</p>
+                        </div>
+                    </div>
+
+                    <div class="row schedule-item">
+                        <div class="col-md-2"><time>02:00 PM</time></div>
+                        <div class="col-md-10">
+                            <div class="speaker">
+                                <img src="~/asset/img/speakers/4.jpg" alt="Jack Christiansen">
+                            </div>
+                            <h4>Qui non qui vel amet culpa sequi. <span>Jack Christiansen</span></h4>
+                            <p>Nam ex distinctio voluptatem doloremque suscipit iusto.</p>
+                        </div>
+                    </div>
+
+                    <div class="row schedule-item">
+                        <div class="col-md-2"><time>03:00 PM</time></div>
+                        <div class="col-md-10">
+                            <div class="speaker">
+                                <img src="~/asset/img/speakers/5.jpg" alt="Alejandrin Littel">
+                            </div>
+                            <h4>Quos ratione neque expedita asperiores. <span>Alejandrin Littel</span></h4>
+                            <p>Eligendi quo eveniet est nobis et ad temporibus odio quo.</p>
+                        </div>
+                    </div>
+
+                    <div class="row schedule-item">
+                        <div class="col-md-2"><time>04:00 PM</time></div>
+                        <div class="col-md-10">
+                            <div class="speaker">
+                                <img src="~/asset/img/speakers/6.jpg" alt="Willow Trantow">
+                            </div>
+                            <h4>Quo qui praesentium nesciunt <span>Willow Trantow</span></h4>
+                            <p>Voluptatem et alias dolorum est aut sit enim neque veritatis.</p>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- End Schdule Day 2 -->
+                <!-- Schdule Day 3 -->
+                <div role="tabpanel" class="col-lg-9  tab-pane fade" id="day-3">
+
+                    <div class="row schedule-item">
+                        <div class="col-md-2"><time>10:00 AM</time></div>
+                        <div class="col-md-10">
+                            <div class="speaker">
+                                <img src="~/asset/img/speakers/2.jpg" alt="Hubert Hirthe">
+                            </div>
+                            <h4>Et voluptatem iusto dicta nobis. <span>Hubert Hirthe</span></h4>
+                            <p>Maiores dignissimos neque qui cum accusantium ut sit sint inventore.</p>
+                        </div>
+                    </div>
+
+                    <div class="row schedule-item">
+                        <div class="col-md-2"><time>11:00 AM</time></div>
+                        <div class="col-md-10">
+                            <div class="speaker">
+                                <img src="~/asset/img/speakers/3.jpg" alt="Cole Emmerich">
+                            </div>
+                            <h4>Explicabo et rerum quis et ut ea. <span>Cole Emmerich</span></h4>
+                            <p>Veniam accusantium laborum nihil eos eaque accusantium aspernatur.</p>
+                        </div>
+                    </div>
+
+                    <div class="row schedule-item">
+                        <div class="col-md-2"><time>12:00 AM</time></div>
+                        <div class="col-md-10">
+                            <div class="speaker">
+                                <img src="~/asset/img/speakers/1.jpg" alt="Brenden Legros">
+                            </div>
+                            <h4>Libero corrupti explicabo itaque. <span>Brenden Legros</span></h4>
+                            <p>Facere provident incidunt quos voluptas.</p>
+                        </div>
+                    </div>
+
+                    <div class="row schedule-item">
+                        <div class="col-md-2"><time>02:00 PM</time></div>
+                        <div class="col-md-10">
+                            <div class="speaker">
+                                <img src="~/asset/img/speakers/4.jpg" alt="Jack Christiansen">
+                            </div>
+                            <h4>Qui non qui vel amet culpa sequi. <span>Jack Christiansen</span></h4>
+                            <p>Nam ex distinctio voluptatem doloremque suscipit iusto.</p>
+                        </div>
+                    </div>
+
+                    <div class="row schedule-item">
+                        <div class="col-md-2"><time>03:00 PM</time></div>
+                        <div class="col-md-10">
+                            <div class="speaker">
+                                <img src="~/asset/img/speakers/5.jpg" alt="Alejandrin Littel">
+                            </div>
+                            <h4>Quos ratione neque expedita asperiores. <span>Alejandrin Littel</span></h4>
+                            <p>Eligendi quo eveniet est nobis et ad temporibus odio quo.</p>
+                        </div>
+                    </div>
+
+                    <div class="row schedule-item">
+                        <div class="col-md-2"><time>04:00 PM</time></div>
+                        <div class="col-md-10">
+                            <div class="speaker">
+                                <img src="~/asset/img/speakers/6.jpg" alt="Willow Trantow">
+                            </div>
+                            <h4>Quo qui praesentium nesciunt <span>Willow Trantow</span></h4>
+                            <p>Voluptatem et alias dolorum est aut sit enim neque veritatis.</p>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- End Schdule Day 2 -->
+
+            </div>
+
+        </div>
+
+    </section><!-- End Schedule Section -->
+
+    <!-- =======  F.A.Q Section ======= -->
+    <section id="faq">
+
+        <div class="container" data-aos="fade-up">
+
+            <div class="section-header">
+                <h2>F.A.Q </h2>
+            </div>
+
+            <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="100">
+                <div class="col-lg-9">
+                    <ul id="faq-list">
+
+                        <li>
+                            <a data-toggle="collapse" class="collapsed" href="#faq1">How to register for the survey?  <i class="fa fa-minus-circle"></i></a>
+                            <div id="faq1" class="collapse" data-parent="#faq-list">
+                                <p>
+                                    Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.
+                                </p>
+                            </div>
+                        </li>
+
+                        <li>
+                            <a data-toggle="collapse" href="#faq2" class="collapsed">How to participate in the survey? <i class="fa fa-minus-circle"></i></a>
+                            <div id="faq2" class="collapse" data-parent="#faq-list">
+                                <p>
+                                    Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.
+                                </p>
+                            </div>
+                        </li>
+
+                        <li>
+                            <a data-toggle="collapse" href="#faq3" class="collapsed">How will I be intimated with the new survey? <i class="fa fa-minus-circle"></i></a>
+                            <div id="faq3" class="collapse" data-parent="#faq-list">
+                                <p>
+                                    Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus pellentesque eu tincidunt. Lectus urna duis convallis convallis tellus. Urna molestie at elementum eu facilisis sed odio morbi quis
+                                </p>
+                            </div>
+                        </li>
+
+                        <li>
+                            <a data-toggle="collapse" href="#faq4" class="collapsed">What if it gives error, after participating in the entire survey, and clicked on the submit button at the last for submitting the survey? <i class="fa fa-minus-circle"></i></a>
+                            <div id="faq4" class="collapse" data-parent="#faq-list">
+                                <p>
+                                    Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.
+                                </p>
+                            </div>
+                        </li>
+
+                        <li>
+                            <a data-toggle="collapse" href="#faq5" class="collapsed">Why I am unable to participate in the survey?  <i class="fa fa-minus-circle"></i></a>
+                            <div id="faq5" class="collapse" data-parent="#faq-list">
+                                <p>
+                                    Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est ante in. Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit adipiscing bibendum est. Purus gravida quis blandit turpis cursus in
+                                </p>
+                            </div>
+                        </li>
+
+                        <li>
+                            <a data-toggle="collapse" href="#faq6" class="collapsed">Why my registration request is not accepted? <i class="fa fa-minus-circle"></i></a>
+                            <div id="faq6" class="collapse" data-parent="#faq-list">
+                                <p>
+                                    Laoreet sit amet cursus sit amet dictum sit amet justo. Mauris vitae ultricies leo integer malesuada nunc vel. Tincidunt eget nullam non nisi est sit amet. Turpis nunc eget lorem dolor sed. Ut venenatis tellus in metus vulputate eu scelerisque. Pellentesque diam volutpat commodo sed egestas egestas fringilla phasellus faucibus. Nibh tellus molestie nunc non blandit massa enim nec.
+                                </p>
+                            </div>
+                        </li>
+
+                        <li>
+                            <a data-toggle="collapse" href="#faq7" class="collapsed">How to participate in the competitions?  <i class="fa fa-minus-circle"></i></a>
+                            <div id="faq7" class="collapse" data-parent="#faq-list">
+                                <p>
+                                    Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est ante in. Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit adipiscing bibendum est. Purus gravida quis blandit turpis cursus in
+                                </p>
+                            </div>
+                        </li>
+
+                        <li>
+                            <a data-toggle="collapse" href="#faq8" class="collapsed">What if there are some arrears in participating the survey?  <i class="fa fa-minus-circle"></i></a>
+                            <div id="faq8" class="collapse" data-parent="#faq-list">
+                                <p>
+                                    Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est ante in. Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit adipiscing bibendum est. Purus gravida quis blandit turpis cursus in
+                                </p>
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+    </section><!-- End  F.A.Q Section -->
+
+    <!-- ======= Buy Ticket Section ======= -->
+    <section id="buy-tickets" class="section-with-bg">
+        <div class="container" data-aos="fade-up">
+
+            <div class="section-header">
+                <h2>Buy Tickets</h2>
+                <p>Velit consequatur consequatur inventore iste fugit unde omnis eum aut.</p>
+            </div>
+
             <div class="row">
-                <div class="col-12">
-                    <div class="gift-caption text-center">
-                        <h2>The Best Gift From You</h2>
-                        <p>Will be your presentation in our wedding</p>
-                        <a href="#" class="btn btn-whit">resarve your Seat</a>
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card mb-5 mb-lg-0">
+                        <div class="card-body">
+                            <h5 class="card-title text-muted text-uppercase text-center">Standard Access</h5>
+                            <h6 class="card-price text-center">$150</h6>
+                            <hr>
+                            <ul class="fa-ul">
+                                <li><span class="fa-li"><i class="fa fa-check"></i></span>Regular Seating</li>
+                                <li><span class="fa-li"><i class="fa fa-check"></i></span>Coffee Break</li>
+                                <li><span class="fa-li"><i class="fa fa-check"></i></span>Custom Badge</li>
+                                <li class="text-muted"><span class="fa-li"><i class="fa fa-times"></i></span>Community Access</li>
+                                <li class="text-muted"><span class="fa-li"><i class="fa fa-times"></i></span>Workshop Access</li>
+                                <li class="text-muted"><span class="fa-li"><i class="fa fa-times"></i></span>After Party</li>
+                            </ul>
+                            <hr>
+                            <div class="text-center">
+                                <button type="button" class="btn" data-toggle="modal" data-target="#buy-ticket-modal" data-ticket-type="standard-access">Buy Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card mb-5 mb-lg-0">
+                        <div class="card-body">
+                            <h5 class="card-title text-muted text-uppercase text-center">Pro Access</h5>
+                            <h6 class="card-price text-center">$250</h6>
+                            <hr>
+                            <ul class="fa-ul">
+                                <li><span class="fa-li"><i class="fa fa-check"></i></span>Regular Seating</li>
+                                <li><span class="fa-li"><i class="fa fa-check"></i></span>Coffee Break</li>
+                                <li><span class="fa-li"><i class="fa fa-check"></i></span>Custom Badge</li>
+                                <li><span class="fa-li"><i class="fa fa-check"></i></span>Community Access</li>
+                                <li class="text-muted"><span class="fa-li"><i class="fa fa-times"></i></span>Workshop Access</li>
+                                <li class="text-muted"><span class="fa-li"><i class="fa fa-times"></i></span>After Party</li>
+                            </ul>
+                            <hr>
+                            <div class="text-center">
+                                <button type="button" class="btn" data-toggle="modal" data-target="#buy-ticket-modal" data-ticket-type="pro-access">Buy Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Pro Tier -->
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title text-muted text-uppercase text-center">Premium Access</h5>
+                            <h6 class="card-price text-center">$350</h6>
+                            <hr>
+                            <ul class="fa-ul">
+                                <li><span class="fa-li"><i class="fa fa-check"></i></span>Regular Seating</li>
+                                <li><span class="fa-li"><i class="fa fa-check"></i></span>Coffee Break</li>
+                                <li><span class="fa-li"><i class="fa fa-check"></i></span>Custom Badge</li>
+                                <li><span class="fa-li"><i class="fa fa-check"></i></span>Community Access</li>
+                                <li><span class="fa-li"><i class="fa fa-check"></i></span>Workshop Access</li>
+                                <li><span class="fa-li"><i class="fa fa-check"></i></span>After Party</li>
+                            </ul>
+                            <hr>
+                            <div class="text-center">
+                                <button type="button" class="btn" data-toggle="modal" data-target="#buy-ticket-modal" data-ticket-type="premium-access">Buy Now</button>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
             </div>
+
         </div>
-    </section>
-    <div class="row d-flex justify-content-center">
-        <div class="col-lg-8">
-            <div class="section-tittle text-center mb-80">
-                <h2>Registry Gift</h2>
-                <img src="~/assets/img/gallery/tittle_img.png" alt="">
-                <p>Quisque nec facilisis sem. In at commodo velit. Aliquam tempor volutpat laoreet. Quisque non tellus eleifend arcu gravida aliquam. Vivamus quis consequat nisl</p>
-            </div>
-        </div>
-    </div>
-    <!-- Gift End -->
-    <!--? Contact form Start -->
-    <div class="contact-form section-padding30 fix">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-xl-6 col-lg-6">
-                    <div class="form-wrapper">
-                        <form id="contact-form" action="#" method="POST">
-                            <!-- section tittle -->
-                            <div class="row ">
-                                <div class="col-lg-12">
-                                    <div class="section-tittle tittle-form text-center mb-30">
-                                        <h2>Are you attending?</h2>
-                                        <img src="~/assets/img/gallery/tittle_img2.png" alt="">
-                                    </div>
-                                </div>
+
+        <!-- Modal Order Form -->
+        <div id="buy-ticket-modal" class="modal fade">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Buy Tickets</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form method="POST" action="#">
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="your-name" placeholder="Your Name">
                             </div>
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <div class="form-box mb-30">
-                                        <input type="text" name="name" placeholder="Name">
-                                    </div>
-                                </div>
-                                <div class="col-lg-12">
-                                    <div class="form-box subject-icon mb-30">
-                                        <input type="Email" name="subject" placeholder="Email">
-                                    </div>
-                                </div>
-                                <div class="col-lg-12 mb-30">
-                                    <div class="select-itms">
-                                        <select name="select" id="select2">
-                                            <option value="">1 Guest</option>
-                                            <option value="">2 Guest</option>
-                                            <option value="">3 Guest</option>
-                                            <option value="">4 Guest</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-lg-12">
-                                    <div class="form-box message-icon mb-30">
-                                        <textarea name="message" id="message" placeholder="Your Message"></textarea>
-                                    </div>
-                                    <div class="submit-info">
-                                        <button class="btn" type="submit">Confirm now</button>
-                                    </div>
-                                </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="your-email" placeholder="Your Email">
+                            </div>
+                            <div class="form-group">
+                                <select id="ticket-type" name="ticket-type" class="form-control">
+                                    <option value="">-- Select Your Ticket Type --</option>
+                                    <option value="standard-access">Standard Access</option>
+                                    <option value="pro-access">Pro Access</option>
+                                    <option value="premium-access">Premium Access</option>
+                                </select>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn">Buy Now</button>
                             </div>
                         </form>
-                        <!-- Shape inner Flower -->
-                        <div class="shape-inner-flower">
-                            <img src="~/assets/img/gallery/shape2.png" class="shpe2" alt="">
-                        </div>
-                        <!-- Shape outer Flower -->
-                        <div class="shape-outer-flower">
-                            <img src="~/assets/img/flower/from-top.png" class="outer-top" alt="">
-                            <img src="~/assets/img/flower/from-bottom.png" class="outer-bottom" alt="">
-                        </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Contact form End -->
-    <section class="brand-area section-padding-b">
-        <div class="container">
-            <!-- Section Tittle -->
-            <div class="row d-flex justify-content-center">
-                <div class="col-lg-8">
-                    <div class="section-tittle text-center mb-80">
-                        <h2>Registry Gift</h2>
-                        <img src="~/assets/img/gallery/tittle_img.png" alt="">
-                        <p>Quisque nec facilisis sem. In at commodo velit. Aliquam tempor volutpat laoreet. Quisque non tellus eleifend arcu gravida aliquam. Vivamus quis consequat nisl</p>
-                    </div>
-                </div>
-            </div>
-            <div class="brand-active brand-border">
-                @*<div class="single-brand">
-                        <img src="~/assets/img/service/brand1.jpg" alt="">
-                    </div>
-                    <div class="single-brand">
-                        <img src="~/assets/img/service/brand2.jpg" alt="">
-                    </div>
-                    <div class="single-brand">
-                        <img src="~/assets/img/service/brand3.jpg" alt="">
-                    </div>
-                    <div class="single-brand">
-                        <img src="~/assets/img/service/brand4.jpg" alt="">
-                    </div>
-                    <div class="single-brand">
-                        <img src="~/assets/img/service/brand5.jpg" alt="">
-                    </div>
-                    <div class="single-brand">
-                        <img src="~/assets/img/service/brand3.jpg" alt="">
-                    </div>*@
-            </div>
-        </div>
-    </section>
-    <!-- Gallery-2 img Start-->
-    <div class="gallery-area2 fix">
-        <div class="container-fluid p-0">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="gallery-active owl-carousel">
-                        <div class="gallery-img">
-                            <a href="#"><img src="~/assets/img/gallery/" alt=""></a>
-                        </div>
-                        <div class="gallery-img">
-                            <a href="#"><img src="~/assets/img/gallery/gallery02.png" alt=""></a>
-                        </div>
-                        <div class="gallery-img">
-                            <a href="#"><img src="~/assets/img/gallery/gallery03.png" alt=""></a>
-                        </div>
-                        <div class="gallery-img">
-                            <a href="#"><img src="~/assets/img/gallery/gallery04.png" alt=""></a>
-                        </div>
-                        <div class="gallery-img">
-                            <a href="#"><img src="~/assets/img/gallery/gallery05.png" alt=""></a>
-                        </div>
-                        <div class="gallery-img">
-                            <a href="#"><img src="~/assets/img/gallery/gallery06.png" alt=""></a>
-                        </div>
-                        <div class="gallery-img">
-                            <a href="#"><img src="~/assets/img/gallery/gallery07.png" alt=""></a>
-                        </div>
-                        <div class="gallery-img">
-                            <a href="#"><img src="~/assets/img/gallery/gallery08.png" alt=""></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Gallery-2 img End-->
-    <!--? Start map Area-->
-    <section class="contact-sections">
-        <div class="d-area">
-            <div id="map" style="height: 235px; position: relative; overflow: hidden;"></div>
-            <script>
-                function initMap() {
-                    var uluru = {
-                        lat: -25.363,
-                        lng: 131.044
-                    };
-                    var grayStyles = [{
-                        featureType: "all",
-                        stylers: [{
-                            saturation: -90
-                        },
-                        {
-                            lightness: 50
-                        }
-                        ]
-                    },
-                    {
-                        elementType: 'labels.text.fill',
-                        stylers: [{
-                            color: '#ccdee9'
-                        }]
-                    }
-                    ];
-                    var map = new google.maps.Map(document.getElementById('map'), {
-                        center: {
-                            lat: -31.197,
-                            lng: 150.744
-                        },
-                        zoom: 9,
-                        styles: grayStyles,
-                        scrollwheel: false
-                    });
-                }
-            </script>
-            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpfS1oRGreGSBU5HHjMmQ3o5NLw7VdJ6I&amp;callback=initMap">
-            </script>
-        </div>
-    </section>
-    <!--? End map Area -->
-</main>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
 
+    </section><!-- End Buy Ticket Section -->
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="section-bg">
+
+        <div class="container" data-aos="fade-up">
+
+            <div class="section-header">
+                <h2>Support Information</h2>
+                <p>Any questions please contact.</p>
+            </div>
+
+            <div class="row contact-info">
+
+                <div class="col-md-4">
+                    <div class="contact-address">
+                        <i class="ion-ios-location-outline"></i>
+                        <h3>Address</h3>
+                        <address>8 Ton That Thuyet, My Dinh, Ha Noi</address>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="contact-phone">
+                        <i class="ion-ios-telephone-outline"></i>
+                        <h3>Phone Number</h3>
+                        <p><a href="tel:+0842938683">+84 842 938 683</a></p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="contact-email">
+                        <i class="ion-ios-email-outline"></i>
+                        <h3>Email</h3>
+                        <p><a href="mailto:locnxth1907005@fpt.edu.vn">locnxth1907005@fpt.edu.vn</a></p>
+                    </div>
+                </div>
+
+            </div>
+
+           
+            </div>
+
+        </div>
+    </section><!-- End Contact Section -->
+
+</main><
