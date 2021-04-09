@@ -36,92 +36,102 @@
     <!--===============================================================================================-->
 </head>
 <body>
+    <br />
+    <br />
+    <br />
+    <div class="container" data-aos="fade-up">
 
-    @foreach (var item in Model)
-    {
-        <div class="container-contact100" style="width 800px">
-            <div class="wrap-contact100">
-                <form class="contact100-form validate-form">
-                    <span class="contact100-form-title">
-                        Support Information
-                    </span>
+        <div class="section-header">
+            <h2>Support information </h2>
+            <p>Freequently Asked Question</p>
+        </div>
 
-                    <label class="label-input100" for="email">Name : @Html.DisplayFor(modelItem => item.Name)</label>
-                    <div class="wrap-input100 validate-input">
+        @foreach (var item in Model)
+        {
+            <div class="container-contact100" style="width 800px">
+                <div class="wrap-contact100">
+                    <form class="contact100-form validate-form">
+                        <span class="contact100-form-title">
+                           
+                        </span>
 
-                        <span class="focus-input100">@Html.DisplayFor(modelItem => item.Name)</span>
-                    </div>
+                        <label class="label-input100" for="Name" style="color : black ">Name : @Html.DisplayFor(modelItem => item.Name)</label>
+                        <div class="wrap-input100 validate-input">
 
-                    <label class="label-input100" for="email">Email: @Html.DisplayFor(modelItem => item.Email)</label>
-                    <div class="wrap-input100 validate-input">
-
-                        <span class="focus-input100">@Html.DisplayFor(modelItem => item.Email)</span>
-                    </div>
-
-                    <label class="label-input100" for="phone">Phone: @Html.DisplayFor(modelItem => item.Mobile)</label>
-                    <div class="wrap-input100">
-                        <span class="focus-input100">@Html.DisplayFor(modelItem => item.Mobile)</span>
-                    </div>
-
-                    <label class="label-input100" for="message">Description: @Html.DisplayFor(modelItem => item.Description)</label>
-                    <div class="wrap-input100 validate-input">
-                        <span class="focus-input100">@Html.DisplayFor(modelItem => item.Mobile)</span>
-                    </div>
-                    
-                </form>
-
-                <div class="contact100-more flex-col-c-m" style="background-image: url('images/bg-01.jpg');">
-                    <div class="flex-w size1 p-b-47">
-                        <div class="txt1 p-r-25">
-                            <span class="lnr lnr-map-marker"></span>
+                            <span class="focus-input100">@Html.DisplayFor(modelItem => item.Name)</span>
                         </div>
 
-                        <div class="flex-col size2">
-                            <span class="txt1 p-b-20">
-                                Address
-                            </span>
+                        <label class="label-input100" for="Email"style="color : black">Email: @Html.DisplayFor(modelItem => item.Email)</label>
+                        <div class="wrap-input100 validate-input">
 
-                            <span class="txt2">
-                                8 Ton That Thuyet, My Dinh, Ha Noi
-                            </span>
-                        </div>
-                    </div>
-
-                    <div class="dis-flex size1 p-b-47">
-                        <div class="txt1 p-r-25">
-                            <span class="lnr lnr-phone-handset"></span>
+                            <span class="focus-input100">@Html.DisplayFor(modelItem => item.Email)</span>
                         </div>
 
-                        <div class="flex-col size2">
-                            <span class="txt1 p-b-20">
-                                Lets Talk
-                            </span>
-
-                            <span class="txt3">
-                                +(84) 842 938 683
-                            </span>
-                        </div>
-                    </div>
-
-                    <div class="dis-flex size1 p-b-47">
-                        <div class="txt1 p-r-25">
-                            <span class="lnr lnr-envelope"></span>
+                        <label class="label-input100" for="phone"style="color : black">Phone: @Html.DisplayFor(modelItem => item.Mobile)</label>
+                        <div class="wrap-input100">
+                            <span class="focus-input100">@Html.DisplayFor(modelItem => item.Mobile)</span>
                         </div>
 
-                        <div class="flex-col size2">
-                            <span class="txt1 p-b-20">
-                                General Support
-                            </span>
+                        <label class="label-input100" for="Description"style="color : black">Description: @Html.DisplayFor(modelItem => item.Description)</label>
+                        <div class="wrap-input100 validate-input">
+                            <span class="focus-input100">@Html.DisplayFor(modelItem => item.Mobile)</span>
+                        </div>
 
-                            <span class="txt3">
-                                e-project@gmail.com
-                            </span>
+                    </form>
+
+                    <div class="contact100-more flex-col-c-m" style="background-image: url('images/bg-01.jpg');">
+                        <div class="flex-w size1 p-b-47">
+                            <div class="txt1 p-r-25">
+                                <span class="lnr lnr-map-marker"></span>
+                            </div>
+
+                            <div class="flex-col size2">
+                                <span class="txt1 p-b-20">
+                                    Address
+                                </span>
+
+                                <span class="txt2">
+                                    8 Ton That Thuyet, My Dinh, Ha Noi
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="dis-flex size1 p-b-47">
+                            <div class="txt1 p-r-25">
+                                <span class="lnr lnr-phone-handset"></span>
+                            </div>
+
+                            <div class="flex-col size2">
+                                <span class="txt1 p-b-20">
+                                    Lets Talk
+                                </span>
+
+                                <span class="txt3">
+                                    +(84) 842 938 683
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="dis-flex size1 p-b-47">
+                            <div class="txt1 p-r-25">
+                                <span class="lnr lnr-envelope"></span>
+                            </div>
+
+                            <div class="flex-col size2">
+                                <span class="txt1 p-b-20">
+                                    General Support
+                                </span>
+
+                                <span class="txt3">
+                                    e-project@gmail.com
+                                </span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+        }
         </div>
-    }
 
 
 
@@ -158,7 +168,7 @@
 
             gtag('config', 'UA-23581568-13');
         </script>
-    </body>
+</body>
 </html>
 
 <style>

@@ -8,7 +8,7 @@
     @Scripts.Render("~/bundles/modernizr")
 
     <meta name="description" content="">
-    <link rel="manifest" href="site.webmanifest">
+    @*<link rel="manifest" href="site.webmanifest">*@
     <link rel="shortcut icon" type="image/x-icon" href="~/assets/img/favicon.ico">
 
     <!-- CSS here -->
@@ -26,7 +26,6 @@
 </head>
 <body>
     <!-- Preloader Start -->
-   
     <!-- Preloader Start -->
     <header>
         <!-- Header Start -->
@@ -196,14 +195,16 @@
     <!-- Jquery Plugins, main Jquery -->
     <script src="~/assets/js/plugins.js"></script>
     <script src="~/assets/js/main.js"></script>
-@Scripts.Render("~/bundles/jquery")
-@Scripts.Render("~/bundles/bootstrap")
-@RenderSection("scripts", required: false)
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
 </body>
+
 </html>
 
-<style>
-    body {
-        font-family: Arial, Helvetica, sans-serif;
-    }
-</style>
+

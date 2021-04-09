@@ -12,9 +12,9 @@ namespace Survey.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        public ActionResult Index()
+        public ActionResult Index(Support support)
         {
-            return View();
+            return View(support);
         }
 
         public ActionResult About()
@@ -63,6 +63,7 @@ namespace Survey.Controllers
         }
 
 
+        
 
     }
 }

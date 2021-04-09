@@ -2,6 +2,7 @@
 @model LoginViewModel
 @{
     ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
 
 }
 
@@ -9,7 +10,16 @@
 <link href="~/html/css/html/css/StyleSheet1.css" rel="stylesheet" type="text/css" />
 <section id="loginForm" class="login-block">
 
+
     <div class="container">
+        <br />
+        <br />
+        <br />
+
+        <div class="section-header">
+            <h2>WELCOME!!!</h2>
+            <p>Login or Register</p>
+        </div>
         <div class="row">
             <div class="col-md-4 login-sec">
                 <h2 class="text-center" id="login-">Login Now</h2>
@@ -88,9 +98,7 @@
                 </div>
             </div>
         </div>
-        </div>
+    </div>
 </section>
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+
