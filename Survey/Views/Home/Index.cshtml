@@ -2,6 +2,7 @@
 @{
     ViewBag.Title = "Home Page";
     Layout = "~/Views/Shared/_LayoutHome.cshtml";
+    var totalSurvey = @ViewBag.totalSurvey;
 }
 <main id="main">
 
@@ -385,7 +386,6 @@
         </div>
 
     </section><!-- End Schedule Section -->
-
     <!-- =======  F.A.Q Section ======= -->
     <section id="faq">
 
@@ -478,7 +478,6 @@
         </div>
 
     </section><!-- End  F.A.Q Section -->
-
     <!-- ======= Buy Ticket Section ======= -->
     <section id="buy-tickets" class="section-with-bg">
         <div class="container" data-aos="fade-up">
@@ -492,8 +491,8 @@
                 <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
                     <div class="card mb-5 mb-lg-0">
                         <div class="card-body">
-                            <h5 class="card-title text-muted text-uppercase text-center">Standard Access</h5>
-                            <h6 class="card-price text-center">$150</h6>
+                            <h5 class="card-title text-muted text-uppercase text-center">TOTAL SURVEYS</h5>
+                            <h6 class="card-price text-center">@totalSurvey</h6>
                             <hr>
                             <ul class="fa-ul">
                                 <li><span class="fa-li"><i class="fa fa-check"></i></span>Regular Seating</li>
@@ -632,8 +631,8 @@
 
             </div>
 
-           
-            </div>
+
+        </div>
 
         </div>
     </section><!-- End Contact Section -->
