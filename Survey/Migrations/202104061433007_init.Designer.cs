@@ -13,15 +13,11 @@ namespace Survey.Migrations
         
         string IMigrationMetadata.Id
         {
-<<<<<<< HEAD
 <<<<<<< HEAD:Survey/Migrations/202104081124313_init.Designer.cs
             get { return "202104081124313_init"; }
 =======
             get { return "202104061433007_init"; }
 >>>>>>> 6418c56e83f301ba1104d26c8964ced25c04270f:Survey/Migrations/202104061433007_init.Designer.cs
-=======
-            get { return "202104081124313_init"; }
->>>>>>> 6418c56e83f301ba1104d26c8964ced25c04270f
         }
         
         string IMigrationMetadata.Source

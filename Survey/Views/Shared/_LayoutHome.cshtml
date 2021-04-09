@@ -22,6 +22,10 @@
     <link rel="stylesheet" href="~/assets/css/slick.css">
     <link rel="stylesheet" href="~/assets/css/nice-select.css">
     <link rel="stylesheet" href="~/assets/css/style.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+   
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
     <!-- Preloader Start -->
@@ -43,16 +47,55 @@
                             <!-- Main-menu -->
                             <div class="main-menu f-right d-none d-lg-block">
                                 <nav>
+
+
+                                    @using Microsoft.AspNet.Identity
+                                    @if (Request.IsAuthenticated)
+                                    {
+                                        using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+                                        {
+                                            @Html.AntiForgeryToken()
+                                            
                                     <ul id="navigation">
                                         <li><a href="~/home">Home</a></li>
                                         <li><a href="about.html">Survey</a></li>
                                         <li><a href="gallery.html">Profile</a></li>
                                         <li><a href="~/home/supporthome">Support</a></li>
                                         <li><a href="~/home/faqhome">FAQ</a></li>
-                                        <li><a href="~/account/login">Login</a></li>
+                                       
+                                        <li>
+                                            <div class="dropdown">
+                                                <button class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    Hello  @User.Identity.GetUserName()    !
+                                                </button>
+                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                    @Html.ActionLink("Profile", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage", @class = "dropdown-item" })
+                                                    <a href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
+                                                   
+                                                </div>
+                                            </div>
+                                            
 
-                                        
+                                        </li>
+                                        <li></li>
                                     </ul>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <ul id="navigation">
+                                            <li><a href="~/home">Home</a></li>
+                                            <li><a href="about.html">Survey</a></li>
+                                            <li><a href="gallery.html">Profile</a></li>
+                                            <li><a href="~/home/supporthome">Support</a></li>
+                                            <li><a href="~/home/faqhome">FAQ</a></li>
+                                            <li><a href="~/account/login">Login</a></li>
+                                        </ul>
+                                    }
+
+
+
+
                                 </nav>
                             </div>
                         </div>
