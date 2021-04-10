@@ -17,10 +17,7 @@ namespace Survey.Controllers
         // GET: AllSurveys
         public ActionResult Index()
         {
-            var uid = User.Identity.GetUserId();
-            var count = db.Account_answers.Where(a => a.Id == uid).GroupBy(a => a.SurveyId).Count();
-
-            ViewBag.Answers = count;
+            
             return View(db.Surveys.ToList());
 
         }

@@ -6,7 +6,7 @@
 }
 @{
     Layout = null;
-
+    var count = 0;
 }
 
 <head>
@@ -168,11 +168,10 @@
                     
                     <div class="row">
                         <div class="col-sm-12">
-                            <table id="table_survey" class="table table-separate table-head-custom table-checkable dataTable no-footer dtr-inline" id="kt_datatable" role="grid" aria-describedby="kt_datatable_info" style="width: 1235px;">
+                            <table  class="table table-separate table-head-custom table-checkable dataTable no-footer dtr-inline" id="kt_datatable" role="grid" aria-describedby="kt_datatable_info" style="width: 1235px;">
                                 <thead>
                                     <tr role="row">
-                                        <th tabindex="0" aria-controls="kt_datatable" rowspan="1" colspan="1" style="width: 59px;" aria-sort="ascending" aria-label="Record ID: activate to sort column descending">No.</th>
-
+                                        
                                         <th tabindex="0" aria-controls="kt_datatable" rowspan="1" colspan="1" style="width: 68px;" aria-label="Country: activate to sort column ascending">@Html.DisplayNameFor(model => model.Title)</th>
                                         <th tabindex="0" aria-controls="kt_datatable" rowspan="1" colspan="1" style="width: 67px;" aria-label="Ship City: activate to sort column ascending">@Html.DisplayNameFor(model => model.Description)</th>
 
@@ -184,31 +183,40 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    
                                     @foreach (var item in Model)
                                     {
+
                                         <tr role="row" class="odd">
-                                            <td class="dtr-control sorting_1" tabindex="0">@Html.DisplayFor(modelItem => item.SurveyId)</td>
+                                            
                                             <td>@Html.DisplayFor(modelItem => item.Title)</td>
                                             <td>@Html.DisplayFor(modelItem => item.Description)</td>
                                             <td><span class="label label-lg font-weight-bold label-info label-inline">@Html.DisplayFor(modelItem => item.Status)!</span></td>
-                                             <td><span class="label label-lg font-weight-bold label-info label-inline">
-                                                 @if( ViewBag.Answers != 0)
-                                                 {
-                                                     <p>Da tra loi</p>
-                                                 }
-                                                 else
-                                                 {
-                                                 <p>chua tra loi</p>
-                                                 }
-                                                 </span></td> 
+                                            <td>
+                                                <span class="label label-lg font-weight-bold label-info label-inline">
+                                                    @ViewBag.AccStatus[count]
+                                                </span>
+                                            </td>
                                             <td nowrap="nowrap">
-                                                <span class="label label-lg font-weight-bold label-danger label-inline">  @Html.ActionLink("Go survey !", "Details", new { id = item.SurveyId } ,new { style ="color:white"})</span>
-                                                
+
+                                                @if (item.Status.ToString() == "HAPPENNING")
+                                                {<span class="label label-lg font-weight-bold label-danger label-inline">
+
+                                                        @Html.ActionLink("Go survey !", "Details", new { id = item.SurveyId }, new { style = "color:white" })
+                                                    </span>
+                                                }
+                                                else
+                                                {
+                                                    <span class="label label-lg font-weight-bold label-danger label-inline">
+                                                        NONE!
+                                                    </span>
+                                                }
 
                                             </td>
                                         </tr>
+                                        count++;
                                     }
-                                    </tbody>
+                                </tbody>
                             </table>
                         </div>
                     </div>
