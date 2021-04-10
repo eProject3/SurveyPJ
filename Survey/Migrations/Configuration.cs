@@ -27,7 +27,7 @@
                        SurveyId = 1,
                        Title = "Water Use and Conservation Survey",
                        Description = "In this theme, students will think about the way they use water on a daily basis and the impact of those habits on the environment. They will investigate the source of water they use in their community and consider different ways in which it is used.  They will think critically about using bottled water, and explore methods of conserving water as a useful resource both inside and outside.  ",
-                       Status = SurveyStatus.HAPPENNING,
+                       Status = SurveyStatus.DONE,
                        CreateDate = DateTime.ParseExact(CreateDate, "dd-MM-yyyy hh:mm:ss:tt", CultureInfo.InvariantCulture),
                        UpdateDate = DateTime.ParseExact(UpdateDate, "dd-MM-yyyy hh:mm:ss:tt", CultureInfo.InvariantCulture),
 

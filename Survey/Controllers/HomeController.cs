@@ -11,19 +11,35 @@ namespace Survey.Controllers
 {
     public class HomeController : Controller
     {
+        public int countAllSurvey;
+        public int countAllSurveyAnswered;
+        public int countAllSurveyComplete;
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        public ActionResult Index(Support support)
+        public ActionResult Index()
         {
-            var totalSurvey = db.Surveys.ToList().Count();
-            ViewBag.totalSurvey = totalSurvey;
+            countAllSurvey = db.Surveys.Count();
+            countAllSurveyComplete = db.Surveys.Where(c => c.Status == SurveyStatus.DONE).Count();
 
-            //var totaStudent = db.A.Where(x => x.Location.Equals("Europe")).Count();
-            //ViewBag.europe = europe;
 
-            //var africa = db.Example.Where(x => x.Location.Equals("Africa")).Count();
-            //ViewBag.africa = africa;
-            return View(support);
+
+
+            if (User.Identity.GetUserId() != null)
+            {
+                var uid = User.Identity.GetUserId();
+                var count = db.Account_answers.Where(a => a.Id == uid).GroupBy(a => a.SurveyId).Count();
+            }
+            else
+            {
+                countAllSurveyAnswered = 0;
+            }
+
+            ViewBag.AllSurvey = countAllSurvey;
+            ViewBag.AllSurveyAnswered = countAllSurveyAnswered;
+            ViewBag.AllSurveyComplete = countAllSurveyComplete;
+
+
+            return View();
         }
 
         public ActionResult About()
@@ -50,10 +66,28 @@ namespace Survey.Controllers
 
             return View(db.Supports.ToList());
         }
-
+        [Authorize]
         public ActionResult Survey()
         {
-            return View(db.Surveys.ToList());
+            List<AllSurvey> surveys = db.Surveys.Where(s => s.Status.ToString() == "NOT_HAPPENNING_YET" || s.Status.ToString() == "HAPPENNING" || s.Status.ToString() == "DONE").ToList();
+            var owner = new List<String>();
+            var userId = User.Identity.GetUserId();
+            foreach (var i in surveys)
+            {
+                if(db.Account_answers.Where(u => u.Id ==userId ).Where(s => s.SurveyId == i.SurveyId).Count() != 0)
+                {
+                    owner.Add("Submitted!");
+                }
+                else
+                {
+                    owner.Add("Not Yet Submitted");
+                }
+                
+            }
+            ViewBag.AccStatus = owner;
+                
+
+            return View(surveys);
         }
 
         [Authorize]
