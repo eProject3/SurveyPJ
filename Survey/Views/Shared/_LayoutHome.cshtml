@@ -58,6 +58,13 @@
     <link rel="stylesheet" type="text/css" href="~/assets/css/util.css">
     <link rel="stylesheet" type="text/css" href="~/assets/css/main.css">
     <!--===============================================================================================-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
+   <style>
+       .dropdown-menu.show{
+           border:0px 0px 0px 0px;
+       }
+   </style>
 </head>
 
 <body>
@@ -72,14 +79,44 @@
             </div>
 
             <nav id="nav-menu-container">
+
+                @using Microsoft.AspNet.Identity
+                @if (Request.IsAuthenticated)
+                {
+                    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+                    {
+                        @Html.AntiForgeryToken()
                 <ul class="nav-menu">
                     <li class="menu-active"><a href="~/Home/Index">Home</a></li>
-                    <li><a href="#about">Survey</a></li>
-                    <li><a href="~/account/profile">Profile</a></li>
+                    <li><a href="@Url.Action("Survey", "Home")">Survey</a></li>
+
                     <li><a href="~/Home/faqhome">FAQ</a></li>
                     <li><a href="~/Home/supporthome">Support</a></li>
-                    <li class="buy-tickets"><a href="~/account/login">Login/Register</a></li>
+                    <li><a href="~/account/profile">Profile</a></li>
+                    <li class="buy-tickets">
+                        <a style="color:white">
+                            Hello  @User.Identity.GetUserName() !
+                        </a>
+
+                    </li>
+                    <li class="buy-tickets"><a href="javascript:document.getElementById('logoutForm').submit()">Log out</a></li>
+
                 </ul>
+
+                    }
+                }
+                else
+                {
+                    <ul class="nav-menu">
+                        <li class="menu-active"><a href="~/Home/Index">Home</a></li>
+                        <li><a href="@Url.Action("Survey", "Home")">Survey</a></li>
+                        
+                        <li><a href="~/Home/faqhome">FAQ</a></li>
+                        <li><a href="~/Home/supporthome">Support</a></li>
+                        <li class="buy-tickets"><a href="~/account/login">Login/Register</a></li>
+                    </ul>
+                }
+
             </nav><!-- #nav-menu-container -->
         </div>
     </header><!-- End Header -->

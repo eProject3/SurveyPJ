@@ -7,7 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Survey.Models;
-
+using Microsoft.AspNet.Identity;
 namespace Survey.Controllers
 {
     public class AllSurveysController : Controller
@@ -17,7 +17,10 @@ namespace Survey.Controllers
         // GET: AllSurveys
         public ActionResult Index()
         {
+            var uid = User.Identity.GetUserId();
+            var count = db.Account_answers.Where(a => a.Id == uid).GroupBy(a => a.SurveyId).Count();
             return View(db.Surveys.ToList());
+
         }
         [HttpPost]
         public ActionResult HelloAjax(string q)
