@@ -22,7 +22,11 @@ namespace Survey.Controllers
             return View(db.Surveys.ToList());
 
         }
-
+        [HttpPost]
+        public ActionResult HelloAjax(string q)
+        {
+            return View("Index", this.db.Surveys.Where(item => item.Title.Contains(q)).ToList());
+        }
         // GET: AllSurveys/Details/5
         public ActionResult Details(int? id)
         {

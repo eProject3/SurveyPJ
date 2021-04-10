@@ -2,14 +2,47 @@
 
 @{
     ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+
 }
 
-<h2>Index</h2>
+<h2>Survey List</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
+@using (Ajax.BeginForm("HelloAjax", "AllSurveys",
+new AjaxOptions
+{
+    InsertionMode = InsertionMode.Replace,
+    HttpMethod = "POST",
+    OnFailure = "searchFailed",
+    UpdateTargetId = "dulieuId",
+}))
+{
+<div class="mb-7">
+    <div class="row align-items-center">
+        <div class="col-lg-9 col-xl-8">
+            <div class="row align-items-center">
+                <div class="col-md-4 my-2 my-md-0">
+                    <div class="input-icon">
+                        <input type="text" name="q" class="form-control" placeholder="Search..." id="kt_datatable_search_query">
+                        <span>
+                            <i class="flaticon2-search-1 text-muted"></i>
+                        </span>
+
+                    </div>
+                </div>
+                <div class="col-lg-3 col-xl-4 mt-5 mt-lg-0">
+                    <input type="Submit" class="btn btn-light-primary px-6 font-weight-bold" value="search" />
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>
+}
+<table class="table" id="dulieuId">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Title)
@@ -29,29 +62,30 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CreateDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.UpdateDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Status)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.SurveyId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.SurveyId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.SurveyId })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreateDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UpdateDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.SurveyId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.SurveyId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.SurveyId })
+            </td>
+        </tr>
+    }
 
 </table>

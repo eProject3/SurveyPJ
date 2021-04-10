@@ -20,7 +20,10 @@ namespace Survey.Controllers
         {
             return View(db.FAQs.ToList());
         }
-
+        public ActionResult HelloAjax(string q)
+        {
+            return View("Index", this.db.FAQs.Where(item => item.Title.Contains(q)).ToList());
+        }
 
         // GET: FAQs/Details/5
         public ActionResult Details(int? id)

@@ -14,6 +14,14 @@ namespace Survey.Controllers
 
         public ActionResult Index(Support support)
         {
+            var totalSurvey = db.Surveys.ToList().Count();
+            ViewBag.totalSurvey = totalSurvey;
+
+            //var totaStudent = db.A.Where(x => x.Location.Equals("Europe")).Count();
+            //ViewBag.europe = europe;
+
+            //var africa = db.Example.Where(x => x.Location.Equals("Africa")).Count();
+            //ViewBag.africa = africa;
             return View(support);
         }
 
