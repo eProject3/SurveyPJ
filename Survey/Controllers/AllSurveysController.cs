@@ -19,14 +19,12 @@ namespace Survey.Controllers
         {
             var uid = User.Identity.GetUserId();
             var count = db.Account_answers.Where(a => a.Id == uid).GroupBy(a => a.SurveyId).Count();
+
+            ViewBag.Answers = count;
             return View(db.Surveys.ToList());
 
         }
-        [HttpPost]
-        public ActionResult HelloAjax(string q)
-        {
-            return View("Index", this.db.Surveys.Where(item => item.Title.Contains(q)).ToList());
-        }
+
         // GET: AllSurveys/Details/5
         public ActionResult Details(int? id)
         {
