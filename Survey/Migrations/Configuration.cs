@@ -27,7 +27,7 @@
                        SurveyId = 1,
                        Title = "Water Use and Conservation Survey",
                        Description = "In this theme, students will think about the way they use water on a daily basis and the impact of those habits on the environment. They will investigate the source of water they use in their community and consider different ways in which it is used.  They will think critically about using bottled water, and explore methods of conserving water as a useful resource both inside and outside.  ",
-                       Status = SurveyStatus.HAPPENNING,
+                       Status = SurveyStatus.DONE,
                        CreateDate = DateTime.ParseExact(CreateDate, "dd-MM-yyyy hh:mm:ss:tt", CultureInfo.InvariantCulture),
                        UpdateDate = DateTime.ParseExact(UpdateDate, "dd-MM-yyyy hh:mm:ss:tt", CultureInfo.InvariantCulture),
 
@@ -209,7 +209,7 @@
                                SurveyId = 2,
                                Title = "Question 7",
                                Description = "If you answered 'Sometimes' or 'Often' to question 6, why do you drop litter? (Choose one or more)",
-                               Type = 2,
+                               Type = 4,
                            },
                            new Question()
                            {
@@ -754,59 +754,10 @@
                                                                        {
                                                                            QuestionId = 19,
                                                                            QuestionAnswerId = 56,
-                                                                           Answer = "I can't be bothered to put it in the bin.",
+                                                                           Answer = "Essey",
 
                                                                        },
-                                                                        new QuestionAnswer()
-                                                                        {
-                                                                            QuestionId = 19,
-                                                                            QuestionAnswerId = 57,
-                                                                            Answer = "If I can't find a bin, I just drop my trash.",
-
-                                                                        },
-                                                                           new QuestionAnswer()
-                                                                           {
-                                                                               QuestionId = 19,
-                                                                               QuestionAnswerId = 58,
-                                                                               Answer = "I don't mean to; I drop it accidentally.",
-
-                                                                           },
-
-                                                                             new QuestionAnswer()
-                                                                             {
-                                                                                 QuestionId = 19,
-                                                                                 QuestionAnswerId = 59,
-                                                                                 Answer = "It's not cool to put trash in bins.",
-
-                                                                             },
-                                                                              new QuestionAnswer()
-                                                                              {
-                                                                                  QuestionId = 19,
-                                                                                  QuestionAnswerId = 60,
-                                                                                  Answer = "I drop empty bottles and wrappers because they are dirty and I don't want to hold them.",
-
-                                                                              },
-                                                                               new QuestionAnswer()
-                                                                               {
-                                                                                   QuestionId = 19,
-                                                                                   QuestionAnswerId = 61,
-                                                                                   Answer = "I think it's fun.",
-
-                                                                               },
-                                                                                 new QuestionAnswer()
-                                                                                 {
-                                                                                     QuestionId = 19,
-                                                                                     QuestionAnswerId = 62,
-                                                                                     Answer = "I don't care.",
-
-                                                                                 },
-                                                                                    new QuestionAnswer()
-                                                                                    {
-                                                                                        QuestionId = 19,
-                                                                                        QuestionAnswerId = 63,
-                                                                                        Answer = "I like being a rebel.",
-
-                                                                                    },
+                                                                       
                                                                                        new QuestionAnswer()
                                                                                        {
                                                                                            QuestionId = 20,

@@ -13,13 +13,13 @@
                     {
                         AccountAnswerId = c.Int(nullable: false, identity: true),
                         SurveyId = c.Int(nullable: false),
-                        Id = c.String(maxLength: 128),
+                        Id = c.String(nullable: false, maxLength: 128),
                         QuestionAnswerId = c.Int(nullable: false),
                         Status = c.Int(nullable: false),
-                        Description = c.Int(nullable: false),
+                        Description = c.String(nullable: false),
                     })
                 .PrimaryKey(t => t.AccountAnswerId)
-                .ForeignKey("dbo.AspNetUsers", t => t.Id)
+                .ForeignKey("dbo.AspNetUsers", t => t.Id, cascadeDelete: true)
                 .ForeignKey("dbo.Question_answers", t => t.QuestionAnswerId, cascadeDelete: true)
                 .ForeignKey("dbo.AllSurveys", t => t.SurveyId, cascadeDelete: true)
                 .Index(t => t.SurveyId)

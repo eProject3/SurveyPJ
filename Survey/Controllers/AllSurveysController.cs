@@ -7,7 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Survey.Models;
-
+using Microsoft.AspNet.Identity;
 namespace Survey.Controllers
 {
     public class AllSurveysController : Controller
@@ -17,7 +17,9 @@ namespace Survey.Controllers
         // GET: AllSurveys
         public ActionResult Index()
         {
+            
             return View(db.Surveys.ToList());
+
         }
 
         // GET: AllSurveys/Details/5
