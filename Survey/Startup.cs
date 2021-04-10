@@ -40,8 +40,9 @@ namespace Survey
                 user.UserName = "admin";
                 user.Email = "admin@gmail.com";
                 user.DateJoin = DateTime.Today;
+               
                 string userPWD = "12345!Bien";
-
+                user.Status = 1;
                 var chkUser = UserManager.Create(user, userPWD);
 
                 //Add default User to Role Admin    
@@ -66,7 +67,7 @@ namespace Survey
                 user.Email = "employee@gmail.com";
                 user.DateJoin = DateTime.Today;
                 string userPWD = "12345!Bien";
-
+                user.Status = 1;
                 var chkUser = UserManager.Create(user, userPWD);
 
                 //Add default User to Role employee    
@@ -89,7 +90,7 @@ namespace Survey
                 user.Email = "student@gmail.com";
                 user.DateJoin = DateTime.Today;
                 string userPWD = "12345!Bien";
-
+                user.Status = 1;
                 var chkUser = UserManager.Create(user, userPWD);
 
                 //Add default User to Role Students    

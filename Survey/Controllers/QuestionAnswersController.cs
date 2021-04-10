@@ -70,14 +70,20 @@ namespace Survey.Controllers
                     bigModels.Question[i].SurveyId = newIdSurvey;
                     db.Questions.Add(bigModels.Question[i]);
                     db.SaveChanges();
-                    if(bigModels.Question[i].Type == 4)
+                    if (bigModels.Question[i].Type == 3)
                     {
                         QaTemp q = new QaTemp();
-                        q.Answer = "other";
+                        q.Answer = "Other";
                         q.Title = bigModels.Question[i].Title;
                         bigModels.QaTemps.Add(q);
                     }
-                    //idQuest = question.Id;
+                    if (bigModels.Question[i].Type == 4)
+                    {
+                        QaTemp q = new QaTemp();
+                        q.Answer = "Essay";
+                        q.Title = bigModels.Question[i].Title;
+                        bigModels.QaTemps.Add(q);
+                    }
                     if (i == bigModels.Question.Count - 1)
                     {
                         titleTemp = bigModels.Question[i].Title;
