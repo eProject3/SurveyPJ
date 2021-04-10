@@ -71,6 +71,7 @@ namespace Survey.Controllers
             }
             return View(allSurvey);
         }
+
         [Authorize]
         [HttpPost]
         public ActionResult SaveAnswer()
@@ -195,7 +196,7 @@ namespace Survey.Controllers
 
 
 
-
-
+        
+     
     }
 }
