@@ -6,6 +6,14 @@
 }
 
 <h2>Survey</h2>
+<section id="intro" style="height : 70px">
+    <div class="intro-container" data-aos="zoom-in" data-aos-delay="0">
+        @*<h1 class="mb-4 pb-0">The <span>Evironment</span><br>Survey</h1>
+            <p class="mb-4 pb-0">10-12 December, Downtown Conference Center, New York</p>
+            <a href="https://www.youtube.com/watch?v=X2YgM1Zw4_E&ab_channel=SmileandLearn-English" class="venobox play-btn mb-4" data-vbtype="video" data-autoplay="true"></a>
+            <a href="#about" class="about-btn scrollto">About The Event</a>*@
+    </div>
+</section><!-- End Intro Section -->
 
 <table class="table">
     <tr>
@@ -24,26 +32,27 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CreateDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.UpdateDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-          
-            @Html.ActionLink("Details", "Details", new { id=item.SurveyId }) 
-          
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreateDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UpdateDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+
+                @Html.ActionLink("Details", "Details", new { id = item.SurveyId })
+
+            </td>
+        </tr>
+    }
 
 </table>

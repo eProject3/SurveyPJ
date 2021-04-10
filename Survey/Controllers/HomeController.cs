@@ -1,20 +1,47 @@
-﻿using Survey.Models;
+﻿using Microsoft.AspNet.Identity;
+using Microsoft.JScript;
+using Survey.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Routing;
 
 namespace Survey.Controllers
 {
     public class HomeController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
+        public int countAllSurvey;
+        public int countAllSurveyAnswered;
+        public int countAllSurveyComplete;
 
-        public ActionResult Index(Support support)
+        public ActionResult Index()
         {
-            return View(support);
+            countAllSurvey = db.Surveys.Count();
+            countAllSurveyComplete = db.Surveys.Where(c => c.Status == SurveyStatus.DONE).Count();
+
+
+
+
+            if (User.Identity.GetUserId() != null)
+            {
+                var uid = User.Identity.GetUserId();
+                var count = db.Account_answers.Where(a => a.Id == uid).GroupBy(a => a.SurveyId).Count();
+            }
+            else
+            {
+                countAllSurveyAnswered = 0;
+            }
+
+            ViewBag.AllSurvey = countAllSurvey;
+            ViewBag.AllSurveyAnswered = countAllSurveyAnswered;
+            ViewBag.AllSurveyComplete = countAllSurveyComplete;
+            
+
+            return View();
         }
 
         public ActionResult About()
@@ -61,9 +88,18 @@ namespace Survey.Controllers
             }
             return View(allSurvey);
         }
-
-
-        
-
+        //protected override void Initialize(RequestContext requestContext)
+        //{
+        //    countAllSurvey = db.Surveys.Count();
+        //    countAllSurveyComplete = db.Surveys.Where(c => c.Status == SurveyStatus.DONE).Count();
+        //    if (User != null)
+        //    {
+        //        countAllSurveyAnswered = db.Account_answers.Where(a => a.Id == User.Identity.GetUserId()).Distinct().Count();
+        //    }
+        //    else
+        //    {
+        //        countAllSurveyAnswered = 0;
+        //    }
+        //}
     }
 }

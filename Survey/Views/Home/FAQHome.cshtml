@@ -8,7 +8,16 @@
 
 <!DOCTYPE html>
 
+
 <head>
+    <section id="intro" style="height : 70px">
+        <div class="intro-container" data-aos="zoom-in" data-aos-delay="0">
+            @*<h1 class="mb-4 pb-0">The <span>Evironment</span><br>Survey</h1>
+            <p class="mb-4 pb-0">10-12 December, Downtown Conference Center, New York</p>
+            <a href="https://www.youtube.com/watch?v=X2YgM1Zw4_E&ab_channel=SmileandLearn-English" class="venobox play-btn mb-4" data-vbtype="video" data-autoplay="true"></a>
+            <a href="#about" class="about-btn scrollto">About The Event</a>*@
+        </div>
+    </section><!-- End Intro Section -->
     <!-- =======  F.A.Q Section ======= -->
     <section id="faq">
 
@@ -24,15 +33,15 @@
                     <ul id="faq-list">
 
                         @foreach (var item in Model)
-                        { 
-                        <li>
-                            <a data-toggle="collapse" class="collapsed" href="#faq1">@Html.DisplayFor(modelItem => item.Name) <i class="fa fa-minus-circle"></i></a>
-                            <div id="faq1" class="collapse" data-parent="#faq-list">
-                                <p>
-                                    @Html.DisplayFor(modelItem => item.Description)
-                                </p>
-                            </div>
-                        </li>
+                        {
+                            <li>
+                                <a data-toggle="collapse" class="collapsed" href="#faq1">@Html.DisplayFor(modelItem => item.Name) <i class="fa fa-minus-circle"></i></a>
+                                <div id="faq1" class="collapse" data-parent="#faq-list">
+                                    <p>
+                                        @Html.DisplayFor(modelItem => item.Description)
+                                    </p>
+                                </div>
+                            </li>
                         }
                     </ul>
                 </div>
@@ -43,5 +52,6 @@
     </section>
 
 </head>
+
 
 

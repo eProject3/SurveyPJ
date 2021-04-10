@@ -21,7 +21,7 @@
     <link href="~/asset/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="~/asset/vendor/venobox/venobox.css" rel="stylesheet">
     <link href="~/asset/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <link href="~/asset/vendor/owl.carousel/~/asset/owl.carousel.min.css" rel="stylesheet">
+    <link href="~/asset/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
     <link href="~/asset/vendor/aos/aos.css" rel="stylesheet">
 
     <!-- Template Main CSS File -->
@@ -37,26 +37,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--===============================================================================================-->
-    <link rel="icon" type="image/png" href="~/assets/images/icons/favicon.ico" />
+    <link rel="icon" type="~/asset/image/png" href="~/asset/images/icons/favicon.ico" />
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="~/assets/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="~/asset/vendor/bootstrap/css/bootstrap.min.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="~/assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="~/asset/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="~/assets/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+    <link rel="stylesheet" type="text/css" href="~/asset/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="~/assets/vendor/animate/animate.css">
+    <link rel="stylesheet" type="text/css" href="~/asset/vendor/animate/animate.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="~/assets/vendor/css-hamburgers/hamburgers.min.css">
+    <link rel="stylesheet" type="text/css" href="~/asset/vendor/css-hamburgers/hamburgers.min.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="~/assets/vendor/animsition/css/animsition.min.css">
+    <link rel="stylesheet" type="text/css" href="~/asset/vendor/animsition/css/animsition.min.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="~/assets/vendor/select2/select2.min.css">
+    <link rel="stylesheet" type="text/css" href="~/asset/vendor/select2/select2.min.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="~/assets/vendor/daterangepicker/daterangepicker.css">
+    <link rel="stylesheet" type="text/css" href="~/asset/vendor/daterangepicker/daterangepicker.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="~/assets/css/util.css">
-    <link rel="stylesheet" type="text/css" href="~/assets/css/main.css">
+    <link rel="stylesheet" type="text/css" href="~/asset/css/util.css">
+    <link rel="stylesheet" type="text/css" href="~/asset/css/main.css">
     <!--===============================================================================================-->
 </head>
 
@@ -68,13 +68,13 @@
             <div id="logo" class="pull-left">
                 <!-- Uncomment below if you prefer to use a text logo -->
                 <!-- <h1><a href="#intro">The<span>Event</span></a></h1>-->
-                <a href="index.html" class="scrollto"><img src="~/asset/img/logo.png" alt="" title=""></a>
+                <a href="~/Home/Index" class="scrollto"><img src="~/asset/img/logo.png" alt="" title=""></a>
             </div>
 
             <nav id="nav-menu-container">
                 <ul class="nav-menu">
                     <li class="menu-active"><a href="~/Home/Index">Home</a></li>
-                    <li><a href="#about">Survey</a></li>
+                    <li><a href="~/allsurveys/index">Survey</a></li>
                     <li><a href="~/account/profile">Profile</a></li>
                     <li><a href="~/Home/faqhome">FAQ</a></li>
                     <li><a href="~/Home/supporthome">Support</a></li>
@@ -84,14 +84,6 @@
         </div>
     </header><!-- End Header -->
     <!-- ======= Intro Section ======= -->
-    <section id="intro">
-        <div class="intro-container" data-aos="zoom-in" data-aos-delay="0">
-            <h1 class="mb-4 pb-0">The <span>Evironment</span><br>Survey</h1>
-            <p class="mb-4 pb-0">10-12 December, Downtown Conference Center, New York</p>
-            <a href="https://www.youtube.com/watch?v=VmpEAG8ExRg&ab_channel=LocNguyen" class="venobox play-btn mb-4" data-vbtype="video" data-autoplay="true"></a>
-            <a href="#about" class="about-btn scrollto">About The Event</a>
-        </div>
-    </section><!-- End Intro Section -->
     @RenderBody()
     <!-- ======= Footer ======= -->
     <footer id="footer">
@@ -107,11 +99,11 @@
                     <div class="col-lg-4 col-md-6 footer-links">
                         <h4>Useful Links</h4>
                         <ul>
-                            <li><i class="fa fa-angle-right"></i> <a href="#">Home</a></li>
-                            <li><i class="fa fa-angle-right"></i> <a href="#">Survey</a></li>
-                            <li><i class="fa fa-angle-right"></i> <a href="#">Profile</a></li>
-                            <li><i class="fa fa-angle-right"></i> <a href="#">FAQ</a></li>
-                            <li><i class="fa fa-angle-right"></i> <a href="#">Support</a></li>
+                            <li><i class="fa fa-angle-right"></i> <a href="~/Home/Index">Home</a></li>
+                            <li><i class="fa fa-angle-right"></i> <a href="~/allsurveys/index">Survey</a></li>
+                            <li><i class="fa fa-angle-right"></i> <a href="~/account/profile">Profile</a></li>
+                            <li><i class="fa fa-angle-right"></i> <a href="~/Home/faqhome">FAQ</a></li>
+                            <li><i class="fa fa-angle-right"></i> <a href="~/Home/supporthome">Support</a></li>
                         </ul>
                     </div>
 
