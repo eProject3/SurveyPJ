@@ -19,6 +19,11 @@ namespace Survey.Controllers
         {
             return View(db.Supports.ToList());
         }
+        [HttpPost]
+        public ActionResult HelloAjax(string q)
+        {
+            return View("Index", this.db.Supports.Where(item => item.Name.Contains(q)).ToList());
+        }
 
         // GET: Supports/Details/5
         public ActionResult Details(int? id)
