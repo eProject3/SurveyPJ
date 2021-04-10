@@ -52,6 +52,7 @@ namespace Survey.Controllers
                     context.SaveChanges();
                     return RedirectToAction("Index");
                 }
+                return View(applicationUser);
             }
             catch (DbEntityValidationException e)
             {
@@ -67,7 +68,7 @@ namespace Survey.Controllers
                 }
                 throw;
             }
-            return View(applicationUser);
+            
         }
 
 

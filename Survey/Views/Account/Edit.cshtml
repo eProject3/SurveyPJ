@@ -4,9 +4,6 @@
     ViewBag.Title = "Edit";
     Layout = "~/Views/Shared/_LayoutHome.cshtml";
 }
-<br />
-<br />
-<br />
 
 
 @using (Html.BeginForm())
@@ -14,6 +11,7 @@
     @Html.AntiForgeryToken()
 
 <div class="container">
+
     <div class="section-header">
         <h2>EDIT</h2>
         <p>Your information</p>
@@ -188,5 +186,13 @@
             border-radius: 5px;
             border: 0;
             margin-bottom: 1rem;
+
+
+        }
+        #header {
+            background: rgba(6, 12, 34, 0.98);
+            height: 70px;
+            padding: 15px 0;
+            transition: all 0.5s;
         }
     </style>

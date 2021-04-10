@@ -106,6 +106,7 @@
         }
 
     </form>*@
+
 <form action="/Home/SaveAnswer" method="post" id="surveyForm" style="margin:62px;">
     <input style="display:none;" type="text" name="currentsurvey" value="@Model.SurveyId" />
     <div class="container mt-5" >
@@ -123,18 +124,21 @@
                     <p class="fw-bolder " style="margin-left:-50px"><i class="fas fa-caret-right"></i>  @Html.DisplayFor(modelItem => item.Title):</p>
 
 
+
                     <p class="fs-5" style="margin-left:-16px">  @Html.DisplayFor(modelItem => item.Description)</p>
+
+
 
 
 
                     if (item.Type == 0)
                     {
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="@item.Id" id="radio1" value="Yes" />
+                            <input required class="form-check-input" type="radio" name="@item.Id" id="radio1" value="Yes" />
                             <label class="form-check-label" for="radio1">Yes</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="@item.Id" id="radio2" value="No" />
+                            <input  class="form-check-input" type="radio" name="@item.Id" id="radio2" value="No" />
                             <label class="form-check-label" for="radio2">No</label>
                         </div>
 
@@ -146,7 +150,7 @@
                         foreach (var i in item.QuestionAnswers)
                         {
                             <div class="form-check mb-4">
-                                <input class="form-check-input" name="@item.Id" type="radio" id="radio" value="@i.Answer">
+                                <input required class="form-check-input" name="@item.Id" type="radio" id="radio" value="@i.Answer">
                                 <label class="form-check-label" for="radio">@Html.DisplayFor(modelItem => i.Answer)</label>
                             </div>
 
@@ -157,8 +161,7 @@
                         foreach (var i in item.QuestionAnswers)
                         {
                             <div class="form-check mb-4 ">
-                                <input class="form-check-input" id="flexCheckChecked" type="checkbox" name="@item.Id" value="@i.Answer" /> @Html.DisplayFor(modelItem => i.Answer)
-
+                                <input  class="form-check-input" id="flexCheckChecked" type="checkbox" name="@item.Id" value="@i.Answer" /> @Html.DisplayFor(modelItem => i.Answer)
                             </div>
                         }
 
@@ -187,6 +190,7 @@
                 }
             </div>
         </div>
+
         <button type="submit" class="btn btn-primary waves-effect waves-light" style="color:white">
             Submit
             
