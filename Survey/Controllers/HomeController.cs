@@ -87,6 +87,7 @@ namespace Survey.Controllers
             ViewBag.AccStatus = owner;
                 
 
+
             return View(surveys);
         }
 
@@ -105,8 +106,6 @@ namespace Survey.Controllers
             }
             return View(allSurvey);
         }
-
-
         [Authorize]
         [HttpPost]
         public ActionResult SaveAnswer()
@@ -225,8 +224,6 @@ namespace Survey.Controllers
 
             }
             return Redirect("~/Home/Survey");
-
-
         }
 
 
@@ -234,5 +231,7 @@ namespace Survey.Controllers
         
      
 
+        
+     
     }
 }

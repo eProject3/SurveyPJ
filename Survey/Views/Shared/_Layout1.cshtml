@@ -21,7 +21,7 @@
     <link href="~/asset/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="~/asset/vendor/venobox/venobox.css" rel="stylesheet">
     <link href="~/asset/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <link href="~/asset/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="~/asset/vendor/owl.carousel/~/asset/owl.carousel.min.css" rel="stylesheet">
     <link href="~/asset/vendor/aos/aos.css" rel="stylesheet">
 
     <!-- Template Main CSS File -->
@@ -37,34 +37,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--===============================================================================================-->
-    <link rel="icon" type="~/asset/image/png" href="~/asset/images/icons/favicon.ico" />
+    <link rel="icon" type="image/png" href="~/assets/images/icons/favicon.ico" />
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="~/asset/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/vendor/bootstrap/css/bootstrap.min.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="~/asset/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="~/asset/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="~/asset/vendor/animate/animate.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/vendor/animate/animate.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="~/asset/vendor/css-hamburgers/hamburgers.min.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/vendor/css-hamburgers/hamburgers.min.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="~/asset/vendor/animsition/css/animsition.min.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/vendor/animsition/css/animsition.min.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="~/asset/vendor/select2/select2.min.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/vendor/select2/select2.min.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="~/asset/vendor/daterangepicker/daterangepicker.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/vendor/daterangepicker/daterangepicker.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="~/asset/css/util.css">
-    <link rel="stylesheet" type="text/css" href="~/asset/css/main.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/css/util.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/css/main.css">
     <!--===============================================================================================-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    
-   <style>
-       .dropdown-menu.show{
-           border:0px 0px 0px 0px;
-       }
-   </style>
+
+    <style>
+        .dropdown-menu.show {
+            border: 0px 0px 0px 0px;
+        }
+    </style>
 </head>
 
 <body>
@@ -75,10 +75,7 @@
             <div id="logo" class="pull-left">
                 <!-- Uncomment below if you prefer to use a text logo -->
                 <!-- <h1><a href="#intro">The<span>Event</span></a></h1>-->
-
                 <a href="@Url.Action("Index", "Home")" class="scrollto"><img src="~/asset/img/logo.png" alt="" title=""></a>
-
-                
             </div>
 
             <nav id="nav-menu-container">
@@ -89,21 +86,22 @@
                     using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
                     {
                         @Html.AntiForgeryToken()
-                <ul class="nav-menu">
-                    <li class="menu-active"><a href="~/Home/Index">Home</a></li>
-                    <li><a href="@Url.Action("Survey", "Home")">Survey</a></li>
-                    <li><a href="~/Home/faqhome">FAQ</a></li>
-                    <li><a href="~/Home/supporthome">Support</a></li>
-                    <li><a href="~/account/profile">Profile</a></li>
-                    <li class="buy-tickets">
-                        <a style="color:white">
-                            Hello  @User.Identity.GetUserName() !
-                        </a>
+                        <ul class="nav-menu">
+                            <li class="menu-active"><a href="~/Home/Index">Home</a></li>
+                            <li><a href="@Url.Action("Survey", "Home")">Survey</a></li>
 
-                    </li>
-                    <li class="buy-tickets"><a href="javascript:document.getElementById('logoutForm').submit()">Log out</a></li>
+                            <li><a href="~/Home/faqhome">FAQ</a></li>
+                            <li><a href="~/Home/supporthome">Support</a></li>
+                            <li><a href="~/account/profile">Profile</a></li>
+                            <li class="buy-tickets">
+                                <a style="color:white">
+                                    Hello  @User.Identity.GetUserName() !
+                                </a>
 
-                </ul>
+                            </li>
+                            <li class="buy-tickets"><a href="javascript:document.getElementById('logoutForm').submit()">Log out</a></li>
+
+                        </ul>
 
                     }
                 }
@@ -111,8 +109,8 @@
                 {
                     <ul class="nav-menu">
                         <li class="menu-active"><a href="~/Home/Index">Home</a></li>
-                        
-                        
+                     
+
                         <li><a href="~/Home/faqhome">FAQ</a></li>
                         <li><a href="~/Home/supporthome">Support</a></li>
                         <li class="buy-tickets"><a href="~/account/login">Login/Register</a></li>
@@ -123,6 +121,7 @@
         </div>
     </header><!-- End Header -->
     <!-- ======= Intro Section ======= -->
+    
     @RenderBody()
     <!-- ======= Footer ======= -->
     <footer id="footer">
@@ -138,11 +137,11 @@
                     <div class="col-lg-4 col-md-6 footer-links">
                         <h4>Useful Links</h4>
                         <ul>
-                            <li><i class="fa fa-angle-right"></i> <a href="~/Home/Index">Home</a></li>
-                            <li><i class="fa fa-angle-right"></i> <a href="~/allsurveys/index">Survey</a></li>
-                            <li><i class="fa fa-angle-right"></i> <a href="~/account/profile">Profile</a></li>
-                            <li><i class="fa fa-angle-right"></i> <a href="~/Home/faqhome">FAQ</a></li>
-                            <li><i class="fa fa-angle-right"></i> <a href="~/Home/supporthome">Support</a></li>
+                            <li><i class="fa fa-angle-right"></i> <a href="#">Home</a></li>
+                            <li><i class="fa fa-angle-right"></i> <a href="#">Survey</a></li>
+                            <li><i class="fa fa-angle-right"></i> <a href="#">Profile</a></li>
+                            <li><i class="fa fa-angle-right"></i> <a href="#">FAQ</a></li>
+                            <li><i class="fa fa-angle-right"></i> <a href="#">Support</a></li>
                         </ul>
                     </div>
 
