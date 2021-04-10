@@ -240,6 +240,7 @@
     <Content Include="assets\css\slicknav.css" />
     <Content Include="assets\css\style.bundle.css" />
     <Content Include="assets\css\style.css" />
+    <Content Include="assets\css\StyleSheet1.css" />
     <Content Include="assets\css\themes\layout\aside\dark.css" />
     <Content Include="assets\css\themes\layout\aside\light.css" />
     <Content Include="assets\css\themes\layout\brand\dark.css" />

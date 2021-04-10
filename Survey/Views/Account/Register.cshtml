@@ -2,7 +2,9 @@
 @{
     ViewBag.Title = "Register";
 }
-
+@{
+    Layout = null;
+}
 <style>
     .datepicker {
         border-radius: 20px;
@@ -48,112 +50,192 @@
         color: #fff;
     }
 </style>
-<div class="container register-form">
-    <div class="form">
-        <section class="loginForm">
-            @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-content", role = "form" }))
-            {
-                @Html.AntiForgeryToken()
-                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                <p style="font-size:30px"> Register</p>
-                <div class="row">
+<link href="~/asset/img/favicon.png" rel="icon">
+<link href="~/asset/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            @Html.LabelFor(m => m.UserName, new { @class = "text-uppercase" })
-                            @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
-                            @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "text-danger" })
-                        </div>
-                        <div class="form-group">
-                            @Html.LabelFor(m => m.Email, new { @class = "text-uppercase" })
-                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
-                            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
-                        </div>
-                        <div class="form-group">
-                            @Html.LabelFor(m => m.Name, new { @class = "text-uppercase" })
-                            @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
-                            @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800" rel="stylesheet">
 
-                        </div>
-                        <div class="form-group">
-                            @Html.LabelFor(m => m.PhoneNumber, new { @class = "text-uppercase" })
-                            @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control" })
-                            @Html.ValidationMessageFor(m => m.PhoneNumber, "", new { @class = "text-danger" })
-                        </div>
-                        <div class="form-group">
-                            @Html.LabelFor(m => m.RollNo, new { @class = "text-uppercase" })
-                            @Html.TextBoxFor(m => m.RollNo, new { @class = "form-control" })
-                            @Html.ValidationMessageFor(m => m.RollNo, "", new { @class = "text-danger" })
-                        </div>
-                        <div class="form-group">
-                            @Html.LabelFor(m => m.Class, new { @class = "text-uppercase" })
-                            @Html.TextBoxFor(m => m.Class, new { @class = "form-control" })
-                            @Html.ValidationMessageFor(m => m.Class, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                    <div class="col-md-6" style="padding-left:150px">
-                        <div class="form-group">
-                            @Html.LabelFor(m => m.Password, new { @class = "text-uppercase" })
-                            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
-                            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
-                        </div>
-                        <div class="form-group">
-                            @Html.LabelFor(m => m.ConfirmPassword, new { @class = "text-uppercase" })
-                            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
-                            @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "text-danger" })
-                        </div>
+<!-- Vendor CSS Files -->
+<link href="~/asset/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="~/asset/vendor/venobox/venobox.css" rel="stylesheet">
+<link href="~/asset/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+<link href="~/asset/vendor/owl.carousel/~/asset/owl.carousel.min.css" rel="stylesheet">
+<link href="~/asset/vendor/aos/aos.css" rel="stylesheet">
+<link rel="icon" type="image/png" href="~/assets/images/icons/favicon.ico" />
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="~/assets/vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="~/assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="~/assets/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="~/assets/vendor/animate/animate.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="~/assets/vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="~/assets/vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="~/assets/vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="~/assets/vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="~/assets/css/util.css">
+<link rel="stylesheet" type="text/css" href="~/assets/css/main.css">
+<!-- Template Main CSS File -->
+<link href="~/asset/css/style.css" rel="stylesheet">
+<link href="~/assets/css/StyleSheet1.css" rel="stylesheet">
+<style>
+    #header {
+        background: rgba(6, 12, 34, 0.98);
+        height: 70px;
+        padding: 15px 0;
+        transition: all 0.5s;
+    }
 
-                        <div class="form-group">
-                            @Html.LabelFor(m => m.Specification, new { @class = "text-uppercase" })
-                            @Html.TextBoxFor(m => m.Specification, new { @class = "form-control" })
-                            @Html.ValidationMessageFor(m => m.Specification, "", new { @class = "text-danger" })
-                        </div>
-                        <div class="form-group">
-                            @Html.LabelFor(m => m.Section, new { @class = "text-uppercase" })
-                            @Html.TextBoxFor(m => m.Section, new { @class = "form-control" })
-                            @Html.ValidationMessageFor(m => m.Section, "", new { @class = "text-danger" })
-                        </div>
+    body {
+        background-color: rgba(6, 12, 34, 0.98);
+        margin-top: 100px;
+    }
+    .login-block {
+        background: linear-gradient(to bottom, rgba(6, 12, 34, 0.98), rgba(6, 12, 34, 0.98));
+        padding: 0px 0;
+    }
+</style>
+<header id="header">
+    <div class="container">
 
-                        <div class="form-group">
-                            @Html.LabelFor(m => m.DateJoin, new { @class = "text-uppercase" })
-                            <p>@Html.EditorFor(model => model.DateJoin, new { htmlAttributes = new { @class = "datepicker" } })</p>
+        <div id="logo" class="pull-left">
+            <!-- Uncomment below if you prefer to use a text logo -->
+            <!-- <h1><a href="#intro">The<span>Event</span></a></h1>-->
+            <a href="index.html" class="scrollto"><img src="~/asset/img/logo.png" alt="" title=""></a>
+        </div>
 
-                            @Html.ValidationMessageFor(m => m.DateJoin, "", new { @class = "text-danger" })
-                        </div>
-                        <div class="form-group">
-                            @Html.Label("User Role", new { @class = "" })
-                            @*@Html.DropDownList("Name")*@
-                            <p>@Html.DropDownList("UserRoles", (SelectList)ViewBag.Name, " ")</p>
-
-                        </div>
-                    </div>
-                    <div class="col-md-offset-5 col-md-10">   <input type="submit" style="text-align:center" class="btn btn-default" value="Register" /></div>
-                </div>
+        <nav id="nav-menu-container">
 
 
-            }
-        </section>
+            <ul class="nav-menu">
+                <li><a href="~/Home/Index">Home</a></li>
+                <li><a href="#about">Survey</a></li>
+                <li><a href="~/Home/faqhome">FAQ</a></li>
+                <li><a href="~/Home/supporthome">Support</a></li>
+
+            </ul>
 
 
-
+        </nav><!-- #nav-menu-container -->
     </div>
-</div>
-</div>
+</header><!-- End Header -->
+<section id="loginForm" class="login-block">    
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 ">
+                <section class="loginForm">
+                    @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-content", role = "form" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <p style="font-size:30px"> Register</p>
+                        <div class="row">
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.UserName, new { @class = "text-uppercase" })
+                                    @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.Email, new { @class = "text-uppercase" })
+                                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.Name, new { @class = "text-uppercase" })
+                                    @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.PhoneNumber, new { @class = "text-uppercase" })
+                                    @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(m => m.PhoneNumber, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.RollNo, new { @class = "text-uppercase" })
+                                    @Html.TextBoxFor(m => m.RollNo, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(m => m.RollNo, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.Class, new { @class = "text-uppercase" })
+                                    @Html.TextBoxFor(m => m.Class, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(m => m.Class, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-md-6" style="padding-left:150px">
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.Password, new { @class = "text-uppercase" })
+                                    @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.ConfirmPassword, new { @class = "text-uppercase" })
+                                    @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "text-danger" })
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.Specification, new { @class = "text-uppercase" })
+                                    @Html.TextBoxFor(m => m.Specification, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(m => m.Specification, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.Section, new { @class = "text-uppercase" })
+                                    @Html.TextBoxFor(m => m.Section, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(m => m.Section, "", new { @class = "text-danger" })
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.DateJoin, new { @class = "text-uppercase" })
+                                    <p>@Html.EditorFor(model => model.DateJoin, new { htmlAttributes = new { @class = "datepicker" } })</p>
+
+                                    @Html.ValidationMessageFor(m => m.DateJoin, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                    @Html.Label("User Role", new { @class = "" })
+                                    @*@Html.DropDownList("Name")*@
+                                    <p>@Html.DropDownList("UserRoles", (SelectList)ViewBag.Name, " ")</p>
+                                    @Html.ValidationMessageFor(m => m.UserRoles, "", new { @class = "text-danger" })
+
+                                </div>
+                            </div>
+                            <div class="col-md-offset-5 col-md-10">   <input type="submit" style="text-align:center" class="btn btn-default" value="Register" /></div>
+                        </div>
 
 
-<link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
-    <script>
-$(document).ready(function () {
-    $(".datepicker").datepicker({
-        dateFormat: "yy-MM-dd",
-        changeMonth: true,
-        changeYear: true
-    })
-})
+                    }
+                </section>
 
 
-    </script>
-}
+
+            </div>
+        </div>
+    </div>
+    </section>
+
+
+    <link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+        <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                $(".datepicker").datepicker({
+                    dateFormat: "yy-MM-dd",
+                    changeMonth: true,
+                    changeYear: true
+                })
+            })
+
+
+        </script>
+    }

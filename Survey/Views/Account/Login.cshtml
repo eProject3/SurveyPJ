@@ -5,24 +5,94 @@
     Layout = "~/Views/Shared/_LayoutHome.cshtml";
 
 }
+@{
+    Layout = null;
+}
+<link href="~/asset/img/favicon.png" rel="icon">
+<link href="~/asset/img/apple-touch-icon.png" rel="apple-touch-icon">
 
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800" rel="stylesheet">
 
-<link href="~/html/css/html/css/StyleSheet1.css" rel="stylesheet" type="text/css" />
-<section id="loginForm" class="login-block">
+<!-- Vendor CSS Files -->
+<link href="~/asset/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="~/asset/vendor/venobox/venobox.css" rel="stylesheet">
+<link href="~/asset/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+<link href="~/asset/vendor/owl.carousel/~/asset/owl.carousel.min.css" rel="stylesheet">
+<link href="~/asset/vendor/aos/aos.css" rel="stylesheet">
+<link rel="icon" type="image/png" href="~/assets/images/icons/favicon.ico" />
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="~/assets/vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="~/assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="~/assets/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="~/assets/vendor/animate/animate.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="~/assets/vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="~/assets/vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="~/assets/vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="~/assets/vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="~/assets/css/util.css">
+<link rel="stylesheet" type="text/css" href="~/assets/css/main.css">
+<!-- Template Main CSS File -->
+<link href="~/asset/css/style.css" rel="stylesheet">
+<link href="~/assets/css/StyleSheet1.css" rel="stylesheet" type="text/css" />
+<style>
+    #header {
+        background: rgba(6, 12, 34, 0.98);
+        height: 70px;
+        padding: 15px 0;
+        transition: all 0.5s;
+    }
+    body{
+        background-color:rgba(6, 12, 34, 0.98);
+        margin-top:100px;
+    }
+    .login-block {
+        background: linear-gradient(to bottom, rgba(6, 12, 34, 0.98), rgba(6, 12, 34, 0.98));
+    }
+
+    
+</style>
+<header id="header">
+    <div class="container">
+
+        <div id="logo" class="pull-left">
+            <!-- Uncomment below if you prefer to use a text logo -->
+            <!-- <h1><a href="#intro">The<span>Event</span></a></h1>-->
+            <a href="index.html" class="scrollto"><img src="~/asset/img/logo.png" alt="" title=""></a>
+        </div>
+
+        <nav id="nav-menu-container">
+
+           
+                <ul class="nav-menu">
+                    <li ><a href="~/Home/Index">Home</a></li>
+                    <li><a href="#about">Survey</a></li>                 
+                    <li><a href="~/Home/faqhome">FAQ</a></li>
+                    <li><a href="~/Home/supporthome">Support</a></li>
+                
+                </ul>
+            
+
+        </nav><!-- #nav-menu-container -->
+    </div>
+</header><!-- End Header -->
+<body>
+    <section id="loginForm" class="login-block">
 
 
     <div class="container">
-        <br />
-        <br />
-        <br />
 
-        <div class="section-header">
-            <h2>WELCOME!!!</h2>
-            <p>Login or Register</p>
-        </div>
         <div class="row">
             <div class="col-md-4 login-sec">
-                <h2 class="text-center" id="login-">Login Now</h2>
+                <h2 class="text-center" id="login-block">Login</h2>
 
                 <section id="loginForm">
 
@@ -54,44 +124,32 @@
                             </label>
 
                         </div>
-                        <button id="login" type="submit" class="btn btn-success ">Login</button>
+                        <button id="login" type="submit" class="btn btn-dark" >Login</button>
 
 
-                        <a id="register" class="btn btn-success" href="~/Account/Register"> Register</a>
+                        <a id="register" class="btn btn-dark" href="~/Account/Register"> Register</a>
                     }
 
 
 
                 </section>
 
-                <div class="copy-text">Created with <i class="fa fa-heart"></i> by Grafreez</div>
+               
             </div>
             <div class="col-md-8 banner-sec">
                 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                    <ol class="carousel-indicators">
-                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                    </ol>
+                    
                     <div class="carousel-inner" role="listbox">
                         <div class="carousel-item active">
                             <img class="d-block img-fluid" src="https://static.pexels.com/photos/33972/pexels-photo.jpg" alt="First slide">
                             <div class="carousel-caption d-none d-md-block">
                                 <div class="banner-text">
-                                    <h2>This is Heaven</h2>
+                                    <h2>Survey Evironment</h2>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="carousel-item">
-                            <img class="d-block img-fluid" src="https://images.pexels.com/photos/7097/people-coffee-tea-meeting.jpg" alt="First slide">
-                            <div class="carousel-caption d-none d-md-block">
-                                <div class="banner-text">
-                                    <h2>This is Heaven</h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
-                                </div>
-                            </div>
-                        </div>
+                        
 
                     </div>
 
@@ -99,6 +157,7 @@
             </div>
         </div>
     </div>
-</section>
+</section></body>
+
 
 

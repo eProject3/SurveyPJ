@@ -121,23 +121,34 @@ namespace Survey.Controllers
             {
                 return View(model);
             }
-
-            // This doesn't count login failures towards account lockout
-            // To enable password failures to trigger account lockout, change to shouldLockout: true
-            var result = await SignInManager.PasswordSignInAsync(model.UserName, model.Password, model.RememberMe, shouldLockout: false);
-            switch (result)
+            if (context.Users.Where(s => s.UserName == model.UserName).FirstOrDefault().Status == 1)
             {
-                case SignInStatus.Success:
-                    return RedirectToLocal(returnUrl);
-                case SignInStatus.LockedOut:
-                    return View("Lockout");
-                case SignInStatus.RequiresVerification:
-                    return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
-                case SignInStatus.Failure:
-                default:
-                    ModelState.AddModelError("", "Invalid login attempt.");
-                    return View(model);
+                var result = await SignInManager.PasswordSignInAsync(model.UserName, model.Password, model.RememberMe, shouldLockout: false);
+                var user = await UserManager.FindAsync(model.UserName, model.Password);
+                switch (result)
+                {
+                    case SignInStatus.Success:
+
+                        if (UserManager.IsInRole(user.Id, "Admin"))
+                        {
+                            return RedirectToAction("Index", "Admin");
+                        }
+                        else { return RedirectToLocal(returnUrl); }
+
+                    //User is not in the Admin Role
+                    case SignInStatus.LockedOut:
+                        return View("Lockout");
+                    case SignInStatus.RequiresVerification:
+                        return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
+                    case SignInStatus.Failure:
+                    default:
+                        ModelState.AddModelError("", "Invalid login attempt.");
+                        return View(model);
+                }
             }
+            return View("~/Views/Account/WaitAccount.cshtml");
+            // This doesn't count login failures towards account lockout
+
         }
 
         //
