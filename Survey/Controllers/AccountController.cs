@@ -8,9 +8,11 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using MailKit.Net.Smtp;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
+using MimeKit;
 using Survey.Models;
 
 namespace Survey.Controllers
@@ -36,7 +38,26 @@ namespace Survey.Controllers
                 UserManager.Update(currentUser);
 
                 //Viet Gui mail vao day
-
+                //Mail
+                MimeMessage message = new MimeMessage();
+                message.From.Add(new MailboxAddress("Admin", "locnxth1907005@fpt.edu.vn"));
+                message.To.Add(new MailboxAddress("User", currentUser.Email));
+                message.Subject = "Notice of account activation";
+                BodyBuilder bodyBuilder = new BodyBuilder();
+                bodyBuilder.HtmlBody =
+                   string.Format(
+                       "<div>" +
+                       "<h1>Hello " + "{0}" + "</ h1> " +
+                       "<h1>Your account has been successfully activated</ h1> " +
+                        "</div>"
+                    , currentUser.Name);
+                message.Body = bodyBuilder.ToMessageBody();
+                SmtpClient client = new SmtpClient();
+                client.Connect("smtp.gmail.com", 465, true);
+                client.Authenticate("locnxth1907005@fpt.edu.vn", "nzqupgcvcucejtpr");
+                client.Send(message);
+                client.Disconnect(true);
+                //Close mail
 
 
 
