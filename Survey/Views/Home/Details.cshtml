@@ -2,7 +2,7 @@
 
 @{
     ViewBag.Title = "Details";
-    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
 }
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
       rel="stylesheet" />
@@ -19,21 +19,22 @@
 
     div.container-fluid {
     }
-
+    #header {
+        background: rgba(6, 12, 34, 0.98);
+        height: 70px;
+        padding: 15px 0;
+        transition: all 0.5s;
+    }
+    .container-fluid {
+        margin-top: 70px;
+    
+    }
     
 </style>
 <div class="container-fluid">
 
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Title)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Title)
-        </dd>
-    </dl>
+    
 
 
 
@@ -105,12 +106,15 @@
         }
 
     </form>*@
-<form action="/Home/SaveAnswer" method="post" id="surveyForm">
+
+<form action="/Home/SaveAnswer" method="post" id="surveyForm" style="margin:62px;">
     <input style="display:none;" type="text" name="currentsurvey" value="@Model.SurveyId" />
-    <div class="container mt-5">
+    <div class="container mt-5" >
         <div class="row">
             <div class="col-md-12 border border-light">
-                <h4 class="font-weight-bold text-center mt-3">Quick survey</h4>
+                <a href="@Url.Action("Survey", "Home")" class="" style="margin-left:-74px;">< Back To list</a>  
+                <h3 class="font-weight-bold text-center mt-3"> Evironment Survey</h3>
+                <h4 class="font-weight-bold text-center mt-3">@Html.DisplayFor(model => model.Title)</h4>
 
                 @foreach (var item in Model.Questions)
                 {
@@ -120,18 +124,21 @@
                     <p class="fw-bolder " style="margin-left:-50px"><i class="fas fa-caret-right"></i>  @Html.DisplayFor(modelItem => item.Title):</p>
 
 
+
                     <p class="fs-5" style="margin-left:-16px">  @Html.DisplayFor(modelItem => item.Description)</p>
+
+
 
 
 
                     if (item.Type == 0)
                     {
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="@item.Id" id="radio1" value="Yes" />
+                            <input required class="form-check-input" type="radio" name="@item.Id" id="radio1" value="Yes" />
                             <label class="form-check-label" for="radio1">Yes</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="@item.Id" id="radio2" value="No" />
+                            <input  class="form-check-input" type="radio" name="@item.Id" id="radio2" value="No" />
                             <label class="form-check-label" for="radio2">No</label>
                         </div>
 
@@ -143,7 +150,7 @@
                         foreach (var i in item.QuestionAnswers)
                         {
                             <div class="form-check mb-4">
-                                <input class="form-check-input" name="@item.Id" type="radio" id="radio" value="@i.Answer">
+                                <input required class="form-check-input" name="@item.Id" type="radio" id="radio" value="@i.Answer">
                                 <label class="form-check-label" for="radio">@Html.DisplayFor(modelItem => i.Answer)</label>
                             </div>
 
@@ -154,8 +161,7 @@
                         foreach (var i in item.QuestionAnswers)
                         {
                             <div class="form-check mb-4 ">
-                                <input class="form-check-input" id="flexCheckChecked" type="checkbox" name="@item.Id" value="@i.Answer" /> @Html.DisplayFor(modelItem => i.Answer)
-
+                                <input  class="form-check-input" id="flexCheckChecked" type="checkbox" name="@item.Id" value="@i.Answer" /> @Html.DisplayFor(modelItem => i.Answer)
                             </div>
                         }
 
@@ -185,13 +191,16 @@
             </div>
         </div>
 
+        <button type="submit" class="btn btn-primary waves-effect waves-light" style="color:white">
+            Submit
+            
+        </button>
+
+        
     </div>
 
     
-        <button type="submit" class="btn btn-primary waves-effect waves-light" style="color:white">
-            Submit
-            <i class="fa fa-paper-plane ml-1"></i>
-        </button>
+        
 
     
 </form>
@@ -207,10 +216,10 @@
 
 
 
-</div>
+
 <p>
 
-    @Html.ActionLink("Back to List", "Index")
+    
 </p>
 
 
