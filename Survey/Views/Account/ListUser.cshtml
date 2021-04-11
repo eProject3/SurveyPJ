@@ -1,25 +1,29 @@
 ﻿@model IEnumerable<Survey.Models.ApplicationUser>
+@using Microsoft.AspNet.Identity
+@using Microsoft.AspNet.Identity.Owin;
 
 @{
     ViewBag.Title = "ListUser";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    var userManager = Request.GetOwinContext().GetUserManager<ApplicationUserManager>();
+
 }
 
 <h2>Users</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "RegisterUserAdmin")
 </p>
 <table class="table">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Email)
         </th>
-       
+
         <th>
             @Html.DisplayNameFor(model => model.PhoneNumber)
         </th>
-       
+
         <th>
             @Html.DisplayNameFor(model => model.UserName)
         </th>
@@ -34,43 +38,51 @@
             @Html.DisplayNameFor(model => model.DateJoin)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.Roles)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.Status)
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Email)
-        </td>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
 
-        <td>
-            @Html.DisplayFor(modelItem => item.PhoneNumber)
-        </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhoneNumber)
+            </td>
 
-        <td>
-            @Html.DisplayFor(modelItem => item.UserName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.RollNo)
-        </td>
-        
-        <td>
-            @Html.DisplayFor(modelItem => item.DateJoin)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Status)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "EditUserAdmin", new { id=item.Id }) |
-            @Html.ActionLink("Details", "DetailsUserAdmin", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "DeleteUserAdmin", new { id=item.Id })
-        </td>
-    </tr>
-}
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RollNo)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.DateJoin)
+            </td>
+            <td>
+                @userManager.GetRoles(item.Id)[0]
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "EditUserAdmin", new { id = item.Id }) |
+                @Html.ActionLink("Details", "DetailsUserAdmin", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "DeleteUserAdmin", new { id = item.Id }) |
+                @Html.ActionLink("Change Status", "ChangeStatusAdmin", new { id = item.Id })
+            </td>
+        </tr>
+    }
 
 </table>

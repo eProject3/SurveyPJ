@@ -25,7 +25,157 @@ namespace Survey.Controllers
         {
             context = new ApplicationDbContext();
         }
-        [ActionName("DeleteUserAdmin")]
+
+        [Authorize(Roles = "Admin")]
+        public ActionResult ChangeStatusAdmin(string id)
+        {
+            var currentUser = UserManager.FindById(id);
+            if(currentUser.Status == 0)
+            {
+                currentUser.Status = 1;
+                UserManager.Update(currentUser);
+
+                //Viet Gui mail vao day
+
+
+
+
+
+                return RedirectToAction("ListUser");
+            }
+            if(currentUser.Status == 1)
+            {
+                currentUser.Status = 0;
+                UserManager.Update(currentUser);
+                return RedirectToAction("ListUser");
+            }
+            return RedirectToAction("ListUser");
+
+        }
+
+        public ActionResult RegisterUserAdmin()
+        {
+            ViewBag.Name = new SelectList(context.Roles.Where(u => u.Name.Contains("Admin")|| u.Name.Contains("FacultyOrStaff") ||  u.Name.Contains("Students"))
+                                    .ToList(), "Name", "Name");
+            return View();
+        }
+        [HttpPost]
+        [ActionName("RegisterUserAdmin")]
+        public async Task<ActionResult> RegisterUserAdminPostAsync(RegisterViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = new ApplicationUser
+                {
+                    UserName = model.UserName,
+                    Email = model.Email,
+                    Name = model.Name,
+                    PhoneNumber = model.PhoneNumber,
+                    Class = model.Class,
+                    RollNo = model.RollNo,
+                    Section = model.Section,
+                    Specification = model.Specification,
+                    DateJoin = model.DateJoin,
+                    Status = 1
+                };
+                var result = await UserManager.CreateAsync(user, model.Password);
+                if (result.Succeeded)
+                {
+                    //await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
+
+                    // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
+                    // Send an email with this link
+                    // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
+                    // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
+                    // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+                    //await this.UserManager.AddToRoleAsync(user.Id, model.UserRoles);
+                    await this.UserManager.AddToRoleAsync(user.Id, model.UserRoles);
+                    return RedirectToAction("ListUser");
+                }
+                ViewBag.Name = new SelectList(context.Roles.Where(u => u.Name.Contains("Admin") || u.Name.Contains("FacultyOrStaff") || u.Name.Contains("Students"))
+                                  .ToList(), "Name", "Name");
+
+                AddErrors(result);
+                ViewBag.UserName = model.UserName;
+                
+            }
+            return View(model);
+        }
+
+        [Authorize(Roles ="Admin")]
+        public ActionResult EditUserAdmin(string id)
+        {
+            ViewBag.Name = new SelectList(context.Roles.Where(u => u.Name.Contains("Admin") || u.Name.Contains("FacultyOrStaff") || u.Name.Contains("Students"))
+                                    .ToList(), "Name", "Name");
+            
+            return View(UserManager.FindById(id));
+        }
+
+
+        [HttpPost]
+        [Authorize(Roles = "Admin")]
+        public ActionResult EditUserAdmin(ApplicationUser model)
+        {
+            var currentUser = UserManager.FindById(model.Id);
+            var statusOld = currentUser.Status;
+            var resultPass = UserManager.PasswordHasher.VerifyHashedPassword(currentUser.PasswordHash, HttpContext.Request.Form["oldPassword"]);
+            switch (resultPass)
+            {
+                case PasswordVerificationResult.Failed:
+                    ViewBag.oldPassVld = "Old password is incorrect";
+                    ViewBag.Name = new SelectList(context.Roles.Where(u => u.Name.Contains("Admin") || u.Name.Contains("FacultyOrStaff") || u.Name.Contains("Students"))
+                                   .ToList(), "Name", "Name");
+                    return View(currentUser);
+                case PasswordVerificationResult.Success:
+                    if (HttpContext.Request.Form["newPassword"] != HttpContext.Request.Form["confirmPassword"])
+                    {
+                        ViewBag.confirmPassVld = "Confirm Password not match";
+                        ViewBag.Name = new SelectList(context.Roles.Where(u => u.Name.Contains("Admin") || u.Name.Contains("FacultyOrStaff") || u.Name.Contains("Students"))
+                                   .ToList(), "Name", "Name");
+                        return View(currentUser);
+                    }
+                    var currentUserId = currentUser.Roles.SingleOrDefault().RoleId;
+                    var currentUserNameRole = context.Roles.SingleOrDefault(r => r.Id == currentUserId).Name;
+
+
+
+                    currentUser.Name = model.Name;
+                    currentUser.Email = model.Email;
+                    currentUser.PhoneNumber = model.PhoneNumber;
+                    currentUser.RollNo = model.RollNo;
+                    currentUser.Class = model.Class;
+                    currentUser.Section = model.Section;
+                    currentUser.Specification = model.Specification;
+                    currentUser.DateJoin = model.DateJoin;
+
+                    UserManager.Update(currentUser);
+                    UserManager.ChangePassword(model.Id, HttpContext.Request.Form["oldPassword"], HttpContext.Request.Form["newPassword"]);
+
+
+                    if (currentUserNameRole != HttpContext.Request.Form["UserRoles"])
+                    {
+                        UserManager.RemoveFromRole(currentUser.Id, currentUserNameRole);
+
+                        UserManager.AddToRole(currentUser.Id, HttpContext.Request.Form["UserRoles"]);
+
+                    }
+                    var statusNew = model.Status;
+           
+                    
+                    return RedirectToAction("ListUser");
+                default:
+                    ViewBag.Name = new SelectList(context.Roles.Where(u => u.Name.Contains("Admin") || u.Name.Contains("FacultyOrStaff") || u.Name.Contains("Students"))
+                                   .ToList(), "Name", "Name");
+                    return View(currentUser);
+            }
+
+
+
+            
+            
+        }
+
+                [ActionName("DeleteUserAdmin")]
         public async Task<ActionResult> DeleteUserAdminAsync(string id)
         {
             if (ModelState.IsValid)
@@ -69,7 +219,9 @@ namespace Survey.Controllers
         public ActionResult DetailsUserAdmin(string id) {
             return View(UserManager.FindById(id));
         }
+        [Authorize(Roles = "Admin")]
         public ActionResult ListUser() {
+            
 
             return View(UserManager.Users);
 
@@ -99,19 +251,34 @@ namespace Survey.Controllers
         [ActionName("Edit")]
         public  ActionResult EditUser()
         {
+            
 
             var idCurrent = HttpContext.Request.Form["idCurrent"];
 
             var currentUser = UserManager.FindById(idCurrent);
-            currentUser.Name = HttpContext.Request.Form["fullName"];
-            currentUser.Email = HttpContext.Request.Form["email"];
-            currentUser.PhoneNumber = HttpContext.Request.Form["Phone"];
+            var resultPass =  UserManager.PasswordHasher.VerifyHashedPassword(currentUser.PasswordHash, HttpContext.Request.Form["oldPassword"]);
+            switch (resultPass)
+            {
+                case PasswordVerificationResult.Failed:
+                    ViewBag.oldPassVld = "Old password is incorrect";
+                    return View(currentUser);
+                case PasswordVerificationResult.Success:
+                    if(HttpContext.Request.Form["newPassword"]!= HttpContext.Request.Form["confirmPassword"])
+                    {
+                        ViewBag.confirmPassVld = "Confirm Password not match";
+                        return View(currentUser);
+                    }
+                    currentUser.Name = HttpContext.Request.Form["fullName"];
+                    currentUser.Email = HttpContext.Request.Form["email"];
+                    currentUser.PhoneNumber = HttpContext.Request.Form["Phone"];
+                    UserManager.Update(currentUser);
+                    UserManager.ChangePassword(HttpContext.Request.Form["idCurrent"], HttpContext.Request.Form["oldPassword"], HttpContext.Request.Form["newPassword"]);
+                    return Redirect("~/Home/Index");
+                default:
+                    return View(currentUser);
+            }
+                
 
-            UserManager.Update(currentUser);
-            UserManager.ChangePassword(HttpContext.Request.Form["idCurrent"], HttpContext.Request.Form["oldPassword"], HttpContext.Request.Form["newPassword"]);
-
-
-            return Redirect("~/Home/Index");
         }
 
 
@@ -280,6 +447,7 @@ namespace Survey.Controllers
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
                     //await this.UserManager.AddToRoleAsync(user.Id, model.UserRoles);
+                    await this.UserManager.AddToRoleAsync(user.Id, model.UserRoles);
                     return View("~/Views/Account/WaitAccount.cshtml");
                 }
                 ViewBag.Name = new SelectList(context.Roles.Where(u => !u.Name.Contains("Admin"))
@@ -287,7 +455,7 @@ namespace Survey.Controllers
                 
                 AddErrors(result);
                 ViewBag.UserName = model.UserName;
-                return View();
+                
             }
 
             // If we got this far, something failed, redisplay form

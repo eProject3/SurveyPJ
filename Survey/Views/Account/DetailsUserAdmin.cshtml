@@ -1,15 +1,17 @@
 ﻿@model Survey.Models.ApplicationUser
-
+@using Microsoft.AspNet.Identity
+@using Microsoft.AspNet.Identity.Owin;
 @{
     ViewBag.Title = "DetailsUserAdmin";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    var userManager = Request.GetOwinContext().GetUserManager<ApplicationUserManager>();
 }
 
 <h2>DetailsUserAdmin</h2>
 
 <style>
-    dt{
-        font-weight:900;
+    dt {
+        font-weight: 900;
     }
 </style>
 <div>
@@ -32,7 +34,7 @@
             @Html.DisplayFor(model => model.PasswordHash)
         </dd>
 
-        
+
 
         <dt>
             @Html.DisplayNameFor(model => model.PhoneNumber)
@@ -42,11 +44,11 @@
             @Html.DisplayFor(model => model.PhoneNumber)
         </dd>
 
-       
 
-        
 
-       
+
+
+
 
         <dt>
             @Html.DisplayNameFor(model => model.AccessFailedCount)
@@ -110,6 +112,12 @@
 
         <dd>
             @Html.DisplayFor(model => model.DateJoin)
+        </dd>
+        <dt>
+            Role
+        </dt>
+        <dd>
+            @userManager.GetRoles(Model.Id)[0]
         </dd>
 
         <dt>
