@@ -315,15 +315,16 @@
                 $(".question-detail").each(function () {
                     //var ass = $(this).find("h3.card-title").text();
                     var ass = $(this).find(".card-body .title-question").val();
-                    var typeQuest = $(this).parent().parent().find(".card-body .type-question").val();
+                    console.log($(this).find(".card-body .type-question").val());
+                    var typeQuest = $(this).find(".card-body .type-question").val();
                     if (typeQuest == 0) {
                         var answer1 = {};
-                        answer.Title = ass;
-                        answer.Answer = "Yes";
+                        answer1.Title = ass;
+                        answer1.Answer = "Yes";
                         answers.push(answer1);
                         var answer2 = {};
-                        answer.Title = ass;
-                        answer.Answer = "No";
+                        answer2.Title = ass;
+                        answer2.Answer = "No";
                         answers.push(answer2);
                     } else {
                         $(this).find(".answer-table .answer-content").each(function () {

@@ -88,7 +88,6 @@ namespace Survey.Controllers
             ViewBag.AccStatus = owner;
                 
 
-
             return View(surveys);
         }
 

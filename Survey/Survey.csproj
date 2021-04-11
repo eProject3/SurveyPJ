@@ -2524,6 +2524,8 @@
     <Content Include="Views\Account\ListUser.cshtml" />
     <Content Include="Views\Account\DetailsUserAdmin.cshtml" />
     <Content Include="Views\Shared\_Layout1.cshtml" />
+    <Content Include="Views\Account\RegisterUserAdmin.cshtml" />
+    <Content Include="Views\Account\EditUserAdmin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
