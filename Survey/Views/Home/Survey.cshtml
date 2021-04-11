@@ -205,8 +205,9 @@
                                                 </span>
                                             </td>
                                             <td nowrap="nowrap">
+                           
 
-                                                @if (item.Status.ToString() == "HAPPENNING")
+                                                @if (item.Status.ToString() == "HAPPENNING" && ViewBag.AccStatus[count] != "Submitted!")
                                                 {<span class="label label-lg font-weight-bold label-danger label-inline">
 
                                                         @Html.ActionLink("Go survey !", "Details", new { id = item.SurveyId }, new { style = "color:white" })

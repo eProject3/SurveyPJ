@@ -34,6 +34,7 @@ namespace Survey.Controllers
             {
                 var uid = User.Identity.GetUserId();
                 var count = db.Account_answers.Where(a => a.Id == uid).GroupBy(a => a.SurveyId).Count();
+                countAllSurveyAnswered = count;
             }
             else
             {
@@ -212,7 +213,7 @@ namespace Survey.Controllers
                 if (item.Type == 4)
                 {
 
-                    int qId = db.Question_answers.Where(q => q.QuestionId == item.Id).ToList().Where(d => d.Answer == "Essey").FirstOrDefault().QuestionAnswerId;
+                    int qId = db.Question_answers.Where(q => q.QuestionId == item.Id).ToList().Where(d => d.Answer == "Essay").FirstOrDefault().QuestionAnswerId;
                     AccountAnswer answer = new AccountAnswer
                     {
                         SurveyId = survey.SurveyId,
@@ -228,6 +229,7 @@ namespace Survey.Controllers
             }
             return Redirect("~/Home/Survey");
         }
+        
 
 
 
