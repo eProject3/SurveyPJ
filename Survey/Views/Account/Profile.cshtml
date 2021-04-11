@@ -3,6 +3,7 @@
 @{
     ViewBag.Title = "Profile";
     Layout = "~/Views/Shared/_LayoutHome.cshtml";
+    
 }
 <section id="intro" style="height : 70px">
     <div class="intro-container" data-aos="zoom-in" data-aos-delay="0">
@@ -68,12 +69,7 @@
                                 <p>@Html.DisplayFor(model => model.PhoneNumber)</p>
                             </div>
                         </div>
-                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                            <div class="form-group">
-                                <label for="website">PasswordHash</label>
-                                <p>@Html.DisplayFor(model => model.PasswordHash)</p>
-                            </div>
-                        </div>
+                        
                     </div>
                     <div class="row gutters">
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
@@ -88,7 +84,8 @@
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                             <div class="form-group">
                                 <label for="ciTy">Role</label>
-                                <p>@Html.DisplayFor(model => model.Roles)</p>
+                                
+                                <p>@ViewBag.RoleName</p>
                             </div>
                         </div>
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
