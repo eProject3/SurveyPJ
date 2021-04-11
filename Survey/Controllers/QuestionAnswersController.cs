@@ -62,14 +62,18 @@ namespace Survey.Controllers
                 db.Surveys.Add(allSurvey);
                 db.SaveChanges();
                 int newIdSurvey = db.Surveys.Max(s => s.SurveyId);
-                int newIdQuest = db.Questions.Max(q => q.Id);
+                int newIdQuest = 0;
                 string titleTemp;
-
+                int sttQuest = 0;
                 for (int i = 0; i < bigModels.Question.Count; i++)
                 {
                     bigModels.Question[i].SurveyId = newIdSurvey;
                     db.Questions.Add(bigModels.Question[i]);
                     db.SaveChanges();
+                    if(i == 0)
+                    {
+                        newIdQuest = db.Questions.Max(q => q.Id);
+                    }
                     if (bigModels.Question[i].Type == 3)
                     {
                         QaTemp q = new QaTemp();
@@ -86,7 +90,7 @@ namespace Survey.Controllers
                     }
                     if (i == bigModels.Question.Count - 1)
                     {
-                        titleTemp = bigModels.Question[i].Title;
+                        titleTemp = bigModels.Question[sttQuest].Title;
                         foreach (var qaTemp in bigModels.QaTemps)
                         {
                             QuestionAnswer questionAnswer = new QuestionAnswer();
@@ -94,6 +98,7 @@ namespace Survey.Controllers
                             {
                                 titleTemp = qaTemp.Title;
                                 newIdQuest++;
+                                sttQuest++;
                             }
                             questionAnswer.Answer = qaTemp.Answer;
                             questionAnswer.QuestionId = newIdQuest;
