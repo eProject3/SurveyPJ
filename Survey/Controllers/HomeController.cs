@@ -16,15 +16,19 @@ namespace Survey.Controllers
         public int countAllSurvey;
         public int countAllSurveyAnswered;
         public int countAllSurveyComplete;
+        public DateTime localDate = DateTime.Now;
         private ApplicationDbContext db = new ApplicationDbContext();
+        public AllSurvey nextSurvey = new AllSurvey(); 
 
         public ActionResult Index()
         {
             countAllSurvey = db.Surveys.Count();
             countAllSurveyComplete = db.Surveys.Where(c => c.Status == SurveyStatus.DONE).Count();
-
-
-
+            AllSurvey allSurvey = db.Surveys.Where(c => c.CreateDate > localDate).FirstOrDefault();
+            if(allSurvey != null)
+            {
+                nextSurvey = allSurvey;
+            }
 
             if (User.Identity.GetUserId() != null)
             {
@@ -35,7 +39,7 @@ namespace Survey.Controllers
             {
                 countAllSurveyAnswered = 0;
             }
-
+            ViewBag.NextSurvey = nextSurvey;
             ViewBag.AllSurvey = countAllSurvey;
             ViewBag.AllSurveyAnswered = countAllSurveyAnswered;
             ViewBag.AllSurveyComplete = countAllSurveyComplete;
