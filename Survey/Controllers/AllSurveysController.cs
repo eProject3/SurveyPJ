@@ -36,7 +36,7 @@ namespace Survey.Controllers
             }
             return View(allSurvey);
         }
-
+        [Authorize(Roles = "Admin")]
         // GET: AllSurveys/Create
         public ActionResult Create()
         {
@@ -46,6 +46,7 @@ namespace Survey.Controllers
         // POST: AllSurveys/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "SurveyId,Title,CreateDate,UpdateDate,Description,Status")] AllSurvey allSurvey)

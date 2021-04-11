@@ -39,7 +39,7 @@ namespace Survey.Controllers
             }
             return View(fAQ);
         }
-
+        [Authorize(Roles = "Admin")]
         // GET: FAQs/Create
         public ActionResult Create()
         {
@@ -49,6 +49,7 @@ namespace Survey.Controllers
         // POST: FAQs/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "FAQId,Title,Name,Description")] FAQ fAQ)

@@ -38,6 +38,8 @@ namespace Survey.Controllers
         }
 
         // GET: QuestionAnswers/Create
+        [Authorize(Roles = "Admin")]
+        
         public ActionResult Create()
         {
             return View();
@@ -46,6 +48,7 @@ namespace Survey.Controllers
         // POST: QuestionAnswers/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public ActionResult Create(BigModel bigModels)
         {

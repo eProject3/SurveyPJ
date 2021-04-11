@@ -299,7 +299,6 @@ namespace Survey.Controllers
                     return View(currentUser);
             }
                 
-
         }
 
 
@@ -363,7 +362,7 @@ namespace Survey.Controllers
 
                         if (UserManager.IsInRole(user.Id, "Admin"))
                         {
-                            return RedirectToAction("Index", "Admin");
+                            return RedirectToAction("Dashboard", "Admin");
                         }
                         else { return RedirectToLocal(returnUrl); }
 

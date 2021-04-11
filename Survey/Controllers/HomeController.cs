@@ -16,26 +16,31 @@ namespace Survey.Controllers
         public int countAllSurvey;
         public int countAllSurveyAnswered;
         public int countAllSurveyComplete;
+        public DateTime localDate = DateTime.Now;
         private ApplicationDbContext db = new ApplicationDbContext();
+        public AllSurvey nextSurvey = new AllSurvey(); 
 
         public ActionResult Index()
         {
             countAllSurvey = db.Surveys.Count();
             countAllSurveyComplete = db.Surveys.Where(c => c.Status == SurveyStatus.DONE).Count();
-
-
-
+            AllSurvey allSurvey = db.Surveys.Where(c => c.CreateDate > localDate).FirstOrDefault();
+            if(allSurvey != null)
+            {
+                nextSurvey = allSurvey;
+            }
 
             if (User.Identity.GetUserId() != null)
             {
                 var uid = User.Identity.GetUserId();
                 var count = db.Account_answers.Where(a => a.Id == uid).GroupBy(a => a.SurveyId).Count();
+                countAllSurveyAnswered = count;
             }
             else
             {
                 countAllSurveyAnswered = 0;
             }
-
+            ViewBag.NextSurvey = nextSurvey;
             ViewBag.AllSurvey = countAllSurvey;
             ViewBag.AllSurveyAnswered = countAllSurveyAnswered;
             ViewBag.AllSurveyComplete = countAllSurveyComplete;
@@ -208,7 +213,7 @@ namespace Survey.Controllers
                 if (item.Type == 4)
                 {
 
-                    int qId = db.Question_answers.Where(q => q.QuestionId == item.Id).ToList().Where(d => d.Answer == "Essey").FirstOrDefault().QuestionAnswerId;
+                    int qId = db.Question_answers.Where(q => q.QuestionId == item.Id).ToList().Where(d => d.Answer == "Essay").FirstOrDefault().QuestionAnswerId;
                     AccountAnswer answer = new AccountAnswer
                     {
                         SurveyId = survey.SurveyId,
@@ -224,6 +229,7 @@ namespace Survey.Controllers
             }
             return Redirect("~/Home/Survey");
         }
+        
 
 
 
