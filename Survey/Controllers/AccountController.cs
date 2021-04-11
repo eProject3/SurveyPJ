@@ -3,6 +3,7 @@ using System.Data.Entity;
 using System.Data.Entity.Validation;
 using System.Globalization;
 using System.Linq;
+using System.Net;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
@@ -24,11 +25,63 @@ namespace Survey.Controllers
         {
             context = new ApplicationDbContext();
         }
+        [ActionName("DeleteUserAdmin")]
+        public async Task<ActionResult> DeleteUserAdminAsync(string id)
+        {
+            if (ModelState.IsValid)
+            {
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+
+                var user = await UserManager.FindByIdAsync(id);
+                var logins = user.Logins;
+                var rolesForUser = await UserManager.GetRolesAsync(id);
+
+                using (var transaction = context.Database.BeginTransaction())
+                {
+                    foreach (var login in logins.ToList())
+                    {
+                        await UserManager.RemoveLoginAsync(login.UserId, new UserLoginInfo(login.LoginProvider, login.ProviderKey));
+                    }
+
+                    if (rolesForUser.Count() > 0)
+                    {
+                        foreach (var item in rolesForUser.ToList())
+                        {
+                            // item should be the name of the role
+                            var result = await UserManager.RemoveFromRoleAsync(user.Id, item);
+                        }
+                    }
+
+                    await UserManager.DeleteAsync(user);
+                    transaction.Commit();
+                }
+
+                return RedirectToAction("ListUser");
+            }
+            else
+            {
+                return RedirectToAction("ListUser");
+            }
+        }
+        public ActionResult DetailsUserAdmin(string id) {
+            return View(UserManager.FindById(id));
+        }
+        public ActionResult ListUser() {
+
+            return View(UserManager.Users);
+
+        }
 
         [Authorize]
         public ActionResult Profile()
         {
+            
             var user = UserManager.FindById(User.Identity.GetUserId());
+            var id = user.Roles.FirstOrDefault().RoleId;
+            ViewBag.RoleName = context.Roles.Where(u => u.Id == id).FirstOrDefault().Name;
             return View(user);
         }
 
@@ -36,38 +89,32 @@ namespace Survey.Controllers
         public ActionResult Edit()
         {
             var user = UserManager.FindById(User.Identity.GetUserId());
+            var id = user.Roles.FirstOrDefault().RoleId;
+            ViewBag.RoleName = context.Roles.Where(u => u.Id == id).FirstOrDefault().Name;
             return View(user);
         }
         [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Name,Email,PasswordHash,PhoneNumber")] ApplicationUser applicationUser)
+        [ActionName("Edit")]
+        public  ActionResult EditUser()
         {
-            
-            try
-            {
-                if (ModelState.IsValid)
-                {
-                    context.Entry(applicationUser).State = EntityState.Modified;
-                    context.SaveChanges();
-                    return RedirectToAction("Index");
-                }
-            }
-            catch (DbEntityValidationException e)
-            {
-                foreach (var eve in e.EntityValidationErrors)
-                {
-                    Console.WriteLine("Entity of type \"{0}\" in state \"{1}\" has the following validation errors:",
-                        eve.Entry.Entity.GetType().Name, eve.Entry.State);
-                    foreach (var ve in eve.ValidationErrors)
-                    {
-                        Console.WriteLine("- Property: \"{0}\", Error: \"{1}\"",
-                            ve.PropertyName, ve.ErrorMessage);
-                    }
-                }
-                throw;
-            }
-            return View(applicationUser);
+
+            var idCurrent = HttpContext.Request.Form["idCurrent"];
+
+            var currentUser = UserManager.FindById(idCurrent);
+            currentUser.Name = HttpContext.Request.Form["fullName"];
+            currentUser.Email = HttpContext.Request.Form["email"];
+            currentUser.PhoneNumber = HttpContext.Request.Form["Phone"];
+
+            UserManager.Update(currentUser);
+            UserManager.ChangePassword(HttpContext.Request.Form["idCurrent"], HttpContext.Request.Form["oldPassword"], HttpContext.Request.Form["newPassword"]);
+
+
+            return Redirect("~/Home/Index");
+
+
+
         }
 
 
@@ -226,24 +273,24 @@ namespace Survey.Controllers
                     Status = 0
                 };
                 var result = await UserManager.CreateAsync(user, model.Password);
-                //if (result.Succeeded)
-                //{
-                //    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
+                if (result.Succeeded)
+                {
+                    //await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
 
-                //    // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
-                //    // Send an email with this link
-                //    // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
-                //    // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-                //    // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
-                //    await this.UserManager.AddToRoleAsync(user.Id, model.UserRoles);
-                //    return RedirectToAction("Index", "Home");
-                //}
+                    // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
+                    // Send an email with this link
+                    // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
+                    // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
+                    // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+                    //await this.UserManager.AddToRoleAsync(user.Id, model.UserRoles);
+                    return View("~/Views/Account/WaitAccount.cshtml");
+                }
                 ViewBag.Name = new SelectList(context.Roles.Where(u => !u.Name.Contains("Admin"))
                                   .ToList(), "Name", "Name");
                 
                 AddErrors(result);
                 ViewBag.UserName = model.UserName;
-                return View("~/Views/Account/WaitAccount.cshtml");
+                return View();
             }
 
             // If we got this far, something failed, redisplay form

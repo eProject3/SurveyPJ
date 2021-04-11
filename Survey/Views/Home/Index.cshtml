@@ -2,19 +2,29 @@
 @{
     ViewBag.Title = "Home Page";
     Layout = "~/Views/Shared/_LayoutHome.cshtml";
+
 }
+
+<!-- ======= Intro Section ======= -->
+<section id="intro">
+    <div class="intro-container" data-aos="zoom-in" data-aos-delay="0">
+        <h1 class="mb-4 pb-0">The <span>Evironment</span><br>Survey</h1>
+        <p class="mb-4 pb-0">10-12 December, Downtown Conference Center, New York</p>
+        <a href="https://www.youtube.com/watch?v=X2YgM1Zw4_E&ab_channel=SmileandLearn-English" class="venobox play-btn mb-4" data-vbtype="video" data-autoplay="true"></a>
+        <a href="#about" class="about-btn scrollto">About The Event</a>
+    </div>
+</section><!-- End Intro Section -->
 <main id="main">
 
     <!-- ======= About Section ======= -->
     <section id="about">
         <div class="container" data-aos="fade-up">
             <div class="row">
+
                 <div class="col-lg-6">
                     <h2>About The Event</h2>
                     <p>
-                        Sed nam ut dolor qui repellendus iusto odit. Possimus inventore eveniet accusamus error amet eius aut
-                        accusantium et. Non odit consequatur repudiandae sequi ea odio molestiae. Enim possimus sunt inventore in
-                        est ut optio sequi unde.
+                        Events are a great way to find out what’s happening in specialist areas, discover new ideas, get inspired, meet like-minded people and, of course, promote environmental awareness.
                     </p>
                 </div>
                 <div class="col-lg-3">
@@ -28,133 +38,125 @@
             </div>
         </div>
     </section><!-- End About Section -->
+
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link rel="icon" type="~/asset/image/png" sizes="16x16" href="~/asset/plugins/images/favicon.png">
+        <title>Ample Admin Template - The Ultimate Multipurpose admin template</title>
+        <!-- Bootstrap Core CSS -->
+        <link href="~/asset/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Menu CSS -->
+        <link href="~/asset/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css" rel="stylesheet">
+        <!-- toast CSS -->
+        <link href="~/asset/plugins/bower_components/toast-master/css/jquery.toast.css" rel="stylesheet">
+        <!-- morris CSS -->
+        <link href="~/asset/plugins/bower_components/morrisjs/morris.css" rel="stylesheet">
+        <!-- chartist CSS -->
+        <link href="~/asset/plugins/bower_components/chartist-js/dist/chartist.min.css" rel="stylesheet">
+        <link href="~/asset/plugins/bower_components/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.css" rel="stylesheet">
+        <!-- animation CSS -->
+        <link href="~/asset/css/animate.css" rel="stylesheet">
+        <!-- Custom CSS -->
+        <link href="~/asset/css/style.css" rel="stylesheet">
+        <!-- color CSS -->
+        <link href="~/asset/css/colors/default.css" id="theme" rel="stylesheet">
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+                    <script src="~/asset/plugins/bower_components/jquery/dist/jquery.min.js"></script>
+        <!-- Bootstrap Core JavaScript -->
+        <script src="~/asset/bootstrap/dist/js/bootstrap.min.js"></script>
+        <!-- Menu Plugin JavaScript -->
+        <script src="~/asset/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js"></script>
+        <!--slimscroll JavaScript -->
+        <script src="~/asset/js/jquery.slimscroll.js"></script>
+        <!--Wave Effects -->
+        <script src="~/asset/js/waves.js"></script>
+        <!--Counter js -->
+        <script src="~/asset/plugins/bower_components/waypoints/lib/jquery.waypoints.js"></script>
+        <script src="~/asset/plugins/bower_components/counterup/jquery.counterup.min.js"></script>
+        <!-- chartist chart -->
+        <script src="~/asset/plugins/bower_components/chartist-js/dist/chartist.min.js"></script>
+        <script src="~/asset/plugins/bower_components/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.min.js"></script>
+        <!-- Sparkline chart JavaScript -->
+        <script src="~/asset/plugins/bower_components/jquery-sparkline/jquery.sparkline.min.js"></script>
+        <!-- Custom Theme JavaScript -->
+        <script src="~/asset/js/custom.min.js"></script>
+        <script src="~/asset/js/dashboard1.js"></script>
+        <script src="~/asset/plugins/bower_components/toast-master/js/jquery.toast.js"></script>
+    </head>
     <section id="faq">
-
+        <body class="fix-header" style="text-align:center">
+            <div class="container">
+                <br />
+                <br />
+                <div class="section-header">
+                    <h2>Survey</h2>
+                    <p>Statistical of Survey</p>
+                </div>
+                <div class="row bg-title">
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-sm-6 col-xs-12">
+                        <div class="white-box analytics-info">
+                            <h3 class="box-title">All Survey</h3>
+                            <ul class="list-inline two-part">
+                                <li>
+                                    <div id="sparklinedash"></div>
+                                </li>
+                                <li class="text-right"><i class="ti-arrow-up text-success"></i> <span class="counter text-success">@ViewBag.AllSurvey</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 col-xs-12">
+                        <div class="white-box analytics-info">
+                            <h3 class="box-title">All Survey Complete</h3>
+                            <ul class="list-inline two-part">
+                                <li>
+                                    <div id="sparklinedash2"></div>
+                                </li>
+                                <li class="text-right"><i class="ti-arrow-up text-purple"></i> <span class="counter text-purple">@ViewBag.AllSurveyComplete</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 col-xs-12">
+                        <div class="white-box analytics-info">
+                            <h3 class="box-title">All Survey Answered</h3>
+                            <ul class="list-inline two-part">
+                                <li>
+                                    <div id="sparklinedash3"></div>
+                                </li>
+                                <li class="text-right"><i class="ti-arrow-up text-info"></i> <span class="counter text-info">@ViewBag.AllSurveyAnswered</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+    <section id="gallery">
         <div class="container" data-aos="fade-up">
-
             <div class="section-header">
-                <h2>F.A.Q </h2>
+                <h2>Gallery</h2>
+                <p>Gallery images of events</p>
             </div>
-
-            <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="100">
-                <div class="col-lg-9">
-                    <ul id="faq-list">
-
-                        <li>
-                            <a data-toggle="collapse" class="collapsed" href="#faq1">How to register for the survey?  <i class="fa fa-minus-circle"></i></a>
-                            <div id="faq1" class="collapse" data-parent="#faq-list">
-                                <p>
-                                    Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.
-                                </p>
-                            </div>
-                        </li>
-
-                        <li>
-                            <a data-toggle="collapse" href="#faq2" class="collapsed">How to participate in the survey? <i class="fa fa-minus-circle"></i></a>
-                            <div id="faq2" class="collapse" data-parent="#faq-list">
-                                <p>
-                                    Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.
-                                </p>
-                            </div>
-                        </li>
-
-                        <li>
-                            <a data-toggle="collapse" href="#faq3" class="collapsed">How will I be intimated with the new survey? <i class="fa fa-minus-circle"></i></a>
-                            <div id="faq3" class="collapse" data-parent="#faq-list">
-                                <p>
-                                    Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus pellentesque eu tincidunt. Lectus urna duis convallis convallis tellus. Urna molestie at elementum eu facilisis sed odio morbi quis
-                                </p>
-                            </div>
-                        </li>
-
-                        <li>
-                            <a data-toggle="collapse" href="#faq4" class="collapsed">What if it gives error, after participating in the entire survey, and clicked on the submit button at the last for submitting the survey? <i class="fa fa-minus-circle"></i></a>
-                            <div id="faq4" class="collapse" data-parent="#faq-list">
-                                <p>
-                                    Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.
-                                </p>
-                            </div>
-                        </li>
-
-                        <li>
-                            <a data-toggle="collapse" href="#faq5" class="collapsed">Why I am unable to participate in the survey?  <i class="fa fa-minus-circle"></i></a>
-                            <div id="faq5" class="collapse" data-parent="#faq-list">
-                                <p>
-                                    Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est ante in. Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit adipiscing bibendum est. Purus gravida quis blandit turpis cursus in
-                                </p>
-                            </div>
-                        </li>
-
-                        <li>
-                            <a data-toggle="collapse" href="#faq6" class="collapsed">Why my registration request is not accepted? <i class="fa fa-minus-circle"></i></a>
-                            <div id="faq6" class="collapse" data-parent="#faq-list">
-                                <p>
-                                    Laoreet sit amet cursus sit amet dictum sit amet justo. Mauris vitae ultricies leo integer malesuada nunc vel. Tincidunt eget nullam non nisi est sit amet. Turpis nunc eget lorem dolor sed. Ut venenatis tellus in metus vulputate eu scelerisque. Pellentesque diam volutpat commodo sed egestas egestas fringilla phasellus faucibus. Nibh tellus molestie nunc non blandit massa enim nec.
-                                </p>
-                            </div>
-                        </li>
-
-                        <li>
-                            <a data-toggle="collapse" href="#faq7" class="collapsed">How to participate in the competitions?  <i class="fa fa-minus-circle"></i></a>
-                            <div id="faq7" class="collapse" data-parent="#faq-list">
-                                <p>
-                                    Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est ante in. Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit adipiscing bibendum est. Purus gravida quis blandit turpis cursus in
-                                </p>
-                            </div>
-                        </li>
-
-                        <li>
-                            <a data-toggle="collapse" href="#faq8" class="collapsed">What if there are some arrears in participating the survey?  <i class="fa fa-minus-circle"></i></a>
-                            <div id="faq8" class="collapse" data-parent="#faq-list">
-                                <p>
-                                    Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est ante in. Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit adipiscing bibendum est. Purus gravida quis blandit turpis cursus in
-                                </p>
-                            </div>
-                        </li>
-
-                    </ul>
-                </div>
-            </div>
-
-        </div>
-
-    </section><!-- End  F.A.Q Section -->
-    <!-- ======= Contact Section ======= -->
-    <section id="contact" class="section-bg">
-
-        <div class="container" data-aos="fade-up">
-
-            <div class="section-header">
-                <h2>Support Information</h2>
-                <p>Any questions please contact.</p>
-            </div>
-
-            <div class="row contact-info">
-
-                <div class="col-md-4">
-                    <div class="contact-address">
-                        <i class="ion-ios-location-outline"></i>
-                        <h3>Address</h3>
-                        <address>8 Ton That Thuyet, My Dinh, Ha Noi</address>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="contact-phone">
-                        <i class="ion-ios-telephone-outline"></i>
-                        <h3>Phone Number</h3>
-                        <p><a href="tel:+0842938683">+84 842 938 683</a></p>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="contact-email">
-                        <i class="ion-ios-email-outline"></i>
-                        <h3>Email</h3>
-                        <p><a href="mailto:locnxth1907005@fpt.edu.vn">locnxth1907005@fpt.edu.vn</a></p>
-                    </div>
-                </div>
-
+            <div class="owl-carousel gallery-carousel" data-aos="fade-up" data-aos-delay="100">
+                <a href="~/asset/img/environment/12.png " class="venobox" data-gall="gallery-carousel"><img src="~/asset/img/environment/12.png" alt=""></a>
+                <a href="~/asset/img/environment/1.jpg" class="venobox" data-gall="gallery-carousel"><img src="~/asset/img/environment/1.jpg" alt=""></a>
+                <a href="~/asset/img/environment/10.png" class="venobox" data-gall="gallery-carousel"><img src="~/asset/img/environment/10.png" alt=""></a>
+                <a href="~/asset/img/environment/23.jpg" class="venobox" data-gall="gallery-carousel"><img src="~/asset/img/environment/23.jpg" alt=""></a>
+                <a href="~/asset/img/environment/4.png" class="venobox" data-gall="gallery-carousel"><img src="~/asset/img/environment/4.png" alt=""></a>
+                <a href="~/asset/img/environment/5.png" class="venobox" data-gall="gallery-carousel"><img src="~/asset/img/environment/5.png" alt=""></a>
+                <a href="~/asset/img/environment/6.png" class="venobox" data-gall="gallery-carousel"><img src="~/asset/img/environment/6.png" alt=""></a>
+                <a href="~/asset/img/environment/7.png" class="venobox" data-gall="gallery-carousel"><img src="~/asset/img/environment/7.png" alt=""></a>
             </div>
 
            
@@ -163,4 +165,5 @@
         
     </section><!-- End Contact Section -->
 
-</main><
+</html>
+</main>

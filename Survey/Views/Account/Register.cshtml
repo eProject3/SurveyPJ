@@ -100,6 +100,12 @@
     .login-block {
         background: linear-gradient(to bottom, rgba(6, 12, 34, 0.98), rgba(6, 12, 34, 0.98));
         padding: 0px 0;
+     
+    }
+    .datepicker {
+        border-style: solid;
+        border-width: 1px;
+        border-color: black;
     }
 </style>
 <header id="header">
@@ -108,17 +114,17 @@
         <div id="logo" class="pull-left">
             <!-- Uncomment below if you prefer to use a text logo -->
             <!-- <h1><a href="#intro">The<span>Event</span></a></h1>-->
-            <a href="index.html" class="scrollto"><img src="~/asset/img/logo.png" alt="" title=""></a>
+            <a href="@Url.Action("Index", "Home")" class="scrollto"><img src="~/asset/img/logo.png" alt="" title=""></a>
         </div>
 
         <nav id="nav-menu-container">
 
 
             <ul class="nav-menu">
-                <li><a href="~/Home/Index">Home</a></li>
-                <li><a href="#about">Survey</a></li>
-                <li><a href="~/Home/faqhome">FAQ</a></li>
-                <li><a href="~/Home/supporthome">Support</a></li>
+                <li><a href="@Url.Action("Index", "Home")">Home</a></li>
+               
+                <li><a href="@Url.Action("faqhome", "Home")">FAQ</a></li>
+                <li><a href="@Url.Action("supporthome", "Home")">Support</a></li>
 
             </ul>
 
@@ -127,15 +133,17 @@
     </div>
 </header><!-- End Header -->
 <section id="loginForm" class="login-block">    
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 ">
+    <div class="container" style="width:67% ; margin-top:10px;">
+        <div class="row" >
+            <div class="col-md-12" style="border:1px 1px 1px 1px">
                 <section class="loginForm">
+                   
                     @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-content", role = "form" }))
                     {
                         @Html.AntiForgeryToken()
                         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                        <p style="font-size:30px"> Register</p>
+                        
+                        <p style="font-size:30px ;margin-left:-40px;"> <a href="@Url.Action("Login", "Account")" ><i class="fa fa-backward" style=" font-size:30px ;"></i></a> Register</p>
                         <div class="row">
 
                             <div class="col-md-6">
@@ -207,8 +215,13 @@
                                     @Html.ValidationMessageFor(m => m.UserRoles, "", new { @class = "text-danger" })
 
                                 </div>
+
                             </div>
-                            <div class="col-md-offset-5 col-md-10">   <input type="submit" style="text-align:center" class="btn btn-default" value="Register" /></div>
+
+                            <button type="submit" class="btn btn-danger waves-effect waves-light" style="color:white ;margin-left:15px;">
+                                Register
+
+                            </button>
                         </div>
 
 
@@ -221,6 +234,43 @@
         </div>
     </div>
     </section>
+<footer id="footer" style="margin-top:150px;">
+    <div class="footer-top" style="background-color: rgba(6, 12, 34, 0.98);">
+        <div class="container" style="background-color: rgba(6, 12, 34, 0.98)">
+
+            <div class="row">
+
+
+
+
+
+
+                <div class="col-lg-5 col-md-6 footer-contact" style="margin-top:30px; margin-left:30px;">
+                    <h4>Contact Us</h4>
+                    <p>
+                        8 Ton That Thuyet
+                        My Dinh, Ha Noi,
+                        Viet Nam <br>
+                        <strong>Phone:</strong> +84 842 938 683<br>
+                        <strong>Email:</strong> locnxth1907005@fpt.edu.vn<br>
+                    </p>
+
+                    <div class="social-links">
+                        <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+                        <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+                        <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
+                        <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
+                        <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+</footer>
 
 
     <link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
