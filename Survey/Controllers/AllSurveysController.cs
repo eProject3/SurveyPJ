@@ -17,7 +17,7 @@ namespace Survey.Controllers
         // GET: AllSurveys
         public ActionResult Index()
         {
-            
+
             return View(db.Surveys.ToList());
 
         }

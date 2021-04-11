@@ -36,6 +36,14 @@
     <!--===============================================================================================-->
 </head>
 <body>
+    <section id="intro" style="height : 70px">
+        <div class="intro-container" data-aos="zoom-in" data-aos-delay="0">
+            @*<h1 class="mb-4 pb-0">The <span>Evironment</span><br>Survey</h1>
+                <p class="mb-4 pb-0">10-12 December, Downtown Conference Center, New York</p>
+                <a href="https://www.youtube.com/watch?v=X2YgM1Zw4_E&ab_channel=SmileandLearn-English" class="venobox play-btn mb-4" data-vbtype="video" data-autoplay="true"></a>
+                <a href="#about" class="about-btn scrollto">About The Event</a>*@
+        </div>
+    </section><!-- End Intro Section -->
     <br />
     <br />
     <br />
@@ -52,7 +60,7 @@
                 <div class="wrap-contact100">
                     <form class="contact100-form validate-form">
                         <span class="contact100-form-title">
-                           
+
                         </span>
 
                         <label class="label-input100" for="Name" style="color : black ">Name : @Html.DisplayFor(modelItem => item.Name)</label>
@@ -61,18 +69,18 @@
                             <span class="focus-input100">@Html.DisplayFor(modelItem => item.Name)</span>
                         </div>
 
-                        <label class="label-input100" for="Email"style="color : black">Email: @Html.DisplayFor(modelItem => item.Email)</label>
+                        <label class="label-input100" for="Email" style="color : black">Email: @Html.DisplayFor(modelItem => item.Email)</label>
                         <div class="wrap-input100 validate-input">
 
                             <span class="focus-input100">@Html.DisplayFor(modelItem => item.Email)</span>
                         </div>
 
-                        <label class="label-input100" for="phone"style="color : black">Phone: @Html.DisplayFor(modelItem => item.Mobile)</label>
+                        <label class="label-input100" for="phone" style="color : black">Phone: @Html.DisplayFor(modelItem => item.Mobile)</label>
                         <div class="wrap-input100">
                             <span class="focus-input100">@Html.DisplayFor(modelItem => item.Mobile)</span>
                         </div>
 
-                        <label class="label-input100" for="Description"style="color : black">Description: @Html.DisplayFor(modelItem => item.Description)</label>
+                        <label class="label-input100" for="Description" style="color : black">Description: @Html.DisplayFor(modelItem => item.Description)</label>
                         <div class="wrap-input100 validate-input">
                             <span class="focus-input100">@Html.DisplayFor(modelItem => item.Mobile)</span>
                         </div>
@@ -131,43 +139,43 @@
                 </div>
             </div>
         }
-        </div>
+    </div>
 
 
 
-        <div id="dropDownSelect1"></div>
+    <div id="dropDownSelect1"></div>
 
-        <!--===============================================================================================-->
-        <script src="~/assets/vendor/jquery/jquery-3.2.1.min.js"></script>
-        <!--===============================================================================================-->
-        <script src="~/assets/vendor/animsition/js/animsition.min.js"></script>
-        <!--===============================================================================================-->
-        <script src="~/assets/vendor/bootstrap/js/popper.js"></script>
-        <script src="~/assets/vendor/bootstrap/js/bootstrap.min.js"></script>
-        <!--===============================================================================================-->
-        <script src="vendor/select2/select2.min.js"></script>
-        <script>
-            $(".selection-2").select2({
-                minimumResultsForSearch: 20,
-                dropdownParent: $('#dropDownSelect1')
-            });
-        </script>
-        <!--===============================================================================================-->
-        <script src="~/assets/vendor/daterangepicker/moment.min.js"></script>
-        <script src="~/assets/vendor/daterangepicker/daterangepicker.js"></script>
-        <!--===============================================================================================-->
-        <script src="~/assets/vendor/countdowntime/countdowntime.js"></script>
-        <!--===============================================================================================-->
-        <script src="~/assets/js/main.js"></script>
-        <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag() { dataLayer.push(arguments); }
-            gtag('js', new Date());
+    <!--===============================================================================================-->
+    <script src="~/assets/vendor/jquery/jquery-3.2.1.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/assets/vendor/animsition/js/animsition.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/assets/vendor/bootstrap/js/popper.js"></script>
+    <script src="~/assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/select2/select2.min.js"></script>
+    <script>
+        $(".selection-2").select2({
+            minimumResultsForSearch: 20,
+            dropdownParent: $('#dropDownSelect1')
+        });
+    </script>
+    <!--===============================================================================================-->
+    <script src="~/assets/vendor/daterangepicker/moment.min.js"></script>
+    <script src="~/assets/vendor/daterangepicker/daterangepicker.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/assets/vendor/countdowntime/countdowntime.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/assets/js/main.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
-            gtag('config', 'UA-23581568-13');
-        </script>
+        gtag('config', 'UA-23581568-13');
+    </script>
 </body>
 </html>
 

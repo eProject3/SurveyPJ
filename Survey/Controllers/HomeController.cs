@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNet.Identity;
+using Microsoft.JScript;
 using Survey.Models;
 using System;
 using System.Collections.Generic;
@@ -6,6 +7,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Routing;
 
 namespace Survey.Controllers
 {
@@ -37,7 +39,6 @@ namespace Survey.Controllers
             ViewBag.AllSurvey = countAllSurvey;
             ViewBag.AllSurveyAnswered = countAllSurveyAnswered;
             ViewBag.AllSurveyComplete = countAllSurveyComplete;
-
 
             return View();
         }
@@ -105,7 +106,6 @@ namespace Survey.Controllers
             }
             return View(allSurvey);
         }
-
         [Authorize]
         [HttpPost]
         public ActionResult SaveAnswer()
@@ -224,11 +224,12 @@ namespace Survey.Controllers
 
             }
             return Redirect("~/Home/Survey");
-
-
         }
 
 
+
+        
+     
 
         
      
