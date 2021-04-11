@@ -75,7 +75,7 @@
             <div id="logo" class="pull-left">
                 <!-- Uncomment below if you prefer to use a text logo -->
                 <!-- <h1><a href="#intro">The<span>Event</span></a></h1>-->
-                <a href="~/Home/Index" class="scrollto"><img src="~/asset/img/logo.png" alt="" title=""></a>
+                <a href="@Url.Action("Index", "Home")" class="scrollto"><img src="~/asset/img/logo.png" alt="" title=""></a>
             </div>
 
             <nav id="nav-menu-container">
@@ -108,7 +108,7 @@
                 {
                     <ul class="nav-menu">
                         <li class="menu-active"><a href="~/Home/Index">Home</a></li>
-                        <li><a href="@Url.Action("Survey", "Home")">Survey</a></li>
+                        
                         
                         <li><a href="~/Home/faqhome">FAQ</a></li>
                         <li><a href="~/Home/supporthome">Support</a></li>
