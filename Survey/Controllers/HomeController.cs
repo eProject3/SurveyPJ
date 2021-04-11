@@ -39,7 +39,6 @@ namespace Survey.Controllers
             ViewBag.AllSurvey = countAllSurvey;
             ViewBag.AllSurveyAnswered = countAllSurveyAnswered;
             ViewBag.AllSurveyComplete = countAllSurveyComplete;
-
             return View();
         }
 
@@ -231,7 +230,5 @@ namespace Survey.Controllers
         
      
 
-        
-     
     }
 }
