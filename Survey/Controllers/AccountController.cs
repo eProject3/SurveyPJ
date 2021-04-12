@@ -475,7 +475,7 @@ namespace Survey.Controllers
                 
                 AddErrors(result);
                 ViewBag.UserName = model.UserName;
-                
+                return View();
             }
 
             // If we got this far, something failed, redisplay form
