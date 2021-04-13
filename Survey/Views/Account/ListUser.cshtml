@@ -8,13 +8,53 @@
     var userManager = Request.GetOwinContext().GetUserManager<ApplicationUserManager>();
 
 }
+<style>
+    td, th, table {
+        border: 1px solid #333;
+    }
 
+    table {
+        border-top: 1px solid #333;
+        margin-top: 10px
+    }
+</style>
 <h2>Users</h2>
 
 <p>
     @Html.ActionLink("Create New", "RegisterUserAdmin")
 </p>
-<table class="table">
+@using (Ajax.BeginForm("HelloAjax", "Account",
+new AjaxOptions
+{
+    InsertionMode = InsertionMode.Replace,
+    HttpMethod = "POST",
+    OnFailure = "searchFailed",
+    UpdateTargetId = "dulieuId",
+}))
+{
+    <div class="mb-7">
+        <div class="row align-items-center">
+            <div class="col-lg-9 col-xl-8">
+                <div class="row align-items-center">
+                    <div class="col-md-4 my-2 my-md-0">
+                        <div class="input-icon">
+                            <input type="text" name="q" class="form-control" placeholder="Search..." id="kt_datatable_search_query">
+                            <span>
+                                <i class="flaticon2-search-1 text-muted"></i>
+                            </span>
+
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-xl-4 mt-5 mt-lg-0">
+                        <input type="Submit" class="btn btn-light-primary px-6 font-weight-bold" value="search" />
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+}
+<table class="table" id="dulieuId">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Email)
@@ -43,7 +83,7 @@
         <th>
             @Html.DisplayNameFor(model => model.Status)
         </th>
-        <th></th>
+        <th>Action</th>
     </tr>
 
     @foreach (var item in Model)
@@ -74,7 +114,15 @@
                 @userManager.GetRoles(item.Id)[0]
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Status)
+                @if(item.Status == 1)
+                {
+                    <span>Actived</span>
+                }
+                else
+                {
+                    <span>Wait</span>
+                }
+
             </td>
             <td>
                 @Html.ActionLink("Edit", "EditUserAdmin", new { id = item.Id }) |
