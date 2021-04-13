@@ -28,6 +28,10 @@ namespace Survey.Controllers
             context = new ApplicationDbContext();
         }
 
+        public ActionResult HelloAjax(string q)
+        {
+            return View("ListUser", this.context.Users.Where(item => item.UserName.Contains(q)).ToList());
+        }
         [Authorize(Roles = "Admin")]
         public ActionResult ChangeStatusAdmin(string id)
         {
