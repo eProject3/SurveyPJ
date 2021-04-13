@@ -46,17 +46,26 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.10.0, Culture=neutral, PublicKeyToken=0e99375e54769942, processorArchitecture=MSIL">
+      <HintPath>..\packages\Portable.BouncyCastle.1.8.10\lib\net40\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="MailKit, Version=2.11.0.0, Culture=neutral, PublicKeyToken=4e064fe7c44a8f1b, processorArchitecture=MSIL">
+      <HintPath>..\packages\MailKit.2.11.1\lib\net47\MailKit.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.JScript" />
+    <Reference Include="MimeKit, Version=2.11.0.0, Culture=neutral, PublicKeyToken=bede1c8a46c66814, processorArchitecture=MSIL">
+      <HintPath>..\packages\MimeKit.2.11.0\lib\net47\MimeKit.dll</HintPath>
+    </Reference>
     <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
       <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
     </Reference>
@@ -64,8 +73,12 @@
       <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -187,9 +200,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202104100856564_init.cs" />
-    <Compile Include="Migrations\202104100856564_init.designer.cs">
-      <DependentUpon>202104100856564_init.cs</DependentUpon>
+    <Compile Include="Migrations\202104120528001_init.cs" />
+    <Compile Include="Migrations\202104120528001_init.designer.cs">
+      <DependentUpon>202104120528001_init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -243,6 +256,7 @@
     <Content Include="assets\css\style.bundle.css" />
     <Content Include="assets\css\style.css" />
     <Content Include="assets\css\StyleSheet1.css" />
+    <Content Include="assets\css\StyleSheet2.css" />
     <Content Include="assets\css\themes\layout\aside\dark.css" />
     <Content Include="assets\css\themes\layout\aside\light.css" />
     <Content Include="assets\css\themes\layout\brand\dark.css" />
@@ -1640,6 +1654,115 @@
     <Content Include="assets\plugins\global\fonts\socicon\socicon.svg" />
     <Content Include="assets\plugins\global\plugins.bundle.css" />
     <Content Include="assets\plugins\global\plugins.bundle.js" />
+    <Content Include="assettt\css\style.css" />
+    <Content Include="assettt\img\about-bg.jpg" />
+    <Content Include="assettt\img\apple-icon.png" />
+    <Content Include="assettt\img\apple-touch-icon.png" />
+    <Content Include="assettt\img\bg5.jpg" />
+    <Content Include="assettt\img\damir-bosnjak.jpg" />
+    <Content Include="assettt\img\default-avatar.png" />
+    <Content Include="assettt\img\environment\1.jpg" />
+    <Content Include="assettt\img\environment\10.png" />
+    <Content Include="assettt\img\environment\12.png" />
+    <Content Include="assettt\img\environment\19.png" />
+    <Content Include="assettt\img\environment\20.png" />
+    <Content Include="assettt\img\environment\23.jpg" />
+    <Content Include="assettt\img\environment\30.png" />
+    <Content Include="assettt\img\environment\4.png" />
+    <Content Include="assettt\img\environment\40.png" />
+    <Content Include="assettt\img\environment\5.png" />
+    <Content Include="assettt\img\environment\6.png" />
+    <Content Include="assettt\img\environment\7.png" />
+    <Content Include="assettt\img\faces\ayo-ogunseinde-1.jpg" />
+    <Content Include="assettt\img\faces\ayo-ogunseinde-2.jpg" />
+    <Content Include="assettt\img\faces\clem-onojeghuo-1.jpg" />
+    <Content Include="assettt\img\faces\clem-onojeghuo-2.jpg" />
+    <Content Include="assettt\img\faces\clem-onojeghuo-3.jpg" />
+    <Content Include="assettt\img\faces\clem-onojeghuo-4.jpg" />
+    <Content Include="assettt\img\faces\erik-lucatero-1.jpg" />
+    <Content Include="assettt\img\faces\erik-lucatero-2.jpg" />
+    <Content Include="assettt\img\faces\joe-gardner-1.jpg" />
+    <Content Include="assettt\img\faces\joe-gardner-2.jpg" />
+    <Content Include="assettt\img\faces\kaci-baum-1.jpg" />
+    <Content Include="assettt\img\faces\kaci-baum-2.jpg" />
+    <Content Include="assettt\img\favicon.png" />
+    <Content Include="assettt\img\gallery\1.jpg" />
+    <Content Include="assettt\img\gallery\2.jpg" />
+    <Content Include="assettt\img\gallery\3.jpg" />
+    <Content Include="assettt\img\gallery\4.jpg" />
+    <Content Include="assettt\img\gallery\5.jpg" />
+    <Content Include="assettt\img\gallery\6.jpg" />
+    <Content Include="assettt\img\gallery\7.jpg" />
+    <Content Include="assettt\img\gallery\8.jpg" />
+    <Content Include="assettt\img\header.jpg" />
+    <Content Include="assettt\img\hotels\1.jpg" />
+    <Content Include="assettt\img\hotels\2.jpg" />
+    <Content Include="assettt\img\hotels\3.jpg" />
+    <Content Include="assettt\img\intro-bg.jpg" />
+    <Content Include="assettt\img\jan-sendereks.jpg" />
+    <Content Include="assettt\img\logo-small.png" />
+    <Content Include="assettt\img\logo.png" />
+    <Content Include="assettt\img\mike.jpg" />
+    <Content Include="assettt\img\speakers\1.jpg" />
+    <Content Include="assettt\img\speakers\2.jpg" />
+    <Content Include="assettt\img\speakers\3.jpg" />
+    <Content Include="assettt\img\speakers\4.jpg" />
+    <Content Include="assettt\img\speakers\5.jpg" />
+    <Content Include="assettt\img\speakers\6.jpg" />
+    <Content Include="assettt\img\speakers\bizpage-preview.png" />
+    <Content Include="assettt\img\subscribe-bg.jpg" />
+    <Content Include="assettt\img\supporters\1.png" />
+    <Content Include="assettt\img\supporters\2.png" />
+    <Content Include="assettt\img\supporters\3.png" />
+    <Content Include="assettt\img\supporters\4.png" />
+    <Content Include="assettt\img\supporters\5.png" />
+    <Content Include="assettt\img\supporters\6.png" />
+    <Content Include="assettt\img\supporters\7.png" />
+    <Content Include="assettt\img\supporters\8.png" />
+    <Content Include="assettt\img\venue-gallery\1.jpg" />
+    <Content Include="assettt\img\venue-gallery\2.jpg" />
+    <Content Include="assettt\img\venue-gallery\3.jpg" />
+    <Content Include="assettt\img\venue-gallery\4.jpg" />
+    <Content Include="assettt\img\venue-gallery\5.jpg" />
+    <Content Include="assettt\img\venue-gallery\6.jpg" />
+    <Content Include="assettt\img\venue-gallery\7.jpg" />
+    <Content Include="assettt\img\venue-gallery\8.jpg" />
+    <Content Include="assettt\img\venue-info-bg.jpg" />
+    <Content Include="assettt\js\main.js" />
+    <Content Include="assettt\vendor\aos\aos.css" />
+    <Content Include="assettt\vendor\aos\aos.js" />
+    <Content Include="assettt\vendor\bootstrap\css\bootstrap-grid.css" />
+    <Content Include="assettt\vendor\bootstrap\css\bootstrap-grid.min.css" />
+    <Content Include="assettt\vendor\bootstrap\css\bootstrap-reboot.css" />
+    <Content Include="assettt\vendor\bootstrap\css\bootstrap-reboot.min.css" />
+    <Content Include="assettt\vendor\bootstrap\css\bootstrap.css" />
+    <Content Include="assettt\vendor\bootstrap\css\bootstrap.min.css" />
+    <Content Include="assettt\vendor\bootstrap\js\bootstrap.bundle.js" />
+    <Content Include="assettt\vendor\bootstrap\js\bootstrap.bundle.min.js" />
+    <Content Include="assettt\vendor\bootstrap\js\bootstrap.js" />
+    <Content Include="assettt\vendor\bootstrap\js\bootstrap.min.js" />
+    <Content Include="assettt\vendor\font-awesome\css\font-awesome.css" />
+    <Content Include="assettt\vendor\font-awesome\css\font-awesome.min.css" />
+    <Content Include="assettt\vendor\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="assettt\vendor\hoverIntent\hoverIntent.js" />
+    <Content Include="assettt\vendor\jquery.easing\jquery.easing.min.js" />
+    <Content Include="assettt\vendor\jquery\jquery.min.js" />
+    <Content Include="assettt\vendor\owl.carousel\assets\ajax-loader.gif" />
+    <Content Include="assettt\vendor\owl.carousel\assets\owl.carousel.css" />
+    <Content Include="assettt\vendor\owl.carousel\assets\owl.carousel.min.css" />
+    <Content Include="assettt\vendor\owl.carousel\assets\owl.theme.default.css" />
+    <Content Include="assettt\vendor\owl.carousel\assets\owl.theme.default.min.css" />
+    <Content Include="assettt\vendor\owl.carousel\assets\owl.theme.green.css" />
+    <Content Include="assettt\vendor\owl.carousel\assets\owl.theme.green.min.css" />
+    <Content Include="assettt\vendor\owl.carousel\assets\owl.video.play.png" />
+    <Content Include="assettt\vendor\owl.carousel\owl.carousel.js" />
+    <Content Include="assettt\vendor\owl.carousel\owl.carousel.min.js" />
+    <Content Include="assettt\vendor\php-email-form\validate.js" />
+    <Content Include="assettt\vendor\superfish\superfish.min.js" />
+    <Content Include="assettt\vendor\venobox\venobox.css" />
+    <Content Include="assettt\vendor\venobox\venobox.js" />
+    <Content Include="assettt\vendor\venobox\venobox.min.css" />
+    <Content Include="assettt\vendor\venobox\venobox.min.js" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -2440,6 +2563,25 @@
     <Content Include="assets\scss\_services_section.scss" />
     <Content Include="assets\scss\_team.scss" />
     <Content Include="assets\scss\_variables.scss" />
+    <Content Include="assettt\vendor\bootstrap\css\bootstrap-grid.css.map" />
+    <Content Include="assettt\vendor\bootstrap\css\bootstrap-grid.min.css.map" />
+    <Content Include="assettt\vendor\bootstrap\css\bootstrap-reboot.css.map" />
+    <Content Include="assettt\vendor\bootstrap\css\bootstrap-reboot.min.css.map" />
+    <Content Include="assettt\vendor\bootstrap\css\bootstrap.css.map" />
+    <Content Include="assettt\vendor\bootstrap\css\bootstrap.min.css.map" />
+    <Content Include="assettt\vendor\bootstrap\js\bootstrap.bundle.js.map" />
+    <Content Include="assettt\vendor\bootstrap\js\bootstrap.bundle.min.js.map" />
+    <Content Include="assettt\vendor\bootstrap\js\bootstrap.js.map" />
+    <Content Include="assettt\vendor\bootstrap\js\bootstrap.min.js.map" />
+    <Content Include="assettt\vendor\font-awesome\css\font-awesome.css.map" />
+    <Content Include="assettt\vendor\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="assettt\vendor\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="assettt\vendor\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="assettt\vendor\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="assettt\vendor\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="assettt\vendor\jquery\jquery.min.map" />
+    <Content Include="assettt\vendor\owl.carousel\LICENSE" />
+    <Content Include="assettt\vendor\owl.carousel\README.md" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -2546,8 +2688,8 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202104100856564_init.resx">
-      <DependentUpon>202104100856564_init.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202104120528001_init.resx">
+      <DependentUpon>202104120528001_init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
