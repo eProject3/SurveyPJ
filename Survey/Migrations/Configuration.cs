@@ -20,8 +20,79 @@
             context.Database.ExecuteSqlCommand("DBCC CHECKIDENT('AllSurveys', RESEED, 0)");
             string CreateDate = "22-03-2021 07:50:00:AM";
             string UpdateDate = "22-06-2022 07:50:00:AM";
+            context.FAQs.AddOrUpdate(x => x.FAQId,
+                 new FAQ()
+                 {  
+                     FAQId = 1,
+                     Title = "How to register for the survey? How to participate in the survey?",
+                     Name = "How to register for the survey? How to participate in the survey?",    
+                     Description = "Click Button Login/Register in the home page ."
+                     },
+                     new FAQ()
+                     {
+                         FAQId = 1,
+                         Title = "How to participate in the survey?",
+                         Name = "How to participate in the survey?",
+                         Description = "Point to 'Survey' on the menu bar, there will appear a list of survey, find a survey you can join and answer the question."
+                     },
+                      new FAQ()
+                      {
+                          FAQId = 2,
+                          Title = "hat if there are some arrears in participating the survey?",
+                          Name = "What if there are some arrears in participating the survey?",
+                          Description = "This is because you need the admin to validate your account before you can survey the contest"
+                      },
+                       new FAQ()
+                       {
+                           FAQId = 3,
+                           Title = "Will there be any benefit if participated in the survey?",
+                           Name = "Will there be any benefit if participated in the survey?",
+                           Description = "You will learn more about the environmental damage, and figure out how to fix it"
+                       },
+                       new FAQ()
+                       {
+                           FAQId = 4,
+                           Title = "Why I am unable to participate in the survey?",
+                           Name = "Why I am unable to participate in the survey?",
+                           Description = "because you have answered all of them, or maybe the survey is out of date or not taking place yet,Or maybe you haven't signed up for an account yet"
+                       },
+                         new FAQ()
+                         {
+                             FAQId = 5,
+                             Title = "Why my registration request is not accepted?",
+                             Name = "Why my registration request is not accepted?",
+                             Description = "Maybe you have to wait for the approval of the administrator, or you did something wrong please contact support"
+                         },
+                         new FAQ()
+                         {
+                             FAQId = 6,
+                             Title = "What if it gives error, after participating in the entire survey, and clicked on the submit button at the last for submitting the survey?",
+                             Name = "What if it gives error, after participating in the entire survey, and clicked on the submit button at the last for submitting the survey?",
+                             Description = "If it has an error please report it back to us in the support section"
+                         }
 
-            context.Surveys.AddOrUpdate(x => x.SurveyId,
+
+                 );
+            context.Supports.AddOrUpdate(x => x.Id,
+                new Support
+                {
+                        Id= 1,
+                        Name  = "Trong Phu",
+                        Description = "Web Design Engineer",
+                        Email ="phuqn10x@icloud.com",
+                        Mobile = "0347882743"
+                },
+                  new Support
+                  {
+                      Id =2 ,
+                      Name = "Xuan Phuc",
+                      Description = "Web Design Engineer",
+                      Email = "xuanphuc123@icloud.com",
+                      Mobile = "0347293490"
+                  }
+
+                );
+              context.Surveys.AddOrUpdate(x => x.SurveyId,
                    new AllSurvey()
                    {
                        SurveyId = 0,
@@ -80,6 +151,8 @@
                             UpdateDate = DateTime.ParseExact(UpdateDate, "dd-MM-yyyy hh:mm:ss:tt", CultureInfo.InvariantCulture),
                         }
 
+             
+           
                 );
             context.Questions.AddOrUpdate(x => x.Id,
                    //Survey 1
