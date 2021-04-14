@@ -121,10 +121,10 @@ new AjaxOptions
     <div class="mb-7">
         <div class="row align-items-center">
             <div class="col-lg-9 col-xl-8">
-                <div class="row align-items-center">
+                <div class="row align-items-center" style="margin-left: 12px">
                     <div class="col-md-4 my-2 my-md-0">
                         <div class="input-icon">
-                            <input type="text" name="q" class="form-control" placeholder="Search..." id="kt_datatable_search_query">
+                            <input type="text" name="q" class="form-control" placeholder="Find Support Infomation ..." id="kt_datatable_search_query">
                             <span>
                                 <i class="flaticon2-search-1 text-muted"></i>
                             </span>
@@ -132,7 +132,7 @@ new AjaxOptions
                         </div>
                     </div>
                     <div class="col-lg-3 col-xl-4 mt-5 mt-lg-0">
-                        <input type="Submit" class="btn btn-light-primary px-6 font-weight-bold" value="search" />
+                        <input type="Submit" class="btn btn-light-primary px-6 font-weight-bold" value="Search" />
                     </div>
                 </div>
             </div>
@@ -151,8 +151,8 @@ new AjaxOptions
 
                 <div class="card-title">
                     <h3 class="card-label">
-                        Support list
-                        <span class="d-block text-muted pt-2 font-size-sm">List &amp; All of Support we have</span>
+                        Support Management
+                        @*<span class="d-block text-muted pt-2 font-size-sm">List &amp; All of Support we have</span>*@
 
                     </h3>
                 </div>
@@ -171,16 +171,16 @@ new AjaxOptions
                             <table class="table table-bordered table-checkable dataTable no-footer dtr-inline" id="kt_datatable" role="grid" aria-describedby="kt_datatable_info" style="width: 1236px;">
                                 <thead>
                                     <tr>
-                                        <th>
+                                        <th style="text-align: center; font-weight: bold">
                                             @Html.DisplayNameFor(model => model.Name)
                                         </th>
-                                        <th>
+                                        <th style="text-align: center; font-weight: bold">
                                             @Html.DisplayNameFor(model => model.Description)
                                         </th>
-                                        <th>
+                                        <th style="text-align: center; font-weight: bold">
                                             @Html.DisplayNameFor(model => model.Email)
                                         </th>
-                                        <th>
+                                        <th style="text-align: center; font-weight: bold">
                                             @Html.DisplayNameFor(model => model.Mobile)
                                         </th>
                                         <th></th>

@@ -27,7 +27,7 @@
                 <!--begin::Page Heading-->
                 <div class="d-flex align-items-baseline flex-wrap mr-5">
                     <!--begin::Page Title-->
-                    <h5 class="text-dark font-weight-bold my-1 mr-5">Survey Managerment</h5>
+                    <h5 class="text-dark font-weight-bold my-1 mr-5">Account Managerment</h5>
                     <!--end::Page Title-->
                     <!--begin::Breadcrumb-->
                     <ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
@@ -134,10 +134,10 @@ new AjaxOptions
     <div class="mb-7">
         <div class="row align-items-center">
             <div class="col-lg-9 col-xl-8">
-                <div class="row align-items-center">
+                <div class="row align-items-center" style="margin-left: 12px">
                     <div class="col-md-4 my-2 my-md-0">
                         <div class="input-icon">
-                            <input type="text" name="q" class="form-control" placeholder="Search..." id="kt_datatable_search_query">
+                            <input type="text" name="q" class="form-control" placeholder="Find Account ..." id="kt_datatable_search_query">
                             <span>
                                 <i class="flaticon2-search-1 text-muted"></i>
                             </span>
@@ -145,7 +145,7 @@ new AjaxOptions
                         </div>
                     </div>
                     <div class="col-lg-3 col-xl-4 mt-5 mt-lg-0">
-                        <input type="Submit" class="btn btn-light-primary px-6 font-weight-bold" value="search" />
+                        <input type="Submit" class="btn btn-light-primary px-6 font-weight-bold" value="Search" />
                     </div>
                 </div>
             </div>
@@ -164,8 +164,8 @@ new AjaxOptions
 
                 <div class="card-title">
                     <h3 class="card-label">
-                        Survey list
-                        <span class="d-block text-muted pt-2 font-size-sm">List &amp; All of survey we have</span>
+                        Account Management
+                        @*<span class="d-block text-muted pt-2 font-size-sm">List &amp; All of survey we have</span>*@
 
                     </h3>
                 </div>
@@ -184,34 +184,34 @@ new AjaxOptions
                             <table class="table table-bordered table-checkable dataTable no-footer dtr-inline" id="kt_datatable" role="grid" aria-describedby="kt_datatable_info" style="width: 1236px;">
                                 <thead>
                                     <tr>
-                                        <th>
+                                        <th style="text-align: center; font-weight: bold">
                                             @Html.DisplayNameFor(model => model.Email)
                                         </th>
 
-                                        <th>
+                                        <th style="text-align: center; font-weight: bold">
                                             @Html.DisplayNameFor(model => model.PhoneNumber)
                                         </th>
 
-                                        <th>
+                                        <th style="text-align: center; font-weight: bold">
                                             @Html.DisplayNameFor(model => model.UserName)
                                         </th>
-                                        <th>
+                                        <th style="text-align: center; font-weight: bold">
                                             @Html.DisplayNameFor(model => model.Name)
                                         </th>
-                                        <th>
+                                        <th style="text-align: center; font-weight: bold">
                                             @Html.DisplayNameFor(model => model.RollNo)
                                         </th>
 
-                                        <th>
+                                        <th style="text-align: center; font-weight: bold">
                                             @Html.DisplayNameFor(model => model.DateJoin)
                                         </th>
-                                        <th>
+                                        <th style="text-align: center; font-weight: bold">
                                             @Html.DisplayNameFor(model => model.Roles)
                                         </th>
-                                        <th>
+                                        <th style="text-align: center; font-weight: bold">
                                             @Html.DisplayNameFor(model => model.Status)
                                         </th>
-                                        <th>Action</th>
+                                        <th style="text-align: center; font-weight: bold">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -290,7 +290,7 @@ new AjaxOptions
                                                     </span>
                                                 </a>
 
-                                                <a href="/Account/ChangeStatusAdmin/@Html.DisplayFor(modelItem => item.Id)" class="btn btn-sm btn-clean btn-icon" title="Change">
+                                                <a href="/Account/ChangeStatusAdmin/@Html.DisplayFor(modelItem => item.Id)" class="btn btn-sm btn-clean btn-icon" title="Change" id="changeStatusAdmin">
                                                     <span class="svg-icon svg-icon-md">
                                                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                                                             <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -322,4 +322,18 @@ new AjaxOptions
     </div>
     <!--end::Entry-->
 </div>
-
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        $("#changeStatusAdmin").click(function (e) {
+            e.preventDefault();
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'Add survey success',
+                showConfirmButton: false,
+                timer: 3000
+            })
+        }
+    }
+    
+</script>

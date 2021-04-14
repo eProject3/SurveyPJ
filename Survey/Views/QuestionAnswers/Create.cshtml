@@ -351,7 +351,6 @@
                     //data: JSON.stringify(questions),
                     contentType: "application/json; charset=utf-8",
                     success: function () {
-                        location.reload();
                         Swal.fire({
                             position: 'top-end',
                             icon: 'success',
@@ -359,6 +358,7 @@
                             showConfirmButton: false,
                             timer: 3000
                         })
+                        location.reload();
                     },
                     error: function () {
 

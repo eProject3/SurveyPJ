@@ -24,7 +24,7 @@ namespace Survey.Controllers
         {
             countAllSurvey = db.Surveys.Count();
             countAllSurveyComplete = db.Surveys.Where(c => c.Status == SurveyStatus.DONE).Count();
-            AllSurvey allSurvey = db.Surveys.Where(c => c.CreateDate > localDate).FirstOrDefault();
+            AllSurvey allSurvey = db.Surveys.Where(c => c.UpdateDate > localDate).FirstOrDefault();
             if(allSurvey != null)
             {
                 nextSurvey = allSurvey;
