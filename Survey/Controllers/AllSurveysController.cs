@@ -15,6 +15,7 @@ namespace Survey.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: AllSurveys
+        [Authorize(Roles = "Admin")]
         public ActionResult Index()
         {
 
@@ -128,6 +129,10 @@ namespace Survey.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+        public ActionResult HelloAjax(string q)
+        {
+            return View("Index", this.db.Surveys.Where(item => item.Title.Contains(q)).ToList());
         }
     }
 }
