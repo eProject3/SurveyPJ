@@ -61,7 +61,7 @@ namespace Survey.Controllers
             {
                 allSurvey.Status = SurveyStatus.NOT_HAPPENNING_YET;
                 allSurvey.CreateDate = DateTime.Now;
-                allSurvey.UpdateDate = DateTime.Now;
+                allSurvey.UpdateDate = DateTime.Now.AddDays(7);
                 db.Surveys.Add(allSurvey);
                 db.SaveChanges();
                 int newIdSurvey = db.Surveys.Max(s => s.SurveyId);

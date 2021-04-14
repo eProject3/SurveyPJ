@@ -290,7 +290,7 @@ new AjaxOptions
                                                     </span>
                                                 </a>
 
-                                                <a href="/Account/ChangeStatusAdmin/@Html.DisplayFor(modelItem => item.Id)" class="btn btn-sm btn-clean btn-icon" title="Change">
+                                                <a href="/Account/ChangeStatusAdmin/@Html.DisplayFor(modelItem => item.Id)" class="btn btn-sm btn-clean btn-icon" title="Change" id="changeStatusAdmin">
                                                     <span class="svg-icon svg-icon-md">
                                                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                                                             <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -322,4 +322,18 @@ new AjaxOptions
     </div>
     <!--end::Entry-->
 </div>
-
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        $("#changeStatusAdmin").click(function (e) {
+            e.preventDefault();
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'Add survey success',
+                showConfirmButton: false,
+                timer: 3000
+            })
+        }
+    }
+    
+</script>
